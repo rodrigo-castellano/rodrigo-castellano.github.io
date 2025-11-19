@@ -42,6 +42,10 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Map Library CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css" />
+
     <style>
         body { font-family: 'Inter', sans-serif; }
         
@@ -77,6 +81,28 @@
             background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
+        
+        /* Video Object Fit */
+        video {
+            object-fit: cover;
+        }
+
+        /* Map Tooltip Customization - Fixed Overflow */
+        .jvm-tooltip {
+            background-color: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white !important;
+            border-radius: 0.75rem !important;
+            padding: 1rem 1.25rem !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.875rem !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2) !important;
+            z-index: 1000;
+            max-width: 320px; /* Widened for content */
+            line-height: 1.6 !important;
+            white-space: normal !important; /* Allow wrapping */
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-darkbg dark:text-slate-200 transition-colors duration-500 selection:bg-blue-500 selection:text-white">
@@ -98,6 +124,7 @@
             <div class="flex items-center gap-6">
                 <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600 dark:text-slate-300">
                     <a href="#about" class="hover:text-primary transition-colors">About</a>
+                    <a href="#map" class="hover:text-primary transition-colors">Map</a>
                     <a href="#research" class="hover:text-primary transition-colors">Research</a>
                     <a href="#software" class="hover:text-primary transition-colors">Software</a>
                     <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
@@ -156,6 +183,23 @@
             </div>
         </div>
     </header>
+
+    <!-- Map Section -->
+    <section id="map" class="py-20 bg-slate-50/50 dark:bg-slate-900/50 transition-colors duration-300 relative z-10 border-b border-slate-200/50 dark:border-slate-800/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-10 reveal text-center">
+                <h2 class="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Where I Have Been</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    My academic and professional journey across Europe.
+                </p>
+            </div>
+            
+            <div class="glass-card p-4 rounded-3xl border border-slate-200/60 dark:border-slate-700/60 shadow-xl reveal overflow-hidden">
+                <!-- Map Container -->
+                <div id="world-map" class="w-full h-[450px] md:h-[550px] bg-slate-100/50 dark:bg-slate-800/30 rounded-2xl"></div>
+            </div>
+        </div>
+    </section>
 
     <section id="research" class="py-24 relative z-10">
         <div class="max-w-6xl mx-auto px-6">
@@ -429,7 +473,7 @@
 
                 <!-- Visiting Baker Hughes -->
                 <div class="relative pl-10 md:pl-14 reveal stagger-2 group">
-                     <div class="absolute -left-[7px] top-2 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-white dark:ring-darkbg group-hover:ring-slate-200 dark:group-hover:ring-slate-700 transition-all duration-500"></div>
+                     <div class="absolute -left-[7px] top-2 w-4 h-4 rounded-full bg-orange-500 ring-4 ring-white dark:ring-darkbg group-hover:ring-orange-200 dark:group-hover:ring-orange-900 transition-all duration-500"></div>
                      <div class="group-hover:bg-white dark:group-hover:bg-slate-800 p-6 rounded-2xl transition-all">
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
                             <h3 class="text-xl font-bold text-slate-900 dark:text-white">Visiting Researcher</h3>
@@ -459,7 +503,7 @@
                 
                  <!-- ING Bank -->
                  <div class="relative pl-10 md:pl-14 reveal stagger-1 group">
-                    <div class="absolute -left-[7px] top-2 w-4 h-4 rounded-full bg-orange-500 ring-4 ring-white dark:ring-darkbg group-hover:ring-orange-200 dark:group-hover:ring-orange-900 transition-all duration-500"></div>
+                    <div class="absolute -left-[7px] top-2 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-white dark:ring-darkbg group-hover:ring-slate-200 dark:group-hover:ring-slate-700 transition-all duration-500"></div>
                     <div class="group-hover:bg-white dark:group-hover:bg-slate-800 p-6 rounded-2xl transition-all">
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
                             <h3 class="text-xl font-bold text-slate-900 dark:text-white">International Talent Programme Trainee</h3>
@@ -532,57 +576,6 @@
         </div>
     </section>
 
-    <section id="education" class="py-24 relative z-10">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center reveal text-slate-900 dark:text-white">Education</h2>
-            <div class="grid grid-cols-1 gap-6">
-                
-                <!-- PhD Entry -->
-                <div class="glass-card p-8 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center reveal stagger-1 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
-                    <div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">PhD in Artificial Intelligence</h3>
-                        <a href="https://www.unisi.it/" target="_blank" class="text-primary font-medium hover:underline">University of Siena, Italy</a>
-                        <div class="mt-2">
-                            <span class="inline-flex items-center text-xs font-bold px-2 py-1 rounded bg-yellow-100 text-yellow-800 dark:bg-yellow-500/20 dark:text-yellow-200 border border-yellow-200 dark:border-yellow-500/30">
-                                MSCA Fellow (LeMuR)
-                            </span>
-                        </div>
-                    </div>
-                    <span class="text-sm font-mono text-slate-400 mt-4 md:mt-0 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">Nov 2023 — Nov 2026</span>
-                </div>
-
-                <!-- MSc Entry -->
-                <div class="glass-card p-8 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center reveal stagger-2 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
-                    <div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">MSc in Machine Learning</h3>
-                        <a href="https://www.kth.se/en" target="_blank" class="text-primary font-medium hover:underline">KTH Royal Institute of Technology</a>
-                        <p class="text-sm text-slate-500 mt-1">Included year at <span class="text-slate-700 dark:text-slate-400">RWTH Aachen</span></p>
-                    </div>
-                    <span class="text-sm font-mono text-slate-400 mt-4 md:mt-0 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">2021 — 2023</span>
-                </div>
-
-                <!-- Exchange Bachelor Entry -->
-                <div class="glass-card p-8 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center reveal stagger-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
-                    <div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Exchange Bachelor Student</h3>
-                        <a href="https://www.helsinki.fi/en" target="_blank" class="text-primary font-medium hover:underline">University of Helsinki, Finland</a>
-                    </div>
-                    <span class="text-sm font-mono text-slate-400 mt-4 md:mt-0 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">Sept 2018 — Jun 2019</span>
-                </div>
-
-                <!-- BSc Entry -->
-                <div class="glass-card p-8 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center reveal stagger-1 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
-                    <div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">BSc in Physics</h3>
-                        <a href="https://www.ugr.es/en" target="_blank" class="text-primary font-medium hover:underline">University of Granada</a>
-                    </div>
-                    <span class="text-sm font-mono text-slate-400 mt-4 md:mt-0 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">2015 — 2020</span>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
     <footer id="contact" class="bg-white dark:bg-darkcard border-t border-slate-200 dark:border-slate-800 py-16 reveal relative z-10">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold mb-8 text-slate-900 dark:text-white">Let's Connect</h2>
@@ -601,6 +594,10 @@
         </div>
     </footer>
 
+    <!-- JSVectorMap Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/js/jsvectormap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
+
     <script>
         // --- 1. Dark Mode Logic ---
         const themeToggleBtn = document.getElementById('theme-toggle');
@@ -616,8 +613,10 @@
             html.classList.toggle('dark');
             if (html.classList.contains('dark')) {
                 localStorage.setItem('theme', 'dark');
+                updateMapTheme('dark');
             } else {
                 localStorage.setItem('theme', 'light');
+                updateMapTheme('light');
             }
         });
 
@@ -635,6 +634,97 @@
 
             revealElements.forEach(el => revealObserver.observe(el));
         });
+
+        // --- 3. Map Logic ---
+        let mapInstance = null;
+        
+        // ISO 3166-1 alpha-2 codes for countries to highlight
+        const visitedCountries = ['ES', 'FI', 'DE', 'SE', 'CH', 'BE', 'IT'];
+
+        function initMap() {
+            const isDark = html.classList.contains('dark');
+            const mapBg = 'transparent';
+            const regionColor = isDark ? '#1e293b' : '#cbd5e1'; // slate-800 vs slate-300
+            const hoverColor = '#3b82f6'; // Blue-500
+            const selectedColor = '#3b82f6'; 
+            
+            if(mapInstance) {
+                // Re-render logic if needed, or just update styles (simple re-init here)
+                document.getElementById('world-map').innerHTML = '';
+            }
+
+            // New Map Config focused on Europe
+            mapInstance = new jsVectorMap({
+                selector: '#world-map',
+                map: 'world',
+                zoomButtons: true,
+                zoomOnScroll: false,
+                regionsSelectable: false,
+                markersSelectable: false,
+                // Focus on Europe - Adjusted for better centering with defined regions
+                focusOn: {
+                    regions: ['PT', 'ES', 'FR', 'DE', 'IT', 'CH', 'AT', 'BE', 'NL', 'DK', 'SE', 'NO', 'FI', 'GB', 'IE', 'PL', 'CZ', 'GR', 'TR', 'UA'],
+                    animate: false
+                },
+                regionStyle: {
+                    initial: {
+                        fill: regionColor,
+                        stroke: isDark ? '#0f172a' : '#f8fafc',
+                        strokeWidth: 0.5,
+                        fillOpacity: 1
+                    },
+                    hover: {
+                        fillOpacity: 0.8,
+                        cursor: 'pointer'
+                    },
+                    selected: {
+                        fill: selectedColor
+                    }
+                },
+                // Pre-select countries
+                selectedRegions: visitedCountries,
+                
+                // Tooltip for regions
+                onRegionTooltipShow(event, tooltip, code) {
+                    // Only show custom text for visited countries
+                    const visitedInfo = {
+                        'ES': "BSc Physics<br><span class='text-xs text-slate-300'>2015-2020</span>",
+                        'FI': "Exchange Student<br><span class='text-xs text-slate-300'>2018-2019</span>",
+                        // Updated with split dates for Germany
+                        'DE': "AI Scientist @ Desion <span class='text-xs text-slate-300'>(2020-2021)</span><br>Exchange Student @ RWTH <span class='text-xs text-slate-300'>(2021-2022)</span>",
+                        'SE': "MSc Machine Learning<br><span class='text-xs text-slate-300'>2021-2023</span>",
+                        'CH': "Master Thesis<br><span class='text-xs text-slate-300'>2022-2023</span>",
+                        // Updated with split dates for Belgium
+                        'BE': "Trainee @ ING Bank <span class='text-xs text-slate-300'>(2023)</span><br>Visiting Researcher @ KU Leuven <span class='text-xs text-slate-300'>(2024)</span>",
+                        // Updated with split dates for Italy
+                        'IT': "PhD Researcher @ Siena <span class='text-xs text-slate-300'>(2023-Present)</span><br>Visiting Researcher @ Baker Hughes <span class='text-xs text-slate-300'>(2025-Present)</span>"
+                    };
+                    
+                    if (visitedCountries.includes(code)) {
+                        tooltip.text(
+                            `<div class="text-left">
+                                <strong class="text-primary font-bold text-base mb-1 block">${tooltip.text()}</strong>
+                                ${visitedInfo[code]}
+                             </div>`,
+                            true // Allow HTML
+                        );
+                    } else {
+                         // Don't show tooltips for non-visited countries to keep it clean
+                         event.preventDefault();
+                    }
+                }
+            });
+        }
+
+        // Init Map on load
+        window.addEventListener('DOMContentLoaded', initMap);
+        
+        // Update map styles when theme changes
+        function updateMapTheme(theme) {
+             // Simple re-init to catch new colors
+             initMap();
+        }
+
     </script>
 </body>
 </html>
