@@ -28,22 +28,20 @@
         body { font-family: 'Inter', sans-serif; }
         .tab-active { @apply border-b-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400; }
         .tab-inactive { @apply text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200; }
-        /* Hide scrollbar for clean horizontal scroll */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none;  scrollbar-width: none; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-darkbg dark:text-gray-200 transition-colors duration-300">
 
     <nav class="fixed w-full top-0 z-50 bg-white/80 dark:bg-darkbg/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-lg font-bold tracking-tight hover:text-primary transition">R. Castellano Ontiveros</a>
+            <a href="#" class="text-lg font-bold tracking-tight hover:text-primary transition">Rodrigo Castellano Ontiveros</a>
             
             <div class="flex items-center gap-6">
                 <div class="hidden md:flex space-x-6 text-sm font-medium">
                     <a href="#about" class="hover:text-primary transition">About</a>
-                    <a href="#work" class="hover:text-primary transition">Work</a>
-                    <a href="#experience" class="hover:text-primary transition">CV</a>
+                    <a href="#research" class="hover:text-primary transition">Research</a>
+                    <a href="#experience" class="hover:text-primary transition">Experience</a>
+                    <a href="#education" class="hover:text-primary transition">Education</a>
                     <a href="#contact" class="hover:text-primary transition">Contact</a>
                 </div>
                 
@@ -70,17 +68,24 @@
                 <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-teal-500 dark:from-blue-400 dark:to-teal-300 pb-2">
                     Rodrigo Castellano Ontiveros
                 </h1>
-                <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8 max-w-2xl mx-auto md:mx-0">
-                    PhD Candidate in Artificial Intelligence at <a href="https://www.unisi.it/" target="_blank" class="text-primary hover:underline">University of Siena</a>. 
-                    <br>
-                    Specializing in <strong>Neural-Symbolic AI</strong> and <strong>Reinforcement Learning</strong>. I build transparent, scalable AI architectures that bridge the gap between deep learning and logic.
-                </p>
+                <div class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8 max-w-3xl mx-auto md:mx-0">
+                    <p class="mb-4">
+                        Marie Skłodowska-Curie Doctoral Fellow in the <a href="https://lemur-dn.github.io/projects.html" target="_blank" class="text-primary font-bold hover:underline">LeMuR Project</a>. <br>
+                        PhD Candidate in Artificial Intelligence at the <a href="https://www.unisi.it/" target="_blank" class="text-primary hover:underline">University of Siena</a>.
+                    </p>
+                    <p class="text-lg">
+                        My research aims to make <strong>Neural-Symbolic (NeSy)</strong> reasoning both scalable and transparent. I use <strong>Reinforcement Learning</strong> methods for efficiency, and for explainability, I work on <strong>interpretable-by-design models</strong> that operate on first-order logic.
+                    </p>
+                </div>
                 
                 <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <a href="#contact" class="bg-primary text-white px-6 py-2.5 rounded-full font-medium hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">
+                    <a href="mailto:rodrigo.castellano@unisi.it" class="bg-primary text-white px-6 py-2.5 rounded-full font-medium hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">
                         Contact Me
                     </a>
-                    <a href="https://scholar.google.com/citations?user=YOUR_USER_ID" target="_blank" class="px-6 py-2.5 rounded-full font-medium border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                    <a href="https://www.linkedin.com/in/rodrigo-castellano/" target="_blank" class="px-6 py-2.5 rounded-full font-medium border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                        <i class="fa-brands fa-linkedin mr-2"></i>LinkedIn
+                    </a>
+                    <a href="https://scholar.google.com/citations?hl=en&user=ik1125wAAAAJ" target="_blank" class="px-6 py-2.5 rounded-full font-medium border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
                         <i class="fa-brands fa-google-scholar mr-2"></i>Scholar
                     </a>
                     <a href="https://github.com/rodrigo-castellano" target="_blank" class="px-6 py-2.5 rounded-full font-medium border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
@@ -91,7 +96,7 @@
         </div>
     </header>
 
-    <section id="work" class="py-20 bg-white dark:bg-darkbg transition-colors duration-300">
+    <section id="research" class="py-20 bg-white dark:bg-darkbg transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-6">
             
             <div class="flex border-b border-gray-200 dark:border-gray-700 mb-10">
@@ -110,7 +115,9 @@
                         <img src="https://placehold.co/600x400/2563eb/ffffff?text=AAAI+2026" alt="DeepProofLog" class="w-full h-full object-cover transition transform group-hover:scale-105 duration-500">
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition">DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs</h3>
+                        <a href="https://arxiv.org/abs/2511.08581" target="_blank" class="text-xl font-bold mb-2 block group-hover:text-primary transition">
+                            DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs
+                        </a>
                         <div class="flex flex-wrap gap-2 mb-3">
                             <span class="text-xs font-bold px-2 py-1 rounded bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">AAAI 2026</span>
                         </div>
@@ -121,7 +128,7 @@
                             A novel NeSy system mapping derivation steps to Markov Decision Processes (MDPs), enabling efficient Reinforcement Learning for logical proving.
                         </p>
                         <div class="flex gap-4 text-sm font-medium">
-                            <span class="text-gray-400 cursor-not-allowed"><i class="fas fa-file-pdf mr-1"></i> PDF Coming Soon</span>
+                            <a href="https://arxiv.org/abs/2511.08581" target="_blank" class="text-primary hover:underline"><i class="fas fa-file-pdf mr-1"></i> ArXiv</a>
                             <span class="text-gray-400 cursor-not-allowed"><i class="fas fa-code mr-1"></i> Code (To be released)</span>
                         </div>
                     </div>
@@ -132,15 +139,20 @@
                         <img src="https://placehold.co/600x400/10b981/ffffff?text=IJCAI+2025" alt="Grounding Methods" class="w-full h-full object-cover transition transform group-hover:scale-105 duration-500">
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition">Grounding Methods for Neural-Symbolic AI</h3>
+                        <a href="https://www.ijcai.org/proceedings/2025/0535.pdf" target="_blank" class="text-xl font-bold mb-2 block group-hover:text-primary transition">
+                            Grounding Methods for Neural-Symbolic AI
+                        </a>
                         <div class="flex flex-wrap gap-2 mb-3">
                             <span class="text-xs font-bold px-2 py-1 rounded bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">IJCAI 2025</span>
                         </div>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
                             <strong>R. Castellano Ontiveros</strong>, F. Giannini, M. Gori, G. Marra, M. Diligenti
                         </p>
-                        <div class="flex gap-4 text-sm font-medium mt-4">
-                            <a href="https://arxiv.org/abs/2507.08216" target="_blank" class="text-primary hover:underline"><i class="fas fa-file-pdf mr-1"></i> arXiv</a>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            Proposes a parameterized family of grounding methods generalizing Backward Chaining to control the trade-off between scalability and expressiveness in NeSy reasoning.
+                        </p>
+                        <div class="flex gap-4 text-sm font-medium">
+                            <a href="https://www.ijcai.org/proceedings/2025/0535.pdf" target="_blank" class="text-primary hover:underline"><i class="fas fa-file-pdf mr-1"></i> PDF</a>
                             <a href="https://github.com/rodrigo-castellano/Grounding-Methods" target="_blank" class="text-gray-700 dark:text-gray-300 hover:text-primary"><i class="fab fa-github mr-1"></i> Code</a>
                         </div>
                     </div>
@@ -148,80 +160,140 @@
 
                 <div class="group flex flex-col md:flex-row gap-8 items-start">
                     <div class="w-full md:w-64 h-40 bg-gray-200 dark:bg-gray-700 rounded-xl overflow-hidden flex-shrink-0 relative">
+                        <img src="https://placehold.co/600x400/f59e0b/ffffff?text=XAI+2025" alt="XAI" class="w-full h-full object-cover transition transform group-hover:scale-105 duration-500">
+                    </div>
+                    <div class="flex-1">
+                        <a href="https://link.springer.com/chapter/10.1007/978-3-032-08324-1_14" target="_blank" class="text-xl font-bold mb-2 block group-hover:text-primary transition">
+                            Interpretable Link Prediction via Neural-Symbolic Reasoning
+                        </a>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="text-xs font-bold px-2 py-1 rounded bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">XAI 2025</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+                             <strong>R. Castellano Ontiveros</strong>, E. Bonabi Mobaraki, F. Giannini, P. Barbiero, M. Gori, M. Diligenti
+                        </p>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            Introduces interpretable-by-design R-CBM-style models that output explicit proof trees, evaluated using XAI metrics like proof coherence.
+                        </p>
+                        <div class="flex gap-4 text-sm font-medium">
+                            <a href="https://link.springer.com/chapter/10.1007/978-3-032-08324-1_14" target="_blank" class="text-primary hover:underline"><i class="fas fa-file-pdf mr-1"></i> Paper</a>
+                            <a href="https://github.com/rodrigo-castellano/Interpretable-NeSy" target="_blank" class="text-gray-700 dark:text-gray-300 hover:text-primary"><i class="fab fa-github mr-1"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="group flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-full md:w-64 h-40 bg-gray-200 dark:bg-gray-700 rounded-xl overflow-hidden flex-shrink-0 relative">
                         <img src="https://placehold.co/600x400/a855f7/ffffff?text=NeSy+2025" alt="Distilling KGE" class="w-full h-full object-cover transition transform group-hover:scale-105 duration-500">
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition">Distilling KGE Black Boxes into Interpretable NeSy Models</h3>
+                        <a href="https://proceedings.mlr.press/v284/ontiveros25a.html" target="_blank" class="text-xl font-bold mb-2 block group-hover:text-primary transition">
+                            Distilling KGE Black Boxes into Interpretable NeSy Models
+                        </a>
                         <div class="flex flex-wrap gap-2 mb-3">
                             <span class="text-xs font-bold px-2 py-1 rounded bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">NeSy 2025</span>
-                            <span class="text-xs font-bold px-2 py-1 rounded bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">XAI 2025</span>
                         </div>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
                             <strong>R. Castellano Ontiveros</strong>, F. Giannini, M. Diligenti
                         </p>
-                        <div class="flex gap-4 text-sm font-medium mt-4">
-                            <a href="#" class="text-primary hover:underline"><i class="fas fa-file-pdf mr-1"></i> PDF</a>
-                            <a href="https://github.com/rodrigo-castellano/Interpretable-NeSy" target="_blank" class="text-gray-700 dark:text-gray-300 hover:text-primary"><i class="fab fa-github mr-1"></i> Code</a>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            A framework to distill Knowledge Graph Embeddings into interpretable Neural-Symbolic models, ensuring high fidelity to the KGE while providing logic proofs.
+                        </p>
+                        <div class="flex gap-4 text-sm font-medium">
+                            <a href="https://proceedings.mlr.press/v284/ontiveros25a.html" target="_blank" class="text-primary hover:underline"><i class="fas fa-file-pdf mr-1"></i> Paper</a>
+                            <a href="https://github.com/rodrigo-castellano/KGE-Distillation" target="_blank" class="text-gray-700 dark:text-gray-300 hover:text-primary"><i class="fab fa-github mr-1"></i> Code</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="group flex flex-col md:flex-row gap-8 items-start">
                     <div class="w-full md:w-64 h-40 bg-gray-200 dark:bg-gray-700 rounded-xl overflow-hidden flex-shrink-0 relative">
-                        <img src="https://placehold.co/600x400/f59e0b/ffffff?text=Nature+Portfolio" alt="rPPG" class="w-full h-full object-cover transition transform group-hover:scale-105 duration-500">
+                        <img src="https://placehold.co/600x400/ef4444/ffffff?text=Nature+Portfolio" alt="rPPG" class="w-full h-full object-cover transition transform group-hover:scale-105 duration-500">
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition">A Machine Learning-based Approach for Constructing Remote Photoplethysmogram Signals</h3>
+                        <a href="https://www.nature.com/articles/s43856-024-00519-6" target="_blank" class="text-xl font-bold mb-2 block group-hover:text-primary transition">
+                            A Machine Learning-based Approach for Constructing Remote Photoplethysmogram Signals
+                        </a>
                         <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="text-xs font-bold px-2 py-1 rounded bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Nature Comm. Medicine 2024</span>
+                            <span class="text-xs font-bold px-2 py-1 rounded bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Nature Comm. Medicine 2024</span>
                         </div>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">
                             <strong>R. Castellano Ontiveros</strong>, et al.
                         </p>
                         <div class="flex gap-4 text-sm font-medium mt-4">
-                            <a href="#" class="text-primary hover:underline"><i class="fas fa-file-pdf mr-1"></i> PDF</a>
+                            <a href="https://www.nature.com/articles/s43856-024-00519-6" target="_blank" class="text-primary hover:underline"><i class="fas fa-file-pdf mr-1"></i> Paper</a>
                             <a href="https://github.com/rodrigo-castellano/ML_based_rPPG_construction" target="_blank" class="text-gray-700 dark:text-gray-300 hover:text-primary"><i class="fab fa-github mr-1"></i> Code</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="text-center mt-8">
-                    <a href="https://scholar.google.com/citations?user=YOUR_USER_ID" target="_blank" class="inline-flex items-center text-primary font-semibold hover:underline">
+                    <a href="https://scholar.google.com/citations?hl=en&user=ik1125wAAAAJ" target="_blank" class="inline-flex items-center text-primary font-semibold hover:underline">
                         See all publications on Google Scholar <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
 
             </div>
 
-            <div id="content-software" class="hidden grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div id="content-software" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
+                <a href="https://github.com/rodrigo-castellano/Grounding-Methods" target="_blank" class="block group bg-gray-50 dark:bg-darkcard border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-40 bg-gray-300 dark:bg-gray-600 overflow-hidden relative">
+                         <img src="https://placehold.co/600x400/10b981/ffffff?text=Grounding+Methods" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg mb-1 group-hover:text-primary">NeSy Grounding Methods</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Parametrized grounding policies for scalable neural-symbolic reasoning.</p>
+                    </div>
+                </a>
+
                 <a href="https://github.com/rodrigo-castellano/ML_based_rPPG_construction" target="_blank" class="block group bg-gray-50 dark:bg-darkcard border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
-                    <div class="h-48 bg-gray-300 dark:bg-gray-600 overflow-hidden">
-                        <img src="https://placehold.co/600x400/333/FFF?text=rPPG+Signal+Project" alt="rPPG" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="h-40 bg-gray-300 dark:bg-gray-600 overflow-hidden relative">
+                         <img src="https://placehold.co/600x400/f59e0b/ffffff?text=rPPG" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
-                    <div class="p-6">
-                        <h4 class="font-bold text-lg mb-2 group-hover:text-primary">Master Thesis Project: rPPG</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Constructing full remote photoplethysmogram signals from video cameras to extract diverse biometrics.</p>
-                    </div>
-                </a>
-
-                <a href="https://github.com/rodrigo-castellano" target="_blank" class="block group bg-gray-50 dark:bg-darkcard border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
-                    <div class="h-48 bg-gray-300 dark:bg-gray-600 overflow-hidden">
-                        <img src="https://placehold.co/600x400/333/FFF?text=Keras-NS" alt="Keras-NS" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h4 class="font-bold text-lg mb-2 group-hover:text-primary">Keras-NS</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Open source neural-symbolic integrations within the Keras framework.</p>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg mb-1 group-hover:text-primary">rPPG Construction</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Biometrics extraction from video using machine learning.</p>
                     </div>
                 </a>
 
-                <a href="https://github.com/rodrigo-castellano" target="_blank" class="block group bg-gray-50 dark:bg-darkcard border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
-                    <div class="h-48 bg-gray-300 dark:bg-gray-600 overflow-hidden">
-                        <img src="https://placehold.co/600x400/333/FFF?text=Cosmic+Rays" alt="Cosmic Rays" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <a href="https://github.com/rodrigo-castellano/Bachelor-thesis" target="_blank" class="block group bg-gray-50 dark:bg-darkcard border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-40 bg-gray-300 dark:bg-gray-600 overflow-hidden relative">
+                         <img src="https://placehold.co/600x400/6366f1/ffffff?text=Cosmic+Rays" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     </div>
-                    <div class="p-6">
-                        <h4 class="font-bold text-lg mb-2 group-hover:text-primary">Cosmic Rays Analysis</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Bachelor thesis project focused on the analysis of cosmic ray data.</p>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg mb-1 group-hover:text-primary">Cosmic Rays Analysis</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Physics Bachelor Thesis project: Analysis of cosmic ray data.</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/rodrigo-castellano/Speech_tech__Accent_embeddings" target="_blank" class="block group bg-gray-50 dark:bg-darkcard border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-40 bg-gray-300 dark:bg-gray-600 overflow-hidden relative">
+                         <img src="https://placehold.co/600x400/ec4899/ffffff?text=Accent+Embeddings" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg mb-1 group-hover:text-primary">Accent Embeddings</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Speech technology project focused on accent classification and embeddings.</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/rodrigo-castellano/Time_series_suicide_rate" target="_blank" class="block group bg-gray-50 dark:bg-darkcard border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-40 bg-gray-300 dark:bg-gray-600 overflow-hidden relative">
+                         <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Time+Series" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg mb-1 group-hover:text-primary">Time Series Analysis</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Predictive modeling for suicide rates using time series forecasting.</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/rodrigo-castellano/Disaster_tweets" target="_blank" class="block group bg-gray-50 dark:bg-darkcard border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-40 bg-gray-300 dark:bg-gray-600 overflow-hidden relative">
+                         <img src="https://placehold.co/600x400/ef4444/ffffff?text=NLP+Tweets" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-bold text-lg mb-1 group-hover:text-primary">Disaster Tweets NLP</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Natural Language Processing to classify disaster-related tweets.</p>
                     </div>
                 </a>
 
@@ -231,7 +303,7 @@
 
     <section id="experience" class="py-20 bg-gray-50 dark:bg-[#162032] transition-colors duration-300">
         <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center">Experience & Education</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center">Experience</h2>
             
             <div class="relative border-l-2 border-gray-200 dark:border-gray-700 space-y-12 ml-4 md:ml-0">
                 
@@ -241,9 +313,22 @@
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white">PhD Researcher in AI</h3>
                         <span class="text-sm font-mono text-gray-500">Nov 2023 — Present</span>
                     </div>
-                    <a href="https://www.unisi.it/" class="text-primary font-medium hover:underline">University of Siena, Italy</a>
-                    <p class="mt-2 text-gray-600 dark:text-gray-400">
-                        MSCA Fellow (LeMuR). Supervision: <a href="#" class="underline decoration-dotted">Prof. Marco Gori</a> & <a href="#" class="underline decoration-dotted">Prof. Michelangelo Diligenti</a>.
+                    <a href="https://www.unisi.it/" target="_blank" class="text-primary font-medium hover:underline">University of Siena, Italy</a>
+                    
+                    <div class="mt-3 mb-3">
+                         <a href="https://marie-sklodowska-curie-actions.ec.europa.eu/actions/doctoral-networks" target="_blank" class="inline-block text-xs font-bold px-2 py-1 rounded bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 border border-yellow-200 dark:border-yellow-800 hover:bg-yellow-200 transition">
+                            <i class="fas fa-award mr-1"></i> Marie Skłodowska-Curie Doctoral Fellowship
+                        </a>
+                    </div>
+
+                    <p class="text-gray-700 dark:text-gray-300 mb-2">
+                        <strong>MSCA Project LeMuR:</strong> Learning with Multiple Representations.
+                    </p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Supervisors: 
+                        <a href="https://scholar.google.com/citations?user=wBMRRk0AAAAJ&hl=en&oi=ao" target="_blank" class="text-primary hover:underline">Prof. Marco Gori</a>, 
+                        <a href="https://scholar.google.com/citations?hl=en&user=qI-LOjIAAAAJ" target="_blank" class="text-primary hover:underline">Prof. Michelangelo Diligenti</a>, 
+                        <a href="https://scholar.google.com/citations?user=RO8aInMAAAAJ&hl=en&oi=ao" target="_blank" class="text-primary hover:underline">Dr. Francesco Giannini</a>.
                     </p>
                 </div>
 
@@ -253,9 +338,9 @@
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white">Visiting Researcher</h3>
                         <span class="text-sm font-mono text-gray-500">Oct 2025 — Present</span>
                     </div>
-                    <a href="https://www.bakerhughes.com/" class="text-primary font-medium hover:underline">Baker Hughes, Florence</a>
+                    <a href="https://www.bakerhughes.com/" target="_blank" class="text-primary font-medium hover:underline">Baker Hughes, Florence</a>
                     <p class="mt-2 text-gray-600 dark:text-gray-400">
-                        Designing memory systems for LLM agents grounded in Knowledge Graphs.
+                        Integrating logic reasoning systems with LLM agents.
                     </p>
                 </div>
 
@@ -265,19 +350,14 @@
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white">Visiting Researcher</h3>
                         <span class="text-sm font-mono text-gray-500">Sep 2024 — Dec 2024</span>
                     </div>
-                    <a href="https://www.kuleuven.be/english/" class="text-primary font-medium hover:underline">KU Leuven, Belgium</a>
+                    <a href="https://www.kuleuven.be/english/" target="_blank" class="text-primary font-medium hover:underline">KU Leuven, Belgium</a>
                     <p class="mt-2 text-gray-600 dark:text-gray-400">
-                        Developed DeepProofLog RL algorithms. Collaboration with <a href="#" class="underline decoration-dotted">Ying Jiao</a> & <a href="#" class="underline decoration-dotted">Prof. Luc De Raedt</a>.
+                        Developed <a href="https://arxiv.org/abs/2511.08581" target="_blank" class="text-primary hover:underline">DeepProofLog</a>. 
+                        Collaboration with 
+                        <a href="https://scholar.google.com/citations?hl=en&user=w0526qgAAAAJ" target="_blank" class="text-primary hover:underline">Ying Jiao</a>, 
+                        <a href="https://scholar.google.com/citations?hl=en&user=BBcsk7MAAAAJ" target="_blank" class="text-primary hover:underline">Prof. Giuseppe Marra</a>, and 
+                        <a href="https://scholar.google.com/citations?hl=en&user=dgobB6AAAAAJ" target="_blank" class="text-primary hover:underline">Prof. Luc De Raedt</a>.
                     </p>
-                </div>
-
-                <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[9px] top-0 w-5 h-5 rounded-full bg-gray-300 dark:bg-gray-600 border-4 border-white dark:border-darkbg"></div>
-                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">International Talent Trainee</h3>
-                        <span class="text-sm font-mono text-gray-500">Apr 2023 — Oct 2023</span>
-                    </div>
-                    <a href="https://www.ing.com/" class="text-primary font-medium hover:underline">ING Bank, Brussels</a>
                 </div>
 
                 <div class="relative pl-8 md:pl-12">
@@ -286,20 +366,23 @@
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white">Master Thesis Researcher</h3>
                         <span class="text-sm font-mono text-gray-500">Oct 2022 — Feb 2023</span>
                     </div>
-                    <a href="https://ethz.ch/en.html" class="text-primary font-medium hover:underline">ETH Zürich, Switzerland</a>
-                    <p class="mt-2 text-gray-600 dark:text-gray-400">
-                        <span class="font-semibold text-yellow-600 dark:text-yellow-400"><i class="fas fa-award mr-1"></i> Karl Engver's Foundation Grant</span>
-                    </p>
-                </div>
-                
-                <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[9px] top-0 w-5 h-5 rounded-full bg-gray-300 dark:bg-gray-600 border-4 border-white dark:border-darkbg"></div>
-                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Teaching Assistant</h3>
-                        <span class="text-sm font-mono text-gray-500">Nov 2021 — Apr 2022</span>
+                    <a href="https://ethz.ch/en.html" target="_blank" class="text-primary font-medium hover:underline">ETH Zürich, Switzerland</a>
+                    
+                    <div class="mt-3 mb-3">
+                         <span class="inline-block text-xs font-bold px-2 py-1 rounded bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 border border-yellow-200 dark:border-yellow-800">
+                            <i class="fas fa-award mr-1"></i> Karl Engver's Foundation Grant
+                        </span>
                     </div>
-                    <a href="https://www.kth.se/en" class="text-primary font-medium hover:underline">KTH Royal Institute of Technology, Sweden</a>
-                    <p class="mt-2 text-gray-600 dark:text-gray-400">Courses: Artificial Intelligence & Machine Learning.</p>
+
+                    <p class="text-gray-700 dark:text-gray-300 mb-2">
+                        <strong>rPPG:</strong> Non-contact biometrics extraction from video. 
+                        <a href="https://www.nature.com/articles/s43856-024-00519-6" target="_blank" class="text-primary hover:underline">[Nature Portfolio]</a> 
+                        <a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1296277/full" target="_blank" class="text-primary hover:underline">[Frontiers]</a>
+                    </p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Supervised by <a href="https://scholar.google.com/citations?hl=en&user=okZnorwAAAAJ" target="_blank" class="text-primary hover:underline">Prof. Carlo Menon</a> and 
+                        <a href="https://scholar.google.com/citations?hl=en&user=-WFwzjoAAAAJ" target="_blank" class="text-primary hover:underline">Prof. Moe Elgendi</a>.
+                    </p>
                 </div>
 
                 <div class="relative pl-8 md:pl-12">
@@ -308,22 +391,54 @@
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white">AI Applied Scientist</h3>
                         <span class="text-sm font-mono text-gray-500">Oct 2020 — Jun 2021</span>
                     </div>
-                    <a href="https://www.igd.fraunhofer.de/en.html" class="text-primary font-medium hover:underline">Fraunhofer IGD, Germany</a>
-                </div>
-
-                 <div class="relative pl-8 md:pl-12 pt-4">
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-gray-500 mb-4">Grants & Fellowships</h4>
-                    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
-                        <li><strong>MSCA (Marie Skłodowska-Curie) Fellowship</strong> - LeMuR Project (2023)</li>
-                        <li><strong>Karl Engver's Foundation Grant</strong> - For degree project abroad at ETH Zürich (2022)</li>
-                    </ul>
+                    <div class="flex flex-wrap gap-2 items-center">
+                         <a href="https://desion.de/" target="_blank" class="text-primary font-medium hover:underline">Desion</a>, spin-off of <a href="https://www.igd.fraunhofer.de/en.html" target="_blank" class="text-primary font-medium hover:underline">Fraunhofer IGD</a>
+                    </div>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">
+                        Built automated visual inspection systems with Computer Vision models using synthetic data. 
+                        <a href="https://desion.de/en/free-fall-inspection-systems/" target="_blank" class="text-primary hover:underline">[See Demo]</a>
+                    </p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="bg-white dark:bg-darkcard border-t border-gray-200 dark:border-gray-700 py-16">
+    <section id="education" class="py-20 bg-white dark:bg-darkbg transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">Education</h2>
+            <div class="grid grid-cols-1 gap-8">
+                
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-100 dark:border-gray-800 pb-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">MSc in Machine Learning</h3>
+                        <a href="https://www.kth.se/en/studies/master/machine-learning/msc-machine-learning-1.48533" target="_blank" class="text-primary font-medium hover:underline">KTH Royal Institute of Technology, Stockholm</a>
+                        <p class="text-sm text-gray-500 mt-1">Includes exchange semester at <a href="https://sc.informatik.rwth-aachen.de/en/studium/master/master-data-science/" target="_blank" class="hover:underline">RWTH Aachen</a></p>
+                    </div>
+                    <span class="text-sm font-mono text-gray-500 mt-2 md:mt-0">Apr 2021 — Apr 2023</span>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-100 dark:border-gray-800 pb-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Exchange Bachelor Student</h3>
+                        <a href="https://www.helsinki.fi/en" target="_blank" class="text-primary font-medium hover:underline">University of Helsinki, Finland</a>
+                    </div>
+                    <span class="text-sm font-mono text-gray-500 mt-2 md:mt-0">Sept 2018 — Jun 2019</span>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">BSc in Physics</h3>
+                        <a href="https://www.ugr.es/en/study/undergraduate/programmes/physics" target="_blank" class="text-primary font-medium hover:underline">University of Granada, Spain</a>
+                    </div>
+                    <span class="text-sm font-mono text-gray-500 mt-2 md:mt-0">Oct 2015 — Nov 2020</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-50 dark:bg-darkcard border-t border-gray-200 dark:border-gray-700 py-16">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold mb-8">Get in Touch</h2>
             <div class="flex flex-wrap justify-center gap-8 mb-10">
@@ -333,11 +448,11 @@
                 <a href="https://www.linkedin.com/in/rodrigo-castellano/" target="_blank" class="flex items-center gap-2 text-lg text-gray-600 dark:text-gray-300 hover:text-primary transition">
                     <i class="fab fa-linkedin fa-lg"></i> LinkedIn
                 </a>
-                <a href="https://github.com/rodrigo-castellano" target="_blank" class="flex items-center gap-2 text-lg text-gray-600 dark:text-gray-300 hover:text-primary transition">
-                    <i class="fab fa-github fa-lg"></i> GitHub
+                <a href="https://scholar.google.com/citations?hl=en&user=ik1125wAAAAJ" target="_blank" class="flex items-center gap-2 text-lg text-gray-600 dark:text-gray-300 hover:text-primary transition">
+                    <i class="fa-brands fa-google-scholar fa-lg"></i> Scholar
                 </a>
             </div>
-            <p class="text-gray-400 text-sm">&copy; 2026 Rodrigo Castellano Ontiveros. <br> PhD Researcher based in Florence, Italy.</p>
+            <p class="text-gray-400 text-sm">&copy; 2025 Rodrigo Castellano Ontiveros. <br> PhD Researcher based in Florence, Italy.</p>
         </div>
     </footer>
 
