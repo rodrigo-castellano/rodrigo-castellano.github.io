@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Rodrigo Castellano Ontiveros | AI Researcher</title>
+    <meta name="description" content="Personal website of Rodrigo Castellano Ontiveros. PhD Researcher in Artificial Intelligence and Deep Learning at the University of Siena. Specializing in Neuro-symbolic AI and Computer Vision.">
+    <meta name="keywords" content="Rodrigo Castellano Ontiveros, Rodrigo Castellano, Artificial Intelligence, Deep Learning, AI, Machine Learning, Neuro-symbolic AI, Computer Vision, PhD, University of Siena, LeMuR">
+    <meta name="author" content="Rodrigo Castellano Ontiveros">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rodrigocastellano.com/">
+    <meta property="og:title" content="Rodrigo Castellano Ontiveros | AI Researcher">
+    <meta property="og:description" content="PhD Researcher in Artificial Intelligence, Deep Learning, and Neuro-symbolic AI.">
+    <meta property="og:image" content="https://rodrigocastellano.com/rodrigo.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://rodrigocastellano.com/">
+    <meta property="twitter:title" content="Rodrigo Castellano Ontiveros | AI Researcher">
+    <meta property="twitter:description" content="PhD Researcher in Artificial Intelligence, Deep Learning, and Neuro-symbolic AI.">
+    <meta property="twitter:image" content="https://rodrigocastellano.com/rodrigo.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#3b82f6', // Blue-500
+                        primarydark: '#1d4ed8', // Blue-700
+                        darkbg: '#020617', // Slate-950
+                        darkcard: '#0f172a', // Slate-900
+                        glass: 'rgba(255, 255, 255, 0.05)',
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.5, 0, 0, 1) forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Map CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css" />
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+        /* Modern Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered animation delays */
+        .stagger-1 { transition-delay: 100ms; }
+        .stagger-2 { transition-delay: 200ms; }
+        .stagger-3 { transition-delay: 300ms; }
+
+        /* Glassmorphism Utilities */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Map Tooltip Customization - Fixed Overflow */
+        .jvm-tooltip {
+            background-color: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white !important;
+            border-radius: 0.75rem !important;
+            padding: 1rem 1.25rem !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.875rem !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2) !important;
+            z-index: 1000;
+            max-width: 320px; /* Widened for content */
+            line-height: 1.6 !important;
+            white-space: normal !important; /* Allow wrapping */
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-darkbg dark:text-slate-200 transition-colors duration-500 selection:bg-blue-500 selection:text-white">
+
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-indigo-600/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-teal-600/20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <nav class="fixed w-full top-0 z-50 bg-white/70 dark:bg-darkbg/70 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-lg font-bold tracking-tight hover:text-primary transition flex items-center gap-2">
+                <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                Rodrigo Castellano Ontiveros
+            </a>
+            
+            <div class="flex items-center gap-6">
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+                    <a href="#about" class="hover:text-primary transition-colors">About</a>
+                    <a href="#map" class="hover:text-primary transition-colors">Map</a>
+                    <a href="#research" class="hover:text-primary transition-colors">Research</a>
+                    <a href="#software" class="hover:text-primary transition-colors">Software</a>
+                    <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
+                    <a href="#education" class="hover:text-primary transition-colors">Education</a>
+                </div>
+                
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500 dark:text-slate-400" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block text-amber-400"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header id="about" class="relative pt-32 pb-24 md:pt-48 md:pb-32 px-6 min-h-[90vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 opacity-10 dark:opacity-40 z-0"></div>
+        
+        <div class="max-w-5xl mx-auto w-full flex flex-col md:flex-row gap-16 items-center relative z-10 reveal">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-teal-500 rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-slate-900/5 dark:ring-white/10">
+                    <img src="rodrigo.jpg" alt="Rodrigo Castellano" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                </div>
+            </div>
+            
+            <div class="text-center md:text-left flex-1">
+                <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full dark:bg-blue-900/30 dark:text-blue-400 border border-blue-100 dark:border-blue-800">
+                    AI Researcher
+                </div>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight text-slate-900 dark:text-white">
+                    Rodrigo <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-400 dark:from-blue-400 dark:to-teal-300">Castellano Ontiveros</span>
+                </h1>
+                <div class="text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed mb-10 max-w-3xl mx-auto md:mx-0 font-light">
+                    <p class="mb-4">
+                        Marie Skłodowska-Curie Fellow, <a href="https://lemur-dn.github.io/" target="_blank" class="text-primary hover:underline decoration-2 underline-offset-4 font-medium">Learning with Multiple Represenations (LeMuR)</a> project.
+                    </p>
+                    <p class="mb-4">
+                        My research aims to make <span class="font-semibold text-slate-800 dark:text-slate-100">Neural-Symbolic reasoning</span> both scalable and transparent. I use <span class="font-semibold text-slate-800 dark:text-slate-100">Reinforcement Learning</span> methods for efficiency, and for explainability, I work on <strong>interpretable-by-design models</strong> that operate on first-order logic.
+                    </p>
+                    <p>
+                        I'm excited to contribute to projects on AI reasoning, probabilistic programming, and scalable symbolic/NeSy AI. Other interesting domain is LLM agents and tool use, focusing on how to embed logical reasoning capabilities within or alongside LLMs. I’m also open to collaborating on new and adjacent topics where I can learn and apply my expertise.
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="mailto:rodrigo.castellano@unisi.it" class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-blue-600 transition shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transform hover:-translate-y-1 active:translate-y-0">
+                        Contact Me
+                    </a>
+                    <a href="https://scholar.google.com/citations?hl=en&user=ik1125wAAAAJ" target="_blank" class="glass-card px-8 py-3 rounded-full font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition border border-slate-200 dark:border-slate-700 flex items-center gap-2 group">
+                        <i class="fas fa-graduation-cap group-hover:text-primary transition-colors"></i> Scholar
+                    </a>
+                    <a href="https://github.com/rodrigo-castellano" target="_blank" class="glass-card px-4 py-3 rounded-full text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition border border-slate-200 dark:border-slate-700 group">
+                        <i class="fa-brands fa-github text-xl group-hover:text-slate-900 dark:group-hover:text-white transition-colors"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="map" class="py-20 bg-slate-50/50 dark:bg-slate-900/50 transition-colors duration-300 relative z-10 border-b border-slate-200/50 dark:border-slate-800/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-10 reveal text-center">
+                <h2 class="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Where I Have Been</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    My academic and professional journey across Europe.
+                </p>
+            </div>
+            
+            <div class="glass-card p-4 rounded-3xl border border-slate-200/60 dark:border-slate-700/60 shadow-xl reveal overflow-hidden">
+                <div id="world-map" class="w-full h-[450px] md:h-[550px] bg-slate-100/50 dark:bg-slate-800/30 rounded-2xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="py-24 relative z-10">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <div class="border-b border-slate-200 dark:border-slate-800 mb-12 reveal">
+                <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Research Papers</h2>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8">
+                
+                <div class="group glass-card rounded-2xl p-6 hover:bg-white dark:hover:bg-slate-800 transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/5 dark:hover:shadow-blue-900/10 reveal stagger-1 border border-slate-200/60 dark:border-slate-700/60">
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div class="w-full md:w-48 h-32 bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden flex-shrink-0 relative shadow-inner">
+                            <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-bold text-xl">
+                                AAAI 2026
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between gap-4">
+                                <a href="https://arxiv.org/abs/2511.08581" target="_blank" class="text-xl font-bold text-slate-900 dark:text-slate-100 hover:text-primary transition leading-tight">
+                                    DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs
+                                </a>
+                                <span class="hidden sm:inline-block text-xs font-bold px-2.5 py-1 rounded-md bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-300 border border-blue-200 dark:border-blue-500/30">AAAI '26</span>
+                            </div>
+                            
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 mb-3 font-medium">
+                                Y. Jiao*, <span class="text-slate-900 dark:text-white underline decoration-blue-500/50 underline-offset-2">R. Castellano Ontiveros*</span>, L. De Raedt, M. Gori, F. Giannini, M. Diligenti, G. Marra
+                            </p>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-5">
+                                A novel NeSy system mapping the resolution process of Deep Stochastic Logic Programs to Markov Decision Processes, enabling efficient Reinforcement Learning for logical proving.
+                                <br><span class="text-xs text-slate-500 dark:text-slate-400 mt-1 inline-block italic">* Equal contribution</span>
+                            </p>
+                            
+                            <div class="flex gap-4 text-sm font-semibold">
+                                <a href="https://arxiv.org/abs/2511.08581" target="_blank" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 flex items-center gap-2 transition">
+                                    <i class="fas fa-file-pdf"></i> Paper
+                                </a>
+                                <a href="https://github.com/rodrigo-castellano" target="_blank" class="text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 flex items-center gap-2 transition">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group glass-card rounded-2xl p-6 hover:bg-white dark:hover:bg-slate-800 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-900/5 dark:hover:shadow-emerald-900/10 reveal border border-slate-200/60 dark:border-slate-700/60">
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div class="w-full md:w-48 h-32 bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden flex-shrink-0 relative shadow-inner">
+                             <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-emerald-500 to-teal-600 text-white font-bold text-xl">
+                                IJCAI 2025
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between gap-4">
+                                <a href="https://www.ijcai.org/proceedings/2025/0535.pdf" target="_blank" class="text-xl font-bold text-slate-900 dark:text-slate-100 hover:text-emerald-500 transition leading-tight">
+                                    Grounding Methods for Neural-Symbolic AI
+                                </a>
+                                <span class="hidden sm:inline-block text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/30">IJCAI '25</span>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 mb-3 font-medium">
+                                <span class="text-slate-900 dark:text-white underline decoration-emerald-500/50 underline-offset-2">R. Castellano Ontiveros</span>, F. Giannini, M. Gori, G. Marra, M. Diligenti
+                            </p>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-5">
+                                Proposes a parameterized family of grounding methods generalizing Backward Chaining to control the trade-off between scalability and expressiveness.
+                            </p>
+                            <div class="flex gap-4 text-sm font-semibold">
+                                <a href="https://www.ijcai.org/proceedings/2025/0535.pdf" target="_blank" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 flex items-center gap-2 transition"><i class="fas fa-file-pdf"></i> Paper</a>
+                                <a href="https://github.com/rodrigo-castellano/Grounding-Methods" target="_blank" class="text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 flex items-center gap-2 transition"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group glass-card rounded-2xl p-6 hover:bg-white dark:hover:bg-slate-800 transition-all duration-300 hover:shadow-xl hover:shadow-amber-900/5 dark:hover:shadow-amber-900/10 reveal border border-slate-200/60 dark:border-slate-700/60">
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div class="w-full md:w-48 h-32 bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden flex-shrink-0 relative shadow-inner">
+                            <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-amber-500 to-orange-600 text-white font-bold text-xl">
+                                XAI 2025
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between gap-4">
+                                <a href="https://link.springer.com/chapter/10.1007/978-3-032-08324-1_14" target="_blank" class="text-xl font-bold text-slate-900 dark:text-slate-100 hover:text-amber-500 transition leading-tight">
+                                    Interpretable Link Prediction via Neural-Symbolic Reasoning
+                                </a>
+                                <span class="hidden sm:inline-block text-xs font-bold px-2.5 py-1 rounded-md bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-300 border border-amber-200 dark:border-amber-500/30">XAI '25</span>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 mb-3 font-medium">
+                                <span class="text-slate-900 dark:text-white underline decoration-amber-500/50 underline-offset-2">R. Castellano Ontiveros</span>, E. Bonabi Mobaraki, F. Giannini, P. Barbiero, et al.
+                            </p>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-5">
+                                Introduces interpretable-by-design R-CBM-style models that output explicit proof trees, evaluated using XAI metrics like coherence.
+                            </p>
+                            <div class="flex gap-4 text-sm font-semibold">
+                                <a href="https://link.springer.com/chapter/10.1007/978-3-032-08324-1_14" target="_blank" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 flex items-center gap-2 transition"><i class="fas fa-file-pdf"></i> Paper</a>
+                                <a href="https://github.com/rodrigo-castellano/Interpretable-NeSy" target="_blank" class="text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 flex items-center gap-2 transition"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="group glass-card rounded-2xl p-6 hover:bg-white dark:hover:bg-slate-800 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/5 dark:hover:shadow-purple-900/10 reveal border border-slate-200/60 dark:border-slate-700/60">
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div class="w-full md:w-48 h-32 bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden flex-shrink-0 relative shadow-inner">
+                            <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-purple-500 to-fuchsia-600 text-white font-bold text-xl">
+                                NeSy 2025
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between gap-4">
+                                <a href="https://proceedings.mlr.press/v284/ontiveros25a.html" target="_blank" class="text-xl font-bold text-slate-900 dark:text-slate-100 hover:text-purple-500 transition leading-tight">
+                                    Distilling KGE Black Boxes into Interpretable NeSy Models
+                                </a>
+                                <span class="hidden sm:inline-block text-xs font-bold px-2.5 py-1 rounded-md bg-purple-100 text-purple-700 dark:bg-purple-500/20 dark:text-purple-300 border border-purple-200 dark:border-purple-500/30">NeSy '25</span>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 mb-3 font-medium">
+                                <span class="text-slate-900 dark:text-white underline decoration-purple-500/50 underline-offset-2">R. Castellano Ontiveros</span>, F. Giannini, M. Diligenti
+                            </p>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-5">
+                                A framework to distill Knowledge Graph Embeddings into interpretable Neural-Symbolic models, ensuring high fidelity while providing logic proofs.
+                            </p>
+                            <div class="flex gap-4 text-sm font-semibold">
+                                <a href="https://proceedings.mlr.press/v284/ontiveros25a.html" target="_blank" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 flex items-center gap-2 transition"><i class="fas fa-file-pdf"></i> Paper</a>
+                                <a href="https://github.com/rodrigo-castellano/KGE-Distillation" target="_blank" class="text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 flex items-center gap-2 transition"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group glass-card rounded-2xl p-6 hover:bg-white dark:hover:bg-slate-800 transition-all duration-300 hover:shadow-xl hover:shadow-red-900/5 dark:hover:shadow-red-900/10 reveal border border-slate-200/60 dark:border-slate-700/60">
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div class="w-full md:w-48 h-32 bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden flex-shrink-0 relative shadow-inner">
+                             <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-red-500 to-rose-600 text-white font-bold text-xl">
+                                Nature
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between gap-4">
+                                <a href="https://www.nature.com/articles/s43856-024-00519-6" target="_blank" class="text-xl font-bold text-slate-900 dark:text-slate-100 hover:text-red-500 transition leading-tight">
+                                    A Machine Learning-based Approach for Constructing Remote Photoplethysmogram Signals
+                                </a>
+                                <span class="hidden sm:inline-block text-xs font-bold px-2.5 py-1 rounded-md bg-red-100 text-red-700 dark:bg-red-500/20 dark:text-red-300 border border-red-200 dark:border-red-500/30">Nature Comms. 2024</span>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 mb-3 font-medium">
+                                R. Castellano Ontiveros, M. Elgendi, C. Menon
+                            </p>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-5">
+                                        Developed a novel ML methodology that achieved SOTA performance in rPPG signal reconstruction from video, allowing the extraction of different physiological parameters (vs. single-feature prediction competitors).
+                            </p>
+                            <div class="flex gap-4 text-sm font-semibold mt-4">
+                                <a href="https://www.nature.com/articles/s43856-024-00519-6" target="_blank" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 flex items-center gap-2 transition"><i class="fas fa-file-pdf"></i> Paper</a>
+                                <a href="https://github.com/rodrigo-castellano/ML_based_rPPG_construction" target="_blank" class="text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 flex items-center gap-2 transition"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Paper 1 -->
+                <div class="group glass-card rounded-2xl p-6 hover:bg-white dark:hover:bg-slate-800 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-900/5 dark:hover:shadow-cyan-900/10 reveal border border-slate-200/60 dark:border-slate-700/60">
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div class="w-full md:w-48 h-32 bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden flex-shrink-0 relative shadow-inner">
+                             <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-cyan-500 to-blue-600 text-white font-bold text-xl text-center px-2">
+                                J. Cheminf.
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between gap-4">
+                                <a href="https://link.springer.com/article/10.1186/s13321-024-00873-6" target="_blank" class="text-xl font-bold text-slate-900 dark:text-slate-100 hover:text-cyan-500 transition leading-tight">
+                                    Physicochemical modelling of the retention mechanism of temperature-responsive polymeric columns
+                                </a>
+                                <span class="hidden sm:inline-block text-xs font-bold px-2.5 py-1 rounded-md bg-cyan-100 text-cyan-700 dark:bg-cyan-500/20 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/30">2024</span>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 mb-3 font-medium">
+                                Elena Bandini, <span class="text-slate-900 dark:text-white underline decoration-cyan-500/50 underline-offset-2">Rodrigo Castellano Ontiveros</span>, Ardiana Kajtazi, Hamed Eghbali, Frédéric Lynen
+                            </p>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-5">
+                                Applied machine learning algorithms to model the retention mechanisms in HPLC columns.
+                            </p>
+                            <div class="flex gap-4 text-sm font-semibold mt-4">
+                                <a href="https://link.springer.com/article/10.1186/s13321-024-00873-6" target="_blank" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 flex items-center gap-2 transition"><i class="fas fa-file-pdf"></i> Paper</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Paper 2 -->
+                <div class="group glass-card rounded-2xl p-6 hover:bg-white dark:hover:bg-slate-800 transition-all duration-300 hover:shadow-xl hover:shadow-pink-900/5 dark:hover:shadow-pink-900/10 reveal border border-slate-200/60 dark:border-slate-700/60">
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div class="w-full md:w-48 h-32 bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden flex-shrink-0 relative shadow-inner">
+                             <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-pink-500 to-rose-600 text-white font-bold text-xl text-center px-2">
+                                F. Physiol.
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between gap-4">
+                                <a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1296277/full" target="_blank" class="text-xl font-bold text-slate-900 dark:text-slate-100 hover:text-pink-500 transition leading-tight">
+                                    Evaluating RGB channels in remote photoplethysmography: a comparative study
+                                </a>
+                                <span class="hidden sm:inline-block text-xs font-bold px-2.5 py-1 rounded-md bg-pink-100 text-pink-700 dark:bg-pink-500/20 dark:text-pink-300 border border-pink-200 dark:border-pink-500/30">2023</span>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 mb-3 font-medium">
+                                <span class="text-slate-900 dark:text-white underline decoration-pink-500/50 underline-offset-2">Rodrigo Castellano Ontiveros</span>, Mohamed Elgendi, Giuseppe Missale, Carlo Menon
+                            </p>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-5">
+                                A comparative study of the efficacy of RGB channels in remote photoplethysmography (rPPG) when compared with contact-based PPG.
+                            </p>
+                            <div class="flex gap-4 text-sm font-semibold mt-4">
+                                <a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1296277/full" target="_blank" class="text-primary hover:text-blue-700 dark:hover:text-blue-400 flex items-center gap-2 transition"><i class="fas fa-file-pdf"></i> Paper</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="software" class="py-24 bg-slate-50/30 dark:bg-slate-900/30 transition-colors duration-300 relative z-10 border-t border-slate-200/50 dark:border-slate-800/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-12 reveal">
+                <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Software & Projects</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl">A collection of open-source tools and implementations focusing on Neural-Symbolic AI, Computer Vision, and others.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <a href="https://desion.de/en/free-fall-inspection-systems/" target="_blank" class="group relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-cyan-500/50 dark:hover:border-cyan-500/50 transition-all duration-300 hover:shadow-2xl reveal stagger-1">
+                    <div class="h-48 bg-cyan-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden relative">
+                         <img src="desion.gif" alt="Desion Preview" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-700">
+                         
+                         <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h4 class="font-bold text-xl mb-2 text-slate-900 dark:text-white group-hover:text-cyan-500 transition">Camera Inspection System</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1">Automated visual inspection systems using Computer Vision and synthetic data created with Unreal Engine.</p>
+                        <div class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider">Computer Vision &bull; Industry</div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/rodrigo-castellano/Grounding-Methods" target="_blank" class="group relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 transition-all duration-300 hover:shadow-2xl reveal stagger-2">
+                    <div class="h-48 bg-emerald-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden relative">
+                         <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-teal-500/20"></div>
+                         <i class="fas fa-network-wired text-6xl text-emerald-500/30 group-hover:scale-110 transition duration-500"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h4 class="font-bold text-xl mb-2 text-slate-900 dark:text-white group-hover:text-emerald-500 transition">NeSy Grounding</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1">Parametrized grounding methods for scalable neural-symbolic reasoning.</p>
+                        <div class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Neuro-symbolic AI &bull; First Order Logic</div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/rodrigo-castellano/ML_based_rPPG_construction" target="_blank" class="group relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-amber-500/50 dark:hover:border-amber-500/50 transition-all duration-300 hover:shadow-2xl reveal stagger-3">
+                    <div class="h-48 bg-amber-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden relative">
+                         <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-500/20"></div>
+                         <i class="fas fa-heartbeat text-6xl text-amber-500/30 group-hover:scale-110 transition duration-500"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h4 class="font-bold text-xl mb-2 text-slate-900 dark:text-white group-hover:text-amber-500 transition">rPPG Construction</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1">Physiological parameters extraction from video using Machine Learning techniques.</p>
+                        <div class="text-xs font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Deep Learning</div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/rodrigo-castellano/Bachelor-thesis" target="_blank" class="group relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 transition-all duration-300 hover:shadow-2xl reveal stagger-1">
+                     <div class="h-48 bg-indigo-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden relative">
+                         <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-blue-500/20"></div>
+                         <i class="fas fa-meteor text-6xl text-indigo-500/30 group-hover:scale-110 transition duration-500"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h4 class="font-bold text-xl mb-2 text-slate-900 dark:text-white group-hover:text-indigo-500 transition">Cosmic Rays Analysis</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1">Prediction of particles associated to cosmic rays detected by Cherenkov Telescope Array.</p>
+                        <div class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Data Science</div>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/rodrigo-castellano/Speech_tech__Accent_embeddings" target="_blank" class="group relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-pink-500/50 dark:hover:border-pink-500/50 transition-all duration-300 hover:shadow-2xl reveal stagger-2">
+                     <div class="h-48 bg-pink-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden relative">
+                         <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-rose-500/20"></div>
+                         <i class="fas fa-microphone-lines text-6xl text-pink-500/30 group-hover:scale-110 transition duration-500"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h4 class="font-bold text-xl mb-2 text-slate-900 dark:text-white group-hover:text-pink-500 transition">Accent Embeddings</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1">Speech technology project focused on accent classification.</p>
+                        <div class="text-xs font-semibold text-pink-600 dark:text-pink-400 uppercase tracking-wider">Audio Processing</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-slate-50/50 dark:bg-slate-900/50 transition-colors duration-300 relative z-10 border-t border-slate-200/50 dark:border-slate-800/50">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-16 text-center reveal text-slate-900 dark:text-white">Experience</h2>
+            
+            <div class="relative border-l border-slate-300 dark:border-slate-700 space-y-12 ml-4 md:ml-0">
+                
+                <div class="relative pl-10 md:pl-14 reveal stagger-1 group">
+                    <div class="absolute -left-[7px] top-2 w-4 h-4 rounded-full bg-blue-600 ring-4 ring-white dark:ring-darkbg group-hover:ring-blue-100 dark:group-hover:ring-blue-900 transition-all duration-500"></div>
+                    <div class="glass-card p-6 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 hover:shadow-lg transition-all">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">PhD Researcher in AI</h3>
+                            <span class="text-sm font-mono text-slate-500">Nov 2023 — Present</span>
+                        </div>
+                        <a href="https://www.unisi.it/" target="_blank" class="text-primary font-medium hover:underline">University of Siena, Italy</a>
+                        
+                        <div class="mt-4 mb-4">
+                             <a href="https://marie-sklodowska-curie-actions.ec.europa.eu/actions/doctoral-networks" target="_blank" class="inline-flex items-center text-xs font-bold px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-500/20 dark:text-yellow-200 border border-yellow-200 dark:border-yellow-500/30">
+                                <i class="fas fa-award mr-2"></i> Marie Skłodowska-Curie Doctoral Fellowship
+                            </a>
+                        </div>
+
+                        <p class="text-slate-700 dark:text-slate-300 mb-2">
+                            <strong>MSCA Project LeMuR:</strong> Learning with Multiple Representations.
+                        </p>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">
+                            Supervisors: 
+                            <a href="https://scholar.google.com/citations?user=wBMRRk0AAAAJ&hl=en&oi=ao" target="_blank" class="text-primary hover:underline">Prof. Marco Gori</a>, 
+                            <a href="https://scholar.google.com/citations?hl=en&user=qI-LOjIAAAAJ" target="_blank" class="text-primary hover:underline">Prof. Michelangelo Diligenti</a>, 
+                            <a href="https://scholar.google.com/citations?user=RO8aInMAAAAJ&hl=en&oi=ao" target="_blank" class="text-primary hover:underline">Dr. Francesco Giannini</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative pl-10 md:pl-14 reveal stagger-2 group">
+                     <div class="absolute -left-[7px] top-2 w-4 h-4 rounded-full bg-orange-500 ring-4 ring-white dark:ring-darkbg group-hover:ring-orange-200 dark:group-hover:ring-orange-900 transition-all duration-500"></div>
+                     <div class="group-hover:bg-white dark:group-hover:bg-slate-800 p-6 rounded-2xl transition-all">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Visiting Researcher</h3>
+                            <span class="text-sm font-mono text-slate-500">Oct 2025 — Present</span>
+                        </div>
+                        <a href="https://www.bakerhughes.com/" target="_blank" class="text-primary font-medium hover:underline">Baker Hughes, Florence</a>
+                        <p class="mt-2 text-slate-600 dark:text-slate-400">
+                            Integrating logic reasoning systems with LLM agents.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative pl-10 md:pl-14 reveal stagger-3 group">
+                    <div class="absolute -left-[7px] top-2 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-white dark:ring-darkbg group-hover:ring-slate-200 dark:group-hover:ring-slate-700 transition-all duration-500"></div>
+                    <div class="group-hover:bg-white dark:group-hover:bg-slate-800 p-6 rounded-2xl transition-all">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Visiting Researcher</h3>
+                            <span class="text-sm font-mono text-slate-500">Sep 2024 — Dec 2024</span>
+                        </div>
+                        <a href="https://www.kuleuven.be/english/" target="_blank" class="text-primary font-medium hover:underline">KU Leuven, Belgium</a>
+                        <p class="mt-2 text-slate-600 dark:text-slate-400">
+                            Developed <a href="https://arxiv.org/abs/2511.08581" target="_blank" class="text-primary hover:underline font-medium">DeepProofLog</a>. 
+                            Collaboration with <a href="https://scholar.google.com/citations?hl=en&user=w0526qgAAAAJ" target="_blank" class="text-primary hover:underline">Ying Jiao</a>, 
+                            <a href="https://scholar.google.com/citations?hl=en&user=BBcsk7MAAAAJ" target="_blank" class="text-primary hover:underline">Prof. Giuseppe Marra</a>, and 
+                            <a href="https://scholar.google.com/citations?hl=en&user=dgobB6AAAAAJ" target="_blank" class="text-primary hover:underline">Prof. Luc De Raedt</a>.
+                        </p>
+                    </div>
+                </div>
+                
+                 <div class="relative pl-10 md:pl-14 reveal stagger-1 group">
+                    <div class="absolute -left-[7px] top-2 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-white dark:ring-darkbg group-hover:ring-slate-200 dark:group-hover:ring-slate-700 transition-all duration-500"></div>
+                    <div class="group-hover:bg-white dark:group-hover:bg-slate-800 p-6 rounded-2xl transition-all">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">International Talent Programme Trainee</h3>
+                            <span class="text-sm font-mono text-slate-500">Apr 2023 — Oct 2023</span>
+                        </div>
+                        <a href="https://www.ing.jobs/" target="_blank" class="text-primary font-medium hover:underline">ING Bank, Brussels</a>
+                        <p class="mt-2 text-slate-600 dark:text-slate-400">
+                            Participated in a rotational data science/analytics graduate program.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative pl-10 md:pl-14 reveal stagger-2 group">
+                    <div class="absolute -left-[7px] top-2 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-white dark:ring-darkbg group-hover:ring-slate-200 dark:group-hover:ring-slate-700 transition-all duration-500"></div>
+                     <div class="group-hover:bg-white dark:group-hover:bg-slate-800 p-6 rounded-2xl transition-all">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Master Thesis Researcher</h3>
+                            <span class="text-sm font-mono text-slate-500">Oct 2022 — Feb 2023</span>
+                        </div>
+                        <a href="https://ethz.ch/en.html" target="_blank" class="text-primary font-medium hover:underline">ETH Zürich, Switzerland</a>
+                        <div class="mt-2 text-sm text-slate-600 dark:text-slate-400">
+                            <p class="mb-2">
+                                <strong>rPPG:</strong> extraction from video.
+                                <a href="https://www.nature.com/articles/s43856-024-00519-6" target="_blank" class="text-primary hover:underline ml-1">[Nature Portfolio]</a> 
+                                <a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1296277/full" target="_blank" class="text-primary hover:underline ml-1">[Frontiers]</a>
+                            </p>
+                            Awarded <span class="font-semibold text-slate-800 dark:text-slate-200">Karl Engver's Foundation Grant</span>.
+                            <p class="mt-2">Supervised by <a href="https://scholar.google.com/citations?hl=en&user=okZnorwAAAAJ" target="_blank" class="text-primary hover:underline">Prof. Carlo Menon</a> and <a href="https://scholar.google.com/citations?hl=en&user=-WFwzjoAAAAJ" target="_blank" class="text-primary hover:underline">Prof. Moe Elgendi</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="relative pl-10 md:pl-14 reveal stagger-3 group">
+                    <div class="absolute -left-[7px] top-2 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-600 ring-4 ring-white dark:ring-darkbg group-hover:ring-slate-200 dark:group-hover:ring-slate-700 transition-all duration-500"></div>
+                     <div class="group-hover:bg-white dark:group-hover:bg-slate-800 p-6 rounded-2xl transition-all">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Teaching Assistant</h3>
+                            <span class="text-sm font-mono text-slate-500">Nov 2021 — Apr 2022</span>
+                        </div>
+                        <a href="https://www.kth.se/en" target="_blank" class="text-primary font-medium hover:underline">KTH Royal Institute of Technology, Sweden</a>
+                        <div class="mt-2 text-sm text-slate-600 dark:text-slate-400">
+                            Supported courses in <span class="font-semibold text-slate-700 dark:text-slate-300">Artificial Intelligence (DD2380)</span> and <span class="font-semibold text-slate-700 dark:text-slate-300">Machine Learning (DD2421)</span>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pl-10 md:pl-14 reveal stagger-1 group">
+                    <div class="absolute -left-[7px] top-8 w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-white dark:ring-darkbg group-hover:ring-cyan-200 dark:group-hover:ring-cyan-900 transition-all duration-500 z-10"></div>
+                    
+                    <a href="https://desion.de/" target="_blank" class="block group relative flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-cyan-500/50 dark:hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl">
+                        <div class="h-48 bg-cyan-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden relative">
+                             <img src="desion.gif" alt="Desion Preview" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-700">
+                             
+                             <div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-3 py-1 rounded-full text-xs font-mono font-semibold shadow-sm z-10">
+                                Oct 2020 — Jun 2021
+                             </div>
+                             <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-cyan-500 transition mb-1">AI Applied Scientist</h3>
+                            <div class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-3">Desion (Fraunhofer IGD Spin-off), Germany</div>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm">
+                                Built automated visual inspection systems with Computer Vision models (Mask R-CNN) using synthetic data. Synthetic data created with Unreal Engine. <span class="text-primary hover:underline">[See Demo]</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-20 bg-white dark:bg-darkbg transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center reveal dark:text-white">Education</h2>
+            <div class="grid grid-cols-1 gap-8">
+                
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-100 dark:border-gray-800 pb-8 reveal stagger-1">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">MSc in Machine Learning</h3>
+                        <a href="https://www.kth.se/en/studies/master/machine-learning/msc-machine-learning-1.48533" target="_blank" class="text-primary font-medium hover:underline">KTH Royal Institute of Technology, Stockholm</a>
+                        <p class="text-sm text-gray-500 mt-1">Includes exchange semester at <a href="https://sc.informatik.rwth-aachen.de/en/studium/master/master-data-science/" target="_blank" class="hover:underline text-primary">RWTH Aachen</a></p>
+                    </div>
+                    <span class="text-sm font-mono text-gray-500 mt-2 md:mt-0">Apr 2021 — Apr 2023</span>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-100 dark:border-gray-800 pb-8 reveal stagger-2">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Exchange Bachelor Student</h3>
+                        <a href="https://www.helsinki.fi/en" target="_blank" class="text-primary font-medium hover:underline">University of Helsinki, Finland</a>
+                    </div>
+                    <span class="text-sm font-mono text-gray-500 mt-2 md:mt-0">Sept 2018 — Jun 2019</span>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-8 reveal stagger-3">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">BSc in Physics</h3>
+                        <a href="https://www.ugr.es/en/study/undergraduate/programmes/physics" target="_blank" class="text-primary font-medium hover:underline">University of Granada, Spain</a>
+                    </div>
+                    <span class="text-sm font-mono text-gray-500 mt-2 md:mt-0">Oct 2015 — Nov 2020</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-white dark:bg-darkcard border-t border-slate-200 dark:border-slate-800 py-16 reveal relative z-10">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8 text-slate-900 dark:text-white">Let's Connect</h2>
+            <div class="flex flex-wrap justify-center gap-6 mb-10">
+                <a href="mailto:rodrigo.castellano@unisi.it" class="px-6 py-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-primary transition flex items-center gap-2">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="https://www.linkedin.com/in/rodrigo-castellano/" target="_blank" class="px-6 py-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-primary transition flex items-center gap-2">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://scholar.google.com/citations?hl=en&user=ik1125wAAAAJ" target="_blank" class="px-6 py-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-primary transition flex items-center gap-2">
+                    <i class="fas fa-graduation-cap"></i> Scholar
+                </a>
+            </div>
+            <p class="text-slate-400 text-sm">&copy; 2025 Rodrigo Castellano Ontiveros. <br> Florence, Italy.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/js/jsvectormap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
+
+    <script>
+        // --- 1. Dark Mode Logic ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage))) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                updateMapTheme('dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+                updateMapTheme('light');
+            }
+        });
+
+        // --- 2. Scroll Reveal Logic ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
+
+        // --- 3. Map Logic ---
+        let mapInstance = null;
+        
+        const countryColors = {
+            'ES': '#2563eb', // Blue 600
+            'FI': '#0284c7', // Sky 600
+            'DE': '#4f46e5', // Indigo 600
+            'SE': '#0891b2', // Cyan 600
+            'CH': '#7c3aed', // Violet 600
+            'BE': '#0d9488', // Teal 600
+            'IT': '#0f766e'  // Teal 700
+        };
+        const visitedCountries = Object.keys(countryColors);
+
+        function initMap() {
+            // Check if library is loaded
+            if (typeof jsVectorMap === 'undefined') {
+                console.warn('jsVectorMap not loaded yet, retrying...');
+                setTimeout(initMap, 200); 
+                return;
+            }
+
+            const isDark = html.classList.contains('dark');
+            const regionBaseColor = isDark ? '#1e293b' : '#cbd5e1';
+            
+            if(mapInstance) {
+                document.getElementById('world-map').innerHTML = '';
+            }
+
+            // Correctly format data for categorical series
+            // values: maps region code (e.g., 'ES') to category key (e.g., 'ES')
+            const seriesValues = {};
+            visitedCountries.forEach(code => {
+                seriesValues[code] = code; 
+            });
+
+            mapInstance = new jsVectorMap({
+                selector: '#world-map',
+                map: 'world',
+                zoomButtons: true,
+                zoomOnScroll: false,
+                regionsSelectable: false,
+                markersSelectable: false,
+                focusOn: {
+                    regions: ['PT', 'ES', 'FR', 'DE', 'IT', 'CH', 'AT', 'BE', 'NL', 'DK', 'SE', 'NO', 'FI', 'GB', 'IE', 'PL', 'CZ', 'GR', 'TR', 'UA'],
+                    animate: false
+                },
+                regionStyle: {
+                    initial: {
+                        fill: regionBaseColor,
+                        stroke: isDark ? '#0f172a' : '#f8fafc',
+                        strokeWidth: 0.5,
+                        fillOpacity: 1
+                    },
+                    hover: {
+                        fillOpacity: 0.8,
+                        cursor: 'pointer'
+                    }
+                },
+                series: {
+                    regions: [{
+                        attribute: 'fill',
+                        // Scale maps keys (country codes) to colors
+                        scale: countryColors,
+                        // Values maps regions to keys
+                        values: seriesValues,
+                        // Explicitly disable legend or omit the property
+                        legend: {
+                            vertical: true,
+                            title: 'Visited'
+                        }
+                    }]
+                },
+                
+                onRegionTooltipShow(event, tooltip, code) {
+                    const visitedInfo = {
+                        'ES': "BSc Physics<br><span class='text-xs text-slate-300'>2015-2020</span>",
+                        'FI': "Exchange Student<br><span class='text-xs text-slate-300'>2018-2019</span>",
+                        'DE': "AI Scientist @ Desion <span class='text-xs text-slate-300'>(2020-2021)</span><br>Exchange Student @ RWTH <span class='text-xs text-slate-300'>(2021-2022)</span>",
+                        'SE': "MSc Machine Learning<br><span class='text-xs text-slate-300'>2021-2023</span>",
+                        'CH': "Master Thesis<br><span class='text-xs text-slate-300'>2022-2023</span>",
+                        'BE': "Trainee @ ING Bank <span class='text-xs text-slate-300'>(2023)</span><br>Visiting Researcher @ KU Leuven <span class='text-xs text-slate-300'>(2024)</span>",
+                        'IT': "PhD Researcher @ Siena <span class='text-xs text-slate-300'>(2023-Present)</span><br>Visiting Researcher @ Baker Hughes <span class='text-xs text-slate-300'>(2025-Present)</span>"
+                    };
+                    
+                    if (visitedCountries.includes(code)) {
+                        tooltip.text(
+                            `<div class="text-left">
+                                <strong class="font-bold text-base mb-1 block" style="color: ${countryColors[code]}">${tooltip.text()}</strong>
+                                ${visitedInfo[code]}
+                             </div>`,
+                            true 
+                        );
+                    } else {
+                         event.preventDefault();
+                    }
+                }
+            });
+            
+            // Manually remove legend if it appears, though omitting config usually works.
+            // The config above includes legend object but we can try to remove it.
+            // Actually, I should remove the legend block completely if you asked to remove it.
+            // Re-initializing with correct config below to remove legend.
+        }
+        
+        // Overwriting initMap to ensure legend is gone
+        function initMap() {
+            // Check if library is loaded
+            if (typeof jsVectorMap === 'undefined') {
+                console.warn('jsVectorMap not loaded yet, retrying...');
+                setTimeout(initMap, 200); 
+                return;
+            }
+            
+            const isDark = html.classList.contains('dark');
+            const regionBaseColor = isDark ? '#1e293b' : '#cbd5e1';
+            
+            if(mapInstance) {
+                document.getElementById('world-map').innerHTML = '';
+            }
+
+            const seriesValues = {};
+            visitedCountries.forEach(code => {
+                seriesValues[code] = code; 
+            });
+
+            mapInstance = new jsVectorMap({
+                selector: '#world-map',
+                map: 'world',
+                zoomButtons: true,
+                zoomOnScroll: false,
+                regionsSelectable: false,
+                markersSelectable: false,
+                focusOn: {
+                    regions: ['PT', 'ES', 'FR', 'DE', 'IT', 'CH', 'AT', 'BE', 'NL', 'DK', 'SE', 'NO', 'FI', 'GB', 'IE', 'PL', 'CZ', 'GR', 'TR', 'UA'],
+                    animate: false
+                },
+                regionStyle: {
+                    initial: {
+                        fill: regionBaseColor,
+                        stroke: isDark ? '#0f172a' : '#f8fafc',
+                        strokeWidth: 0.5,
+                        fillOpacity: 1
+                    },
+                    hover: {
+                        fillOpacity: 0.8,
+                        cursor: 'pointer'
+                    }
+                },
+                series: {
+                    regions: [{
+                        attribute: 'fill',
+                        scale: countryColors,
+                        values: seriesValues
+                        // Legend removed
+                    }]
+                },
+                onRegionTooltipShow(event, tooltip, code) {
+                    const visitedInfo = {
+                        'ES': "BSc Physics<br><span class='text-xs text-slate-300'>2015-2020</span>",
+                        'FI': "Exchange Student<br><span class='text-xs text-slate-300'>2018-2019</span>",
+                        'DE': "AI Scientist @ Desion <span class='text-xs text-slate-300'>(2020-2021)</span><br>Exchange Student @ RWTH <span class='text-xs text-slate-300'>(2021-2022)</span>",
+                        'SE': "MSc Machine Learning<br><span class='text-xs text-slate-300'>2021-2023</span>",
+                        'CH': "Master Thesis<br><span class='text-xs text-slate-300'>2022-2023</span>",
+                        'BE': "Trainee @ ING Bank <span class='text-xs text-slate-300'>(2023)</span><br>Visiting Researcher @ KU Leuven <span class='text-xs text-slate-300'>(2024)</span>",
+                        'IT': "PhD Researcher @ Siena <span class='text-xs text-slate-300'>(2023-Present)</span><br>Visiting Researcher @ Baker Hughes <span class='text-xs text-slate-300'>(2025-Present)</span>"
+                    };
+                    
+                    if (visitedCountries.includes(code)) {
+                        tooltip.text(
+                            `<div class="text-left">
+                                <strong class="font-bold text-base mb-1 block" style="color: ${countryColors[code]}">${tooltip.text()}</strong>
+                                ${visitedInfo[code]}
+                             </div>`,
+                            true 
+                        );
+                    } else {
+                         event.preventDefault();
+                    }
+                }
+            });
+        }
+
+
+        window.addEventListener('DOMContentLoaded', initMap);
+        
+        function updateMapTheme(theme) {
+             initMap();
+        }
+
+    </script>
+</body>
+</html>
