@@ -352,7 +352,7 @@
                 <!-- Label -->
                 <div class="mb-8 flex items-center gap-3 opacity-0 animate-fade-in" style="animation-delay: 100ms;">
                     <div class="h-px w-6 bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
-                    <span class="text-blue-400 font-mono text-xs tracking-widest uppercase">Based in Florence, Italy</span>
+                    <span class="text-blue-400 font-mono text-xs tracking-widest uppercase">Based in Italy</span>
                 </div>
 
                 <!-- Title -->
@@ -775,6 +775,24 @@
                     <div class="grid md:grid-cols-2 gap-8">
                         <!-- Column 1 -->
                         <div class="space-y-12 border-l border-white/5 pl-8 relative">
+                             <!-- Winter School Cyprus -->
+                             <div class="log-item group">
+                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Mar 2026</span>
+                                <h4 class="text-lg font-bold text-white transition-colors">
+                                    <a href="https://www.kios.ucy.ac.cy/lemurwinterschool/" target="_blank" class="hover:text-green-400 border-b-2 border-green-500/30 hover:border-green-400 transition-all pb-0.5">Winter School</a>
+                                </h4>
+                                <div class="text-sm text-green-400 font-medium mb-2 mt-1">Cyprus</div>
+                                <p class="text-sm text-gray-400 leading-relaxed">Poster: Scaling Probabilistic Logic with Reinforcement Learning methods</p>
+                             </div>
+                             <!-- AAAI -->
+                             <div class="log-item group">
+                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Jan 2026</span>
+                                <h4 class="text-lg font-bold text-white transition-colors">
+                                    <a href="https://aaai.org/conference/aaai/aaai-26/" target="_blank" class="hover:text-green-400 border-b-2 border-green-500/30 hover:border-green-400 transition-all pb-0.5">AAAI 2026</a>
+                                </h4>
+                                <div class="text-sm text-green-400 font-medium mb-2 mt-1">Singapore</div>
+                                <p class="text-sm text-gray-400 leading-relaxed">Poster & Oral: DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs</p>
+                             </div>
                              <!-- IJCAI -->
                              <div class="log-item group">
                                 <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Aug 2025</span>
@@ -979,7 +997,6 @@
         const canvas = document.getElementById('canvas-container');
         const ctx = canvas.getContext('2d');
         let particles = [];
-        let mouse = { x: null, y: null };
 
         function resize() {
             canvas.width = window.innerWidth;
@@ -988,34 +1005,20 @@
         window.addEventListener('resize', resize);
         resize();
 
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.x;
-            mouse.y = e.y;
-        });
-
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
                 this.vx = (Math.random() - 0.5) * 0.3; // Slow speed
                 this.vy = (Math.random() - 0.5) * 0.3;
-                this.size = Math.random() * 1.5;
-                this.color = 'rgba(255, 255, 255, 0.3)';
+                this.size = Math.random() * 2; // Increased size
+                this.color = 'rgba(255, 255, 255, 0.8)'; // Increased opacity
             }
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
                 if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-                
-                // Mouse interaction
-                let dx = mouse.x - this.x;
-                let dy = mouse.y - this.y;
-                let distance = Math.sqrt(dx*dx + dy*dy);
-                if (distance < 100) {
-                    this.x -= dx/20;
-                    this.y -= dy/20;
-                }
             }
             draw() {
                 ctx.fillStyle = this.color;
@@ -1027,7 +1030,7 @@
 
         function initParticles() {
             particles = [];
-            for (let i = 0; i < 120; i++) {
+            for (let i = 0; i < 120; i++) { // Increased count
                 particles.push(new Particle());
             }
         }
@@ -1044,7 +1047,8 @@
                     let dist = Math.sqrt(dx*dx + dy*dy);
                     if (dist < 100) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 - dist/1000})`;
+                        // Increased line opacity
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.25 - dist/1000})`;
                         ctx.lineWidth = 0.5;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
@@ -1105,7 +1109,7 @@
         const countryColors = {
             'ES': '#3b82f6', 'FI': '#a855f7', 'DE': '#ec4899', 'SE': '#06b6d4',
             'CH': '#10b981', 'BE': '#f59e0b', 'IT': '#ef4444', 'CA': '#2dd4bf',
-            'US': '#818cf8', 'TR': '#fb923c', 'NL': '#a3e635', 'GR': '#38bdf8'
+            'US': '#818cf8', 'TR': '#fb923c', 'NL': '#a3e635', 'GR': '#38bdf8', 'SG': '#f472b6', 'CY': '#c084fc'
         };
         const visited = Object.keys(countryColors);
 
@@ -1120,12 +1124,20 @@
                 zoomOnScroll: false,
                 backgroundColor: 'transparent',
                 focusOn: {
-                    regions: ['PT', 'ES', 'FR', 'DE', 'IT', 'CH', 'AT', 'BE', 'NL', 'DK', 'SE', 'NO', 'FI', 'GB', 'IE', 'PL', 'CZ', 'GR', 'TR', 'UA', 'CA', 'US'],
+                    regions: ['PT', 'ES', 'FR', 'DE', 'IT', 'CH', 'AT', 'BE', 'NL', 'DK', 'SE', 'NO', 'FI', 'GB', 'IE', 'PL', 'CZ', 'GR', 'TR', 'UA', 'CA', 'US', 'SG', 'CY'],
                     animate: false
                 },
                 regionStyle: {
                     initial: { fill: 'rgba(255,255,255,0.05)', stroke: 'rgba(255,255,255,0.1)', strokeWidth: 0.5, fillOpacity: 1 },
                     hover: { fill: 'rgba(255,255,255,0.05)', fillOpacity: 1 } 
+                },
+                markers: [
+                    { name: 'Singapore', coords: [1.35, 103.82] },
+                    { name: 'Cyprus', coords: [35.13, 33.43] }
+                ],
+                markerStyle: {
+                    initial: { fill: '#c084fc', stroke: '#fff', strokeWidth: 0.5, r: 5 },
+                    hover: { fill: '#d8b4fe', stroke: '#fff', r: 7 }
                 },
                 series: {
                     regions: [{
@@ -1133,6 +1145,29 @@
                         scale: countryColors,
                         values: visited.reduce((acc, code) => ({...acc, [code]: code}), {})
                     }]
+                },
+                onMarkerTooltipShow(event, tooltip, index) {
+                    const formatEntry = (role, place, date) => `
+                        <div class="mb-2 last:mb-0 border-l-2 border-gray-700 pl-2">
+                            <div class="text-white font-semibold text-xs leading-tight">${role}</div>
+                            <div class="text-gray-400 text-[11px] mt-0.5">${place}</div>
+                            <div class="text-gray-500 font-mono text-[10px] mt-0.5">${date}</div>
+                        </div>
+                    `;
+                    const markerData = [
+                        { name: 'Singapore', color: '#f472b6', entries: [{ role: "AAAI 2026", place: "Singapore", date: "Jan 2026" }] },
+                        { name: 'Cyprus', color: '#c084fc', entries: [{ role: "Winter School (Poster)", place: "Cyprus", date: "Mar 2026" }] }
+                    ];
+                    const m = markerData[index];
+                    if (m) {
+                        const entriesHtml = m.entries.map(e => formatEntry(e.role, e.place, e.date)).join('');
+                        tooltip.text(`
+                            <div class='text-left p-1'>
+                                <strong class='block text-sm mb-2 uppercase tracking-widest border-b border-gray-700 pb-1' style='color:${m.color}'>${m.name}</strong>
+                                ${entriesHtml}
+                            </div>
+                        `, true);
+                    }
                 },
                 onRegionTooltipShow(event, tooltip, code) {
                     if (!visited.includes(code)) { 
@@ -1191,6 +1226,12 @@
                         ],
                         'GR': [
                             { role: "Summer School", place: "Athens", date: "July 2024" }
+                        ],
+                        'SG': [
+                            { role: "AAAI 2026", place: "Singapore", date: "Jan 2026" }
+                        ],
+                        'CY': [
+                            { role: "Winter School (Poster)", place: "Cyprus", date: "Mar 2026" }
                         ]
                     };
 
