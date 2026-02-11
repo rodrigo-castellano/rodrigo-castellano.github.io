@@ -65,8 +65,6 @@
                     animation: {
                         'fade-in': 'fadeIn 0.8s ease-out forwards',
                         'slide-up': 'slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'shimmer': 'shimmer 2s linear infinite',
-                        'pulse-slow': 'pulseSlow 4s ease-in-out infinite',
                     },
                     keyframes: {
                         fadeIn: {
@@ -77,14 +75,6 @@
                             '0%': { opacity: '0', transform: 'translateY(30px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
-                        shimmer: {
-                            '0%': { backgroundPosition: '-200% 0' },
-                            '100%': { backgroundPosition: '200% 0' }
-                        },
-                        pulseSlow: {
-                            '0%, 100%': { opacity: '0.5' },
-                            '50%': { opacity: '1' }
-                        }
                     }
                 }
             }
@@ -102,9 +92,13 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        h1, h2, h3, h4 {
+        h1 {
             text-wrap: balance;
-            letter-spacing: -0.02em; /* Tighter headings */
+            letter-spacing: -0.04em;
+        }
+        h2, h3, h4 {
+            text-wrap: balance;
+            letter-spacing: -0.03em;
         }
 
         p {
@@ -128,98 +122,49 @@
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            pointer-events: none; /* Let clicks pass through */
-        }
-
-        .noise-overlay {
-            position: fixed;
-            inset: 0;
-            width: 100%; height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            z-index: 9998;
             pointer-events: none;
-            mix-blend-mode: overlay;
         }
 
-        /* --- Spotlight Card System --- */
+        /* --- Liquid Glass Card System --- */
         .spotlight-card {
             position: relative;
-            background: rgba(20, 20, 22, 0.4);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02) 50%, rgba(59,130,246,0.03));
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(24px) saturate(1.2);
+            -webkit-backdrop-filter: blur(24px) saturate(1.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 0 20px rgba(255,255,255,0.02);
             overflow: hidden;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
         }
-
-        /* The "Border Beam" effect */
         .spotlight-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 12px;
-            padding: 1px;
-            background: radial-gradient(
-                600px circle at var(--mouse-x) var(--mouse-y),
-                rgba(255, 255, 255, 0.6),
-                transparent 40%
-            );
-            -webkit-mask: 
-                linear-gradient(#fff 0 0) content-box, 
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-            z-index: 2;
+            content: ""; position: absolute; inset: 0; border-radius: inherit;
+            background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent 40%);
+            pointer-events: none; z-index: 1;
+        }
+        .spotlight-card:hover {
+            border-color: rgba(255,255,255,0.14);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 30px rgba(59,130,246,0.03);
         }
 
-        /* The "Inner Glow" effect */
-        .spotlight-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(
-                600px circle at var(--mouse-x) var(--mouse-y),
-                rgba(255, 255, 255, 0.06),
-                transparent 40%
-            );
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-            z-index: 1;
+        @supports not (backdrop-filter: blur(1px)) {
+            .spotlight-card { background: rgba(20,20,22,0.85); }
         }
 
-        .spotlight-card:hover::before,
-        .spotlight-card:hover::after {
-            opacity: 1;
+        /* --- Scroll Reveal --- */
+        .scroll-reveal {
+            opacity: 0; transform: translateY(16px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
-        /* --- Text Shimmer Animation --- */
-        .text-shimmer {
-            background: linear-gradient(
-                to right,
-                #9ca3af 0%,
-                #ffffff 50%,
-                #9ca3af 100%
-            );
-            background-size: 200% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: shimmer 5s linear infinite;
-        }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
 
         /* --- Glass Navigation --- */
         .glass-nav {
-            background: rgba(5, 5, 5, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.10);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.10);
+            backdrop-filter: blur(30px) saturate(1.3);
+            -webkit-backdrop-filter: blur(30px) saturate(1.3);
         }
 
         /* --- Map Tooltip --- */
@@ -308,15 +253,12 @@
 </head>
 <body class="antialiased">
 
-    <!-- 1. Noise Texture -->
-    <div class="noise-overlay"></div>
-
-    <!-- 2. Canvas Starfield -->
+    <!-- Canvas Starfield -->
     <canvas id="canvas-container"></canvas>
 
     <!-- Navigation -->
     <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 max-w-[90vw]">
-        <div class="glass-nav flex items-center p-1.5 rounded-full transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl hover:shadow-blue-900/10">
+        <div class="glass-nav flex items-center p-1.5 rounded-full transition-all duration-300">
             <div class="flex items-center px-2 gap-1 overflow-x-auto no-scrollbar">
                 <a href="#home" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Home</a>
                 <a href="#about" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">About</a>
@@ -370,7 +312,7 @@
                 <!-- Title -->
                 <h1 class="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-[1] opacity-0 animate-slide-up" style="animation-delay: 200ms;">
                     <span class="block text-white">Rodrigo</span>
-                    <span class="block text-shimmer">Castellano Ontiveros</span>
+                    <span class="block text-gray-300">Castellano Ontiveros</span>
                 </h1>
 
                 <!-- Content Grid -->
@@ -385,7 +327,7 @@
                         </p>
                         <div class="flex items-center gap-3 text-blue-400/80 font-mono text-sm">
                             <i class="fas fa-terminal text-xs"></i>
-                            <span id="typewriter"></span><span class="animate-cursor-blink">_</span>
+                            <span>Neuro-symbolic AI / Reinforcement Learning / Logic Reasoning</span>
                         </div>
                     </div>
 
@@ -408,7 +350,7 @@
             </div>
 
             <!-- Scroll Hint -->
-            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30 animate-pulse-slow">
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
                 <div class="w-[1px] h-16 bg-gradient-to-b from-transparent via-gray-500 to-transparent"></div>
             </div>
         </section>
@@ -417,7 +359,7 @@
         <section id="about" class="py-32 px-6 border-t border-white/5">
             <div class="max-w-7xl mx-auto">
                 <div class="flex justify-center mb-24 opacity-0 animate-slide-up scroll-reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-600">
+                    <h2 class="text-4xl md:text-5xl font-bold text-center text-white">
                         Journey
                     </h2>
                 </div>
@@ -457,7 +399,7 @@
         <section id="research" class="py-32 px-6 border-t border-white/5">
             <div class="max-w-7xl mx-auto">
                  <div class="flex justify-center mb-24 scroll-reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-600">
+                    <h2 class="text-4xl md:text-5xl font-bold text-center text-white">
                         Research
                     </h2>
                 </div>
@@ -465,7 +407,7 @@
                 <div class="grid md:grid-cols-2 gap-6" id="cards-container">
                     
                     <!-- Card 1 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full">
+                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
                         <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-blue-500/20 text-blue-400 px-3 py-1 rounded-full bg-blue-500/5">AAAI 2026</span>
                             <a href="https://arxiv.org/abs/2511.08581" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
@@ -496,7 +438,7 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full">
+                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
                          <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/5">IJCAI 2025</span>
                             <a href="https://www.ijcai.org/proceedings/2025/0535.pdf" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
@@ -527,7 +469,7 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full">
+                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
                          <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-amber-500/20 text-amber-400 px-3 py-1 rounded-full bg-amber-500/5">XAI 2025</span>
                             <a href="https://link.springer.com/chapter/10.1007/978-3-032-08324-1_14" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
@@ -559,7 +501,7 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full">
+                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
                         <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-purple-500/20 text-purple-400 px-3 py-1 rounded-full bg-purple-500/5">NeSy 2025</span>
                             <a href="https://proceedings.mlr.press/v284/ontiveros25a.html" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
@@ -588,8 +530,7 @@
                     </div>
                     
                     <!-- Card 5 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full relative overflow-hidden">
-                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-red-600/10 blur-[80px] rounded-full pointer-events-none"></div>
+                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
                         <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-red-500/20 text-red-400 px-3 py-1 rounded-full bg-red-500/5">Nature Comms. 2024</span>
                             <a href="https://www.nature.com/articles/s43856-024-00519-6" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
@@ -618,7 +559,7 @@
                     </div>
 
                     <!-- Card 6 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full">
+                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
                         <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full bg-cyan-500/5">J. Cheminf. 2024</span>
                             <a href="https://link.springer.com/article/10.1186/s13321-024-00873-6" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
@@ -629,7 +570,7 @@
                             <a href="https://link.springer.com/article/10.1186/s13321-024-00873-6" target="_blank" class="text-2xl font-bold text-gray-100 group-hover:text-cyan-400 transition-colors block leading-tight">Physicochemical modelling of the retention mechanism</a>
                         </h3>
                         <div class="text-sm text-gray-500 mb-4 leading-relaxed relative z-10 font-mono">
-                            Elena Bandini, <strong class="text-gray-300">Rodrigo Castellano Ontiveros</strong>, Ardiana Kajtazi, Hamed Eghbali, Frédéric Lynen
+                            Elena Bandini, <strong class="text-gray-300">R. Castellano Ontiveros</strong>, Ardiana Kajtazi, Hamed Eghbali, Frédéric Lynen
                         </div>
                         <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow relative z-10">
                             Applied Machine Learning algorithms to model the retention mechanisms in HPLC columns.
@@ -642,7 +583,7 @@
                     </div>
 
                     <!-- Card 7 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full">
+                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
                         <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-pink-500/20 text-pink-400 px-3 py-1 rounded-full bg-pink-500/5">F. Physiol. 2023</span>
                             <a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1296277/full" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
@@ -675,7 +616,7 @@
         <section id="journey" class="py-32 px-6 border-t border-white/5">
             <div class="max-w-5xl mx-auto">
                 <div class="flex justify-center mb-24 scroll-reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-600">
+                    <h2 class="text-4xl md:text-5xl font-bold text-center text-white">
                         Experience
                     </h2>
                 </div>
@@ -885,14 +826,14 @@
         <section id="projects" class="py-32 px-6 border-t border-white/5">
             <div class="max-w-7xl mx-auto">
                  <div class="flex justify-center mb-24 scroll-reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-600">
+                    <h2 class="text-4xl md:text-5xl font-bold text-center text-white">
                         Software<br>& Code
                     </h2>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-4">
                     
-                    <a href="https://desion.de/en/free-fall-inspection-systems/" target="_blank" id="desion-card" class="spotlight-card md:col-span-2 group relative overflow-hidden min-h-[300px] flex flex-col justify-end p-8" style="transition: transform 0.15s ease-out, opacity 0.15s ease-out; transform-origin: center center; will-change: transform, opacity;">
+                    <a href="https://desion.de/en/free-fall-inspection-systems/" target="_blank" class="spotlight-card md:col-span-2 group relative overflow-hidden min-h-[300px] flex flex-col justify-end p-8 scroll-reveal">
                         <img src="desion.gif" alt="Desion" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-700 grayscale group-hover:grayscale-0">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
                         
@@ -903,7 +844,7 @@
                         </div>
                     </a>
 
-                    <a href="https://github.com/rodrigo-castellano/Grounding-Methods" target="_blank" class="spotlight-card group p-8 flex flex-col justify-between min-h-[300px]">
+                    <a href="https://github.com/rodrigo-castellano/Grounding-Methods" target="_blank" class="spotlight-card group p-8 flex flex-col justify-between min-h-[300px] scroll-reveal">
                         <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-emerald-400 border border-white/10 group-hover:scale-110 transition-transform relative z-10">
                             <i class="fas fa-network-wired"></i>
                         </div>
@@ -913,7 +854,7 @@
                         </div>
                     </a>
 
-                     <a href="https://github.com/rodrigo-castellano/ML_based_rPPG_construction" target="_blank" class="spotlight-card group p-8 flex flex-col justify-between min-h-[300px]">
+                     <a href="https://github.com/rodrigo-castellano/ML_based_rPPG_construction" target="_blank" class="spotlight-card group p-8 flex flex-col justify-between min-h-[300px] scroll-reveal">
                         <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-pink-400 border border-white/10 group-hover:scale-110 transition-transform relative z-10">
                             <i class="fas fa-heartbeat"></i>
                         </div>
@@ -923,7 +864,7 @@
                         </div>
                     </a>
 
-                     <a href="https://github.com/rodrigo-castellano/Bachelor-thesis" target="_blank" class="spotlight-card group p-8 flex flex-col justify-between min-h-[300px]">
+                     <a href="https://github.com/rodrigo-castellano/Bachelor-thesis" target="_blank" class="spotlight-card group p-8 flex flex-col justify-between min-h-[300px] scroll-reveal">
                         <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-indigo-400 border border-white/10 group-hover:scale-110 transition-transform relative z-10">
                             <i class="fas fa-meteor"></i>
                         </div>
@@ -933,7 +874,7 @@
                         </div>
                     </a>
 
-                     <a href="https://github.com/rodrigo-castellano/Speech_tech__Accent_embeddings" target="_blank" class="spotlight-card group p-8 flex flex-col justify-between min-h-[300px]">
+                     <a href="https://github.com/rodrigo-castellano/Speech_tech__Accent_embeddings" target="_blank" class="spotlight-card group p-8 flex flex-col justify-between min-h-[300px] scroll-reveal">
                         <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-yellow-400 border border-white/10 group-hover:scale-110 transition-transform relative z-10">
                             <i class="fas fa-microphone-lines"></i>
                         </div>
@@ -948,11 +889,9 @@
         </section>
 
         <footer class="py-20 border-t border-white/10 text-center bg-black relative overflow-hidden">
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05),transparent_70%)] pointer-events-none"></div>
-            
             <div class="max-w-4xl mx-auto px-6 relative z-10">
                 <div class="flex justify-center mb-12 scroll-reveal">
-                    <h2 class="text-3xl md:text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-600">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center text-white">
                         Let's Collaborate
                     </h2>
                 </div>
@@ -1000,37 +939,7 @@
         window.addEventListener('scroll', updateActiveNav);
         updateActiveNav();
 
-        // --- 1. Smooth Scroll Logic ---
-        const zoomElements = document.querySelectorAll('.scroll-reveal');
-
-        function handleScrollZoom() {
-            const windowHeight = window.innerHeight;
-            const centerPoint = windowHeight / 2;
-
-            zoomElements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                const elementCenter = rect.top + (rect.height / 2);
-                
-                const distanceFromCenter = Math.abs(centerPoint - elementCenter);
-                const maxDist = windowHeight / 1.5;
-                let scale = 0.9;
-                let opacity = 0.2;
-                
-                if (distanceFromCenter < maxDist) {
-                    const factor = 1 - (distanceFromCenter / maxDist);
-                    scale = 0.9 + (factor * 0.1); // Subtle zoom
-                    opacity = 0.2 + (factor * 0.8);
-                }
-                
-                el.style.transform = `scale(${scale})`;
-                el.style.opacity = opacity;
-            });
-        }
-
-        window.addEventListener('scroll', handleScrollZoom);
-        handleScrollZoom();
-
-        // --- 2. Interactive Starfield Engine ---
+        // --- 1. Interactive Starfield Engine ---
         const canvas = document.getElementById('canvas-container');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -1046,10 +955,10 @@
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.3; // Slow speed
+                this.vx = (Math.random() - 0.5) * 0.3;
                 this.vy = (Math.random() - 0.5) * 0.3;
-                this.size = Math.random() * 2; // Increased size
-                this.color = 'rgba(255, 255, 255, 0.8)'; // Increased opacity
+                this.size = Math.random() * 2;
+                this.color = 'rgba(255, 255, 255, 0.8)';
             }
             update() {
                 this.x += this.vx;
@@ -1067,7 +976,7 @@
 
         function initParticles() {
             particles = [];
-            for (let i = 0; i < 120; i++) { // Increased count
+            for (let i = 0; i < 120; i++) {
                 particles.push(new Particle());
             }
         }
@@ -1077,14 +986,12 @@
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update();
                 particles[i].draw();
-                // Draw connections
                 for (let j = i; j < particles.length; j++) {
                     let dx = particles[i].x - particles[j].x;
                     let dy = particles[i].y - particles[j].y;
                     let dist = Math.sqrt(dx*dx + dy*dy);
                     if (dist < 100) {
                         ctx.beginPath();
-                        // Increased line opacity
                         ctx.strokeStyle = `rgba(255, 255, 255, ${0.25 - dist/1000})`;
                         ctx.lineWidth = 0.5;
                         ctx.moveTo(particles[i].x, particles[i].y);
@@ -1095,90 +1002,24 @@
             }
             requestAnimationFrame(animateParticles);
         }
-        // Skip starfield on mobile or if user prefers reduced motion
         const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (window.innerWidth > 768 && !prefersReduced) {
             initParticles();
             animateParticles();
         }
 
-        // --- 4. Typewriter ---
-        const words = ["Neuro-symbolic AI", "Reinforcement Learning", "Logic Reasoning"];
-        let i = 0;
-        let typewriterTimer;
-
-        function typeWriter() {
-            const heading = document.getElementById("typewriter");
-            const word = words[i];
-            const current = heading.innerHTML;
-            
-            if (heading.getAttribute("data-deleting") === "true") {
-                heading.innerHTML = current.substring(0, current.length - 1);
-                if (heading.innerHTML.length === 0) {
-                    heading.setAttribute("data-deleting", "false");
-                    i = (i + 1) % words.length;
-                    typewriterTimer = setTimeout(typeWriter, 500);
-                } else {
-                    typewriterTimer = setTimeout(typeWriter, 50);
+        // --- 2. Scroll Reveal (IntersectionObserver) ---
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
                 }
-            } else {
-                heading.innerHTML = word.substring(0, current.length + 1);
-                if (heading.innerHTML === word) {
-                    heading.setAttribute("data-deleting", "true");
-                    typewriterTimer = setTimeout(typeWriter, 2000);
-                } else {
-                    typewriterTimer = setTimeout(typeWriter, 100);
-                }
-            }
-        }
-        typeWriter();
-
-        // --- Desion scroll zoom (Apple-style) ---
-        const desionCard = document.getElementById('desion-card');
-        let desionZoomed = false;
-
-        function handleDesionZoom() {
-            if (!desionCard) return;
-            const rect = desionCard.getBoundingClientRect();
-            const windowH = window.innerHeight;
-
-            if (!desionZoomed) {
-                // Card top has entered the viewport — animate from small to big
-                const entryProgress = Math.max(0, Math.min(1, (windowH - rect.top) / (windowH * 0.4)));
-                const scale = 0.6 + entryProgress * 0.4;
-                const opacity = 0.3 + entryProgress * 0.7;
-                desionCard.style.transform = `scale(${scale})`;
-                desionCard.style.opacity = opacity;
-                if (entryProgress >= 1) desionZoomed = true;
-            } else {
-                // Stay at full scale while visible
-                if (rect.bottom < 0 || rect.top > windowH) {
-                    desionZoomed = false;
-                    desionCard.style.transform = `scale(0.6)`;
-                    desionCard.style.opacity = '0.3';
-                } else {
-                    desionCard.style.transform = `scale(1)`;
-                    desionCard.style.opacity = '1';
-                }
-            }
-        }
-
-        window.addEventListener('scroll', handleDesionZoom);
-        handleDesionZoom();
-
-        // --- 5. Spotlight CSS Var ---
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.spotlight-card');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
             });
-        });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
 
-        // --- 6. Map ---
+        // --- 2. Map ---
         let map;
         const countryColors = {
             'ES': '#3b82f6', 'FI': '#a855f7', 'DE': '#ec4899', 'SE': '#06b6d4',
