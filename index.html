@@ -298,6 +298,12 @@
             box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
             transform: scale(1.2);
         }
+
+        /* --- Active Nav Link --- */
+        .nav-link.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -312,11 +318,11 @@
     <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 max-w-[90vw]">
         <div class="glass-nav flex items-center p-1.5 rounded-full transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl hover:shadow-blue-900/10">
             <div class="flex items-center px-2 gap-1 overflow-x-auto no-scrollbar">
-                <a href="#home" class="px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Home</a>
-                <a href="#about" class="px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">About</a>
-                <a href="#research" class="px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Research</a>
-                <a href="#journey" class="px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Journey</a>
-                <a href="#projects" class="px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Projects</a>
+                <a href="#home" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Home</a>
+                <a href="#about" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">About</a>
+                <a href="#research" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Research</a>
+                <a href="#journey" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Experience</a>
+                <a href="#projects" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Projects</a>
             </div>
             
             <!-- Contact Dropdown -->
@@ -327,17 +333,23 @@
                 </button>
                 
                 <!-- Dropdown Menu -->
-                <div class="absolute right-0 top-full mt-3 w-auto min-w-[160px] bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right scale-95 group-hover:scale-100">
-                    <a href="mailto:rodrigo.castellano@unisi.it" target="_blank" class="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/5 hover:text-white transition-colors rounded-xl relative group/item">
-                        <i class="fas fa-envelope text-blue-400"></i>
+                <div class="absolute right-0 top-full mt-3 w-auto min-w-[160px] bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right scale-95 group-hover:scale-100 py-1">
+                    <a href="mailto:rodrigo.castellano@unisi.it" target="_blank" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
+                        <i class="fas fa-envelope text-blue-400 w-4 text-center"></i>
                         <span class="text-sm font-medium">Email</span>
-                        
-                        <!-- Tooltip for Nav -->
-                        <span class="absolute right-full top-1/2 -translate-y-1/2 mr-3 px-3 py-1.5 bg-white text-black text-xs font-semibold rounded opacity-0 group-hover/item:opacity-100 transition-opacity whitespace-nowrap shadow-[0_0_20px_rgba(255,255,255,0.3)] pointer-events-none">
-                            rodrigo.castellano@unisi.it
-                            <span class="absolute top-1/2 -translate-y-1/2 left-full border-4 border-transparent border-l-white"></span>
-                        </span>
                     </a>
+                    <a href="https://www.linkedin.com/in/rodrigo-castellano/" target="_blank" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin text-blue-400 w-4 text-center"></i>
+                        <span class="text-sm font-medium">LinkedIn</span>
+                    </a>
+                    <!-- <a href="https://github.com/rodrigo-castellano" target="_blank" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
+                        <i class="fab fa-github text-gray-400 w-4 text-center"></i>
+                        <span class="text-sm font-medium">GitHub</span>
+                    </a>
+                    <a href="https://scholar.google.com/citations?hl=en&user=ik1125wAAAAJ" target="_blank" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
+                        <i class="fas fa-graduation-cap text-yellow-400 w-4 text-center"></i>
+                        <span class="text-sm font-medium">Scholar</span> -->
+                    <!-- </a> -->
                 </div>
             </div>
         </div>
@@ -664,7 +676,7 @@
             <div class="max-w-5xl mx-auto">
                 <div class="flex justify-center mb-24 scroll-reveal">
                     <h2 class="text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-600">
-                        Academic<br>& Industry
+                        Experience
                     </h2>
                 </div>
 
@@ -823,6 +835,10 @@
                                 <div class="text-sm text-green-400 font-medium mb-2 mt-1">Istanbul, Turkey</div>
                                 <p class="text-sm text-gray-400 leading-relaxed">Oral: Interpretable Link Prediction via Neural-Symbolic Reasoning</p>
                              </div>
+                        </div>
+
+                        <!-- Column 2 -->
+                        <div class="space-y-12 border-l border-white/5 pl-8 relative">
                              <!-- SMiLe -->
                              <div class="log-item group">
                                 <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">June 2025</span>
@@ -832,10 +848,6 @@
                                 <div class="text-sm text-green-400 font-medium mb-2 mt-1">The Netherlands</div>
                                 <p class="text-sm text-gray-400 leading-relaxed">Poster: Scalable grounding and explainable NeSy methods</p>
                              </div>
-                        </div>
-
-                        <!-- Column 2 -->
-                        <div class="space-y-12 border-l border-white/5 pl-8 relative">
                              <!-- Winter School Umea -->
                              <div class="log-item group">
                                 <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Mar 2025</span>
@@ -881,7 +893,7 @@
                 <div class="grid md:grid-cols-3 gap-4">
                     
                     <a href="https://desion.de/en/free-fall-inspection-systems/" target="_blank" class="spotlight-card md:col-span-2 group relative overflow-hidden min-h-[300px] flex flex-col justify-end p-8">
-                        <img src="desion.gif" alt="Desion" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-700 grayscale group-hover:grayscale-0">
+                        <img src="desion.gif" alt="Desion" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-700 grayscale group-hover:grayscale-0">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
                         
                         <div class="relative z-10">
@@ -956,7 +968,7 @@
                     <a href="https://www.linkedin.com/in/rodrigo-castellano/" target="_blank" aria-label="LinkedIn profile" class="text-gray-400 hover:text-blue-400 transition-colors text-2xl p-2"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/rodrigo-castellano" target="_blank" aria-label="GitHub profile" class="text-gray-400 hover:text-white transition-colors text-2xl p-2"><i class="fab fa-github"></i></a>
                 </div>
-                <p class="text-gray-600 font-mono text-xs uppercase tracking-widest">&copy; 2025 Rodrigo Castellano Ontiveros</p>
+                <p class="text-gray-600 font-mono text-xs uppercase tracking-widest">&copy; 2026 Rodrigo Castellano Ontiveros</p>
             </div>
         </footer>
 
@@ -966,6 +978,28 @@
     <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js" defer></script>
 
     <script>
+        // --- 0. Active Nav on Scroll ---
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id], footer');
+
+        function updateActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 200;
+                if (window.scrollY >= top) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+
         // --- 1. Smooth Scroll Logic ---
         const zoomElements = document.querySelectorAll('.scroll-reveal');
 
@@ -1061,8 +1095,12 @@
             }
             requestAnimationFrame(animateParticles);
         }
-        initParticles();
-        animateParticles();
+        // Skip starfield on mobile or if user prefers reduced motion
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (window.innerWidth > 768 && !prefersReduced) {
+            initParticles();
+            animateParticles();
+        }
 
         // --- 4. Typewriter ---
         const words = ["Neuro-symbolic AI", "Reinforcement Learning", "Logic Reasoning"];
@@ -1124,7 +1162,7 @@
                 selector: '#world-map',
                 map: 'world',
                 zoomButtons: true,
-                zoomOnScroll: false,
+                zoomOnScroll: true,
                 backgroundColor: 'transparent',
                 focusOn: {
                     regions: ['PT', 'ES', 'FR', 'DE', 'IT', 'CH', 'AT', 'BE', 'NL', 'DK', 'SE', 'NO', 'FI', 'GB', 'IE', 'PL', 'CZ', 'GR', 'TR', 'UA', 'CA', 'US', 'SG', 'CY'],
