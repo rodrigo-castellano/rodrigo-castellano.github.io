@@ -892,7 +892,7 @@
 
                 <div class="grid md:grid-cols-3 gap-4">
                     
-                    <a href="https://desion.de/en/free-fall-inspection-systems/" target="_blank" class="spotlight-card md:col-span-2 group relative overflow-hidden min-h-[300px] flex flex-col justify-end p-8">
+                    <a href="https://desion.de/en/free-fall-inspection-systems/" target="_blank" id="desion-card" class="spotlight-card md:col-span-2 group relative overflow-hidden min-h-[300px] flex flex-col justify-end p-8" style="transition: transform 0.15s ease-out, opacity 0.15s ease-out; transform-origin: center center; will-change: transform, opacity;">
                         <img src="desion.gif" alt="Desion" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-700 grayscale group-hover:grayscale-0">
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
                         
@@ -1132,6 +1132,39 @@
             }
         }
         typeWriter();
+
+        // --- Desion scroll zoom (Apple-style) ---
+        const desionCard = document.getElementById('desion-card');
+        let desionZoomed = false;
+
+        function handleDesionZoom() {
+            if (!desionCard) return;
+            const rect = desionCard.getBoundingClientRect();
+            const windowH = window.innerHeight;
+
+            if (!desionZoomed) {
+                // Card top has entered the viewport — animate from small to big
+                const entryProgress = Math.max(0, Math.min(1, (windowH - rect.top) / (windowH * 0.4)));
+                const scale = 0.6 + entryProgress * 0.4;
+                const opacity = 0.3 + entryProgress * 0.7;
+                desionCard.style.transform = `scale(${scale})`;
+                desionCard.style.opacity = opacity;
+                if (entryProgress >= 1) desionZoomed = true;
+            } else {
+                // Stay at full scale while visible
+                if (rect.bottom < 0 || rect.top > windowH) {
+                    desionZoomed = false;
+                    desionCard.style.transform = `scale(0.6)`;
+                    desionCard.style.opacity = '0.3';
+                } else {
+                    desionCard.style.transform = `scale(1)`;
+                    desionCard.style.opacity = '1';
+                }
+            }
+        }
+
+        window.addEventListener('scroll', handleDesionZoom);
+        handleDesionZoom();
 
         // --- 5. Spotlight CSS Var ---
         document.addEventListener('mousemove', (e) => {
