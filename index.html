@@ -35,14 +35,14 @@
     <meta name="twitter:description" content="PhD Researcher in Neuro-symbolic AI and Deep Learning at the University of Siena.">
     <meta name="twitter:image" content="https://rodrigocastellano.com/image/banner.png">
 
-    <link rel="icon" type="image/png" href="image/favicon.png">
+    <link rel="icon" type="image/png" href="image/favicon.png?v=2">
 
     <!-- Fonts: Inter for UI, Space Grotesk for Tech Headers -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css" media="print" onload="this.media='all'">
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -414,7 +414,10 @@
                     <!-- Profile Card -->
                     <div class="lg:col-span-4">
                         <div class="spotlight-card p-3">
-                            <img src="image/rodrigo.jpg" alt="Rodrigo Castellano" class="w-full rounded-lg object-cover h-[420px] grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 shadow-2xl shadow-black">
+                            <picture>
+                                <source srcset="image/rodrigo.webp" type="image/webp">
+                                <img src="image/rodrigo.jpg" alt="Rodrigo Castellano" width="2458" height="3264" loading="lazy" decoding="async" class="w-full rounded-lg object-cover h-[420px] grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 shadow-2xl shadow-black">
+                            </picture>
                             <div class="p-5 relative z-10">
                                 <div class="flex items-center justify-between mb-1">
                                     <h3 class="font-bold text-white text-lg">Rodrigo Castellano Ontiveros</h3>
@@ -453,7 +456,7 @@
                     <div class="spotlight-card group p-8 flex flex-col h-full">
                         <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-blue-500/20 text-blue-400 px-3 py-1 rounded-full bg-blue-500/5">AAAI 2026</span>
-                            <a href="https://arxiv.org/abs/2511.08581" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
+                            <a href="https://arxiv.org/abs/2511.08581" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
                                 <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
                             </a>
                         </div>
@@ -484,7 +487,7 @@
                     <div class="spotlight-card group p-8 flex flex-col h-full">
                          <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/5">IJCAI 2025</span>
-                            <a href="https://www.ijcai.org/proceedings/2025/0535.pdf" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
+                            <a href="https://www.ijcai.org/proceedings/2025/0535.pdf" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
                                 <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
                             </a>
                         </div>
@@ -515,7 +518,7 @@
                     <div class="spotlight-card group p-8 flex flex-col h-full">
                          <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-amber-500/20 text-amber-400 px-3 py-1 rounded-full bg-amber-500/5">XAI 2025</span>
-                            <a href="https://link.springer.com/chapter/10.1007/978-3-032-08324-1_14" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
+                            <a href="https://link.springer.com/chapter/10.1007/978-3-032-08324-1_14" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
                                 <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
                             </a>
                         </div>
@@ -547,7 +550,7 @@
                     <div class="spotlight-card group p-8 flex flex-col h-full">
                         <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-purple-500/20 text-purple-400 px-3 py-1 rounded-full bg-purple-500/5">NeSy 2025</span>
-                            <a href="https://proceedings.mlr.press/v284/ontiveros25a.html" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
+                            <a href="https://proceedings.mlr.press/v284/ontiveros25a.html" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
                                 <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
                             </a>
                         </div>
@@ -577,7 +580,7 @@
                         <div class="absolute -right-20 -top-20 w-64 h-64 bg-red-600/10 blur-[80px] rounded-full pointer-events-none"></div>
                         <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-red-500/20 text-red-400 px-3 py-1 rounded-full bg-red-500/5">Nature Comms. 2024</span>
-                            <a href="https://www.nature.com/articles/s43856-024-00519-6" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
+                            <a href="https://www.nature.com/articles/s43856-024-00519-6" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
                                 <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
                             </a>
                         </div>
@@ -606,7 +609,7 @@
                     <div class="spotlight-card group p-8 flex flex-col h-full">
                         <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full bg-cyan-500/5">J. Cheminf. 2024</span>
-                            <a href="https://link.springer.com/article/10.1186/s13321-024-00873-6" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
+                            <a href="https://link.springer.com/article/10.1186/s13321-024-00873-6" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
                                 <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
                             </a>
                         </div>
@@ -630,7 +633,7 @@
                     <div class="spotlight-card group p-8 flex flex-col h-full">
                         <div class="flex justify-between items-start mb-6 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-pink-500/20 text-pink-400 px-3 py-1 rounded-full bg-pink-500/5">F. Physiol. 2023</span>
-                            <a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1296277/full" target="_blank" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
+                            <a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1296277/full" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
                                 <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
                             </a>
                         </div>
@@ -950,8 +953,8 @@
                             <span class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-white"></span>
                         </span>
                     </a>
-                    <a href="https://www.linkedin.com/in/rodrigo-castellano/" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors text-2xl p-2"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/rodrigo-castellano" target="_blank" class="text-gray-400 hover:text-white transition-colors text-2xl p-2"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/rodrigo-castellano/" target="_blank" aria-label="LinkedIn profile" class="text-gray-400 hover:text-blue-400 transition-colors text-2xl p-2"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/rodrigo-castellano" target="_blank" aria-label="GitHub profile" class="text-gray-400 hover:text-white transition-colors text-2xl p-2"><i class="fab fa-github"></i></a>
                 </div>
                 <p class="text-gray-600 font-mono text-xs uppercase tracking-widest">&copy; 2025 Rodrigo Castellano Ontiveros</p>
             </div>
@@ -959,8 +962,8 @@
 
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/js/jsvectormap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/js/jsvectormap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js" defer></script>
 
     <script>
         // --- 1. Smooth Scroll Logic ---
