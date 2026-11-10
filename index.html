@@ -32,7 +32,7 @@
     <meta property="twitter:domain" content="rodrigocastellano.com">
     <meta property="twitter:url" content="https://rodrigocastellano.com/">
     <meta name="twitter:title" content="Rodrigo Castellano Ontiveros | AI Researcher">
-    <meta name="twitter:description" content="PhD Researcher in Neuro-symbolic AI and Deep Learning at the University of Siena.">
+    <meta name="twitter:description" content="PhD Researcher in Neuro-symbolic AI and Reinforcement Learning at the University of Siena.">
     <meta name="twitter:image" content="https://rodrigocastellano.com/image/banner.jpg">
 
     <link rel="canonical" href="https://rodrigocastellano.com/">
@@ -58,7 +58,8 @@
         ]
     }
     </script>
-    <link rel="icon" type="image/png" href="image/favicon.png?v=3">
+    <link rel="icon" type="image/png" sizes="192x192" href="image/favicon.png?v=5">
+    <link rel="icon" type="image/svg+xml" href="image/favicon.svg?v=5">
 
     <!-- Fonts: Inter for UI, Space Grotesk for Tech Headers -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,43 +69,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css" media="print" onload="this.media='all'">
 
     <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) {}</script>
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Space Grotesk', 'monospace'],
-                    },
-                    colors: {
-                        dark: {
-                            bg: '#050505', // Deep black
-                            surface: '#0F0F0F',
-                            border: '#27272A',
-                        }
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.8s ease-out forwards',
-                        'slide-up': 'slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
         /* --- Core Aesthetics --- */
         body {
@@ -281,6 +245,7 @@
         html.light ::-webkit-scrollbar-track { background: #fafafa; }
         html.light ::-webkit-scrollbar-thumb { background: #c4c4c4; border-color: #fafafa; }
         html.light .text-white, html.light .text-gray-100, html.light .hover\:text-white:hover, html.light .group:hover .group-hover\:text-white { color: #0a0a0a; }
+        html.light .text-gray-200 { color: #1f2937; }
         html.light .text-gray-300 { color: #374151; }
         html.light .text-gray-400 { color: #4b5563; }
         html.light .text-gray-500 { color: #6b7280; }
@@ -334,6 +299,7 @@
         html.light .text-indigo-400, html.light .hover\:text-indigo-400:hover, html.light .group:hover .group-hover\:text-indigo-400 { color: #4f46e5; }
         html.light .hover\:text-indigo-300:hover { color: #4338ca; }
     </style>
+    <link rel="stylesheet" href="css/tailwind.css?v=3">
 </head>
 <body class="antialiased">
 
@@ -341,26 +307,26 @@
     <canvas id="canvas-container"></canvas>
 
     <!-- Navigation -->
-    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 max-w-[90vw]">
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 max-w-[96vw] sm:max-w-[90vw]">
         <div class="glass-nav flex items-center p-1.5 rounded-full transition-all duration-300">
-            <div class="flex items-center px-2 gap-1 overflow-x-auto no-scrollbar">
-                <a href="#home" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Home</a>
-                <a href="#about" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">About</a>
-                <a href="#research" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Research</a>
-                <a href="#journey" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Experience</a>
-                <a href="#projects" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Projects</a>
+            <div class="flex items-center px-1 sm:px-2 gap-0.5 sm:gap-1 overflow-x-auto no-scrollbar">
+                <a href="#home" class="nav-link hidden sm:inline-block px-2 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Home</a>
+                <a href="#about" class="nav-link px-2 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Journey</a>
+                <a href="#research" class="nav-link px-2 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Research</a>
+                <a href="#journey" class="nav-link px-2 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Experience</a>
+                <a href="#projects" class="nav-link px-2 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">Projects</a>
             </div>
             
             <!-- Contact Dropdown -->
             <div class="relative group ml-1">
-                <button class="px-5 py-2 rounded-full text-sm font-bold bg-white text-black hover:bg-gray-200 transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)] whitespace-nowrap flex items-center gap-2">
-                    Contact
-                    <i class="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                <button aria-label="Contact" class="px-3 sm:px-5 py-2 rounded-full text-sm font-bold bg-white text-black hover:bg-gray-200 transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)] whitespace-nowrap flex items-center gap-2">
+                    <span class="hidden sm:inline">Contact</span><i class="fas fa-envelope sm:hidden"></i>
+                    <i class="fas fa-chevron-down hidden sm:inline text-[10px] transition-transform group-hover:rotate-180"></i>
                 </button>
                 
                 <!-- Dropdown Menu -->
                 <div class="absolute right-0 top-full mt-3 w-auto min-w-[160px] bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right scale-95 group-hover:scale-100 py-1">
-                    <a href="mailto:rodrigo.castellano@unisi.it" target="_blank" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
+                    <a href="mailto:rodrigo.castellano@unisi.it" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
                         <i class="fas fa-envelope text-blue-400 w-4 text-center"></i>
                         <span class="text-sm font-medium">Email</span>
                     </a>
@@ -373,12 +339,12 @@
                         <span class="text-sm font-medium">GitHub</span>
                     </a>
                     <a href="https://scholar.google.com/citations?hl=en&user=ik1125wAAAAJ" target="_blank" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-white/5 hover:text-white transition-colors">
-                        <i class="fas fa-graduation-cap text-yellow-400 w-4 text-center"></i>
+                        <i class="fas fa-graduation-cap text-blue-400 w-4 text-center"></i>
                         <span class="text-sm font-medium">Scholar</span> -->
                     <!-- </a> -->
                 </div>
             </div>
-            <button id="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme" class="ml-1 w-9 h-9 shrink-0 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/5 transition-all">
+            <button id="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme" class="ml-0.5 sm:ml-1 w-8 h-8 sm:w-9 sm:h-9 shrink-0 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/5 transition-all">
                 <i class="fas fa-sun text-sm"></i>
             </button>
         </div>
@@ -387,7 +353,7 @@
     <main class="relative z-10">
         
         <!-- HERO SECTION -->
-        <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <section id="home" class="min-h-[85vh] flex items-center justify-center px-6 pt-20">
             <div class="max-w-5xl w-full">
                 
                 <!-- Label -->
@@ -397,10 +363,7 @@
                 </div>
 
                 <!-- Title -->
-                <h1 class="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-[1] opacity-0 animate-slide-up" style="animation-delay: 200ms;">
-                    <span class="block text-white">Rodrigo</span>
-                    <span class="block text-gray-300">Castellano Ontiveros</span>
-                </h1>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight mb-6 leading-tight text-white opacity-0 animate-slide-up" style="animation-delay: 200ms;">Rodrigo Castellano Ontiveros</h1>
 
                 <!-- Content Grid -->
                 <div class="grid md:grid-cols-3 gap-12 opacity-0 animate-slide-up" style="animation-delay: 400ms;">
@@ -409,8 +372,8 @@
                             PhD researcher at the <span class="text-white font-medium">University of Siena</span>. <br>
                             Marie Skłodowska-Curie Fellow, <a href="https://lemur-dn.github.io/" target="_blank" class="text-blue-400 hover:text-blue-300 underline decoration-blue-500/30 underline-offset-4 hover:decoration-blue-400 transition-all">LeMuR Project</a>.
                         </p>
-                        <p class="text-lg text-gray-500 font-light leading-relaxed mb-6">
-                            My research aims to make <span class="text-gray-300">Neuro-symbolic reasoning</span> both scalable and transparent. I leverage <span class="text-gray-300">Reinforcement Learning</span> for efficiency and build <strong>interpretable-by-design models</strong> grounded in first-order logic.
+                        <p class="text-lg text-gray-400 font-light leading-relaxed mb-6">
+                            My research aims to make <span class="text-gray-200">Neuro-symbolic reasoning</span> both scalable and transparent. I leverage <span class="text-gray-200">Reinforcement Learning</span> for efficiency and build <strong class="text-gray-200 font-medium">interpretable-by-design models</strong> grounded in first-order logic.
                         </p>
                         <div class="flex items-center gap-3 text-blue-400/80 font-mono text-sm">
                             <i class="fas fa-terminal text-xs"></i>
@@ -443,10 +406,10 @@
         </section>
 
         <!-- ABOUT & MAP SECTION -->
-        <section id="about" class="py-32 px-6 border-t border-white/5">
+        <section id="about" class="py-20 px-6 border-t border-white/5">
             <div class="max-w-7xl mx-auto">
-                <div class="flex justify-center mb-24 opacity-0 animate-slide-up scroll-reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold text-center text-white">
+                <div class="flex justify-center mb-12 opacity-0 animate-slide-up scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center text-white">
                         Journey
                     </h2>
                 </div>
@@ -459,12 +422,6 @@
                                 <source srcset="image/rodrigo.webp" type="image/webp">
                                 <img src="image/rodrigo.jpg" alt="Rodrigo Castellano" width="900" height="1195" loading="lazy" decoding="async" class="w-full rounded-lg object-cover h-[420px] grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 shadow-2xl shadow-black">
                             </picture>
-                            <div class="p-5 relative z-10">
-                                <div class="flex items-center justify-between mb-1">
-                                    <h3 class="font-bold text-white text-lg">Rodrigo Castellano Ontiveros</h3>
-                                </div>
-                                <p class="text-xs font-mono text-gray-400 tracking-wide">Marie Skłodowska-Curie Fellow</p>
-                            </div>
                         </div>
                     </div>
 
@@ -483,28 +440,25 @@
         </section>
 
         <!-- RESEARCH SECTION -->
-        <section id="research" class="py-32 px-6 border-t border-white/5">
-            <div class="max-w-7xl mx-auto">
-                 <div class="flex justify-center mb-24 scroll-reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold text-center text-white">
+        <section id="research" class="py-20 px-6 border-t border-white/5">
+            <div class="max-w-4xl mx-auto">
+                 <div class="flex justify-center mb-12 scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center text-white">
                         Research
                     </h2>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-6" id="cards-container">
+                <div class="border-t border-white/5" id="cards-container">
                     
                     <!-- Card 1 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
-                        <div class="flex justify-between items-start mb-6 relative z-10">
+                    <div class="group py-7 flex flex-col border-b border-white/5 scroll-reveal">
+                        <div class="flex justify-between items-start mb-3 relative z-10">
                             <span class="font-mono text-[10px] uppercase tracking-widest border border-blue-500/20 text-blue-400 px-3 py-1 rounded-full bg-blue-500/5">AAAI 2026</span>
-                            <a href="https://doi.org/10.1609/aaai.v40i27.39396" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
-                                <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
-                            </a>
                         </div>
-                        <h3 class="relative z-10 mb-4">
-                            <a href="https://doi.org/10.1609/aaai.v40i27.39396" target="_blank" class="text-2xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors leading-tight">DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs</a>
+                        <h3 class="relative z-10 mb-2">
+                            <a href="https://doi.org/10.1609/aaai.v40i27.39396" target="_blank" class="text-xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors leading-tight">DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs</a>
                         </h3>
-                        <div class="text-sm text-gray-500 mb-4 leading-relaxed relative z-10 font-mono">
+                        <div class="text-sm text-gray-500 mb-3 leading-relaxed relative z-10 font-mono">
                             <a href="https://scholar.google.com/citations?hl=en&user=w0526qgAAAAJ" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">Y. Jiao</a>*, 
                             <strong class="text-gray-300">R. Castellano Ontiveros*</strong>, 
                             <a href="https://scholar.google.com/citations?hl=en&user=dgobB6AAAAAJ" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">L. De Raedt</a>, 
@@ -514,10 +468,10 @@
                             <a href="https://scholar.google.com/citations?hl=en&user=BBcsk7MAAAAJ" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">G. Marra</a>
                             <div class="text-xs text-gray-600 mt-2">* Equal contribution</div>
                         </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow relative z-10">
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4 relative z-10">
                             A novel NeSy system mapping the resolution process of Deep Stochastic Logic Programs to Markov Decision Processes, enabling efficient Reinforcement Learning for logic proving.
                         </p>
-                        <div class="mt-auto pt-6 border-t border-white/5 relative z-10 flex gap-6">
+                        <div class="relative z-10 flex gap-6">
                             <a href="https://github.com/DeepProofLog/DPrL-AAAI" target="_blank" class="text-xs font-mono text-gray-500 hover:text-white transition-colors flex items-center gap-2">
                                 <i class="fas fa-code"></i> Code
                             </a>
@@ -528,27 +482,24 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
-                         <div class="flex justify-between items-start mb-6 relative z-10">
-                            <span class="font-mono text-[10px] uppercase tracking-widest border border-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/5">IJCAI 2025</span>
-                            <a href="https://www.ijcai.org/proceedings/2025/0535.pdf" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
-                                <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
-                            </a>
+                    <div class="group py-7 flex flex-col border-b border-white/5 scroll-reveal">
+                         <div class="flex justify-between items-start mb-3 relative z-10">
+                            <span class="font-mono text-[10px] uppercase tracking-widest border border-blue-500/20 text-blue-400 px-3 py-1 rounded-full bg-blue-500/5">IJCAI 2025</span>
                         </div>
-                        <h3 class="relative z-10 mb-4">
-                            <a href="https://www.ijcai.org/proceedings/2025/0535.pdf" target="_blank" class="text-2xl font-bold text-gray-100 group-hover:text-emerald-400 transition-colors leading-tight">Grounding Methods for Neural-Symbolic AI</a>
+                        <h3 class="relative z-10 mb-2">
+                            <a href="https://www.ijcai.org/proceedings/2025/0535.pdf" target="_blank" class="text-xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors leading-tight">Grounding Methods for Neural-Symbolic AI</a>
                         </h3>
-                        <div class="text-sm text-gray-500 mb-4 leading-relaxed relative z-10 font-mono">
+                        <div class="text-sm text-gray-500 mb-3 leading-relaxed relative z-10 font-mono">
                             <strong class="text-gray-300">R. Castellano Ontiveros</strong>, 
                             <a href="https://scholar.google.com/citations?user=RO8aInMAAAAJ&hl=en&oi=ao" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">F. Giannini</a>, 
                             <a href="https://scholar.google.com/citations?user=wBMRRk0AAAAJ&hl=en&oi=ao" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">M. Gori</a>, 
                             <a href="https://scholar.google.com/citations?hl=en&user=BBcsk7MAAAAJ" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">G. Marra</a>, 
                             <a href="https://scholar.google.com/citations?hl=en&user=qI-LOjIAAAAJ" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">M. Diligenti</a>
                         </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow relative z-10">
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4 relative z-10">
                             Proposes a parameterized family of grounding methods generalizing Backward Chaining to control the trade-off between scalability and expressiveness.
                         </p>
-                        <div class="mt-auto pt-6 border-t border-white/5 relative z-10 flex gap-6">
+                        <div class="relative z-10 flex gap-6">
                             <a href="https://github.com/rodrigo-castellano/Grounding-Methods" target="_blank" class="text-xs font-mono text-gray-500 hover:text-white transition-colors flex items-center gap-2">
                                 <i class="fas fa-code"></i> Code
                             </a>
@@ -559,17 +510,14 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
-                         <div class="flex justify-between items-start mb-6 relative z-10">
-                            <span class="font-mono text-[10px] uppercase tracking-widest border border-amber-500/20 text-amber-400 px-3 py-1 rounded-full bg-amber-500/5">XAI 2025</span>
-                            <a href="https://link.springer.com/chapter/10.1007/978-3-032-08324-1_14" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
-                                <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
-                            </a>
+                    <div class="group py-7 flex flex-col border-b border-white/5 scroll-reveal">
+                         <div class="flex justify-between items-start mb-3 relative z-10">
+                            <span class="font-mono text-[10px] uppercase tracking-widest border border-blue-500/20 text-blue-400 px-3 py-1 rounded-full bg-blue-500/5">XAI 2025</span>
                         </div>
-                        <h3 class="relative z-10 mb-4">
-                             <a href="https://link.springer.com/chapter/10.1007/978-3-032-08324-1_14" target="_blank" class="text-2xl font-bold text-gray-100 group-hover:text-amber-400 transition-colors leading-tight">Interpretable Link Prediction via Neural-Symbolic Reasoning</a>
+                        <h3 class="relative z-10 mb-2">
+                             <a href="https://link.springer.com/chapter/10.1007/978-3-032-08324-1_14" target="_blank" class="text-xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors leading-tight">Interpretable Link Prediction via Neural-Symbolic Reasoning</a>
                         </h3>
-                        <div class="text-sm text-gray-500 mb-4 leading-relaxed relative z-10 font-mono">
+                        <div class="text-sm text-gray-500 mb-3 leading-relaxed relative z-10 font-mono">
                             <strong class="text-gray-300">R. Castellano Ontiveros</strong>, 
                             <a href="https://scholar.google.com/citations?user=ntrVmgQAAAAJ&hl=en" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">E. Bonabi Mobaraki</a>, 
                             <a href="https://scholar.google.com/citations?user=RO8aInMAAAAJ&hl=en&oi=ao" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">F. Giannini</a>, 
@@ -577,10 +525,10 @@
                             <a href="https://scholar.google.com/citations?user=wBMRRk0AAAAJ&hl=en&oi=ao" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">M. Gori</a>,
                             <a href="https://scholar.google.com/citations?hl=en&user=qI-LOjIAAAAJ" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">M. Diligenti</a>
                         </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow relative z-10">
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4 relative z-10">
                             Introduces interpretable-by-design R-CBM-style models that output explicit proof trees, evaluated using XAI metrics like coherence.
                         </p>
-                        <div class="mt-auto pt-6 border-t border-white/5 relative z-10 flex gap-6">
+                        <div class="relative z-10 flex gap-6">
                             <a href="https://github.com/rodrigo-castellano/Interpretable-NeSy" target="_blank" class="text-xs font-mono text-gray-500 hover:text-white transition-colors flex items-center gap-2">
                                 <i class="fas fa-code"></i> Code
                             </a>
@@ -591,25 +539,22 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
-                        <div class="flex justify-between items-start mb-6 relative z-10">
-                            <span class="font-mono text-[10px] uppercase tracking-widest border border-purple-500/20 text-purple-400 px-3 py-1 rounded-full bg-purple-500/5">NeSy 2025</span>
-                            <a href="https://proceedings.mlr.press/v284/ontiveros25a.html" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
-                                <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
-                            </a>
+                    <div class="group py-7 flex flex-col border-b border-white/5 scroll-reveal">
+                        <div class="flex justify-between items-start mb-3 relative z-10">
+                            <span class="font-mono text-[10px] uppercase tracking-widest border border-blue-500/20 text-blue-400 px-3 py-1 rounded-full bg-blue-500/5">NeSy 2025</span>
                         </div>
-                        <h3 class="relative z-10 mb-4">
-                            <a href="https://proceedings.mlr.press/v284/ontiveros25a.html" target="_blank" class="text-2xl font-bold text-gray-100 group-hover:text-purple-400 transition-colors leading-tight">Distilling KGE Black Boxes into Interpretable NeSy Models</a>
+                        <h3 class="relative z-10 mb-2">
+                            <a href="https://proceedings.mlr.press/v284/ontiveros25a.html" target="_blank" class="text-xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors leading-tight">Distilling KGE Black Boxes into Interpretable NeSy Models</a>
                         </h3>
-                        <div class="text-sm text-gray-500 mb-4 leading-relaxed relative z-10 font-mono">
+                        <div class="text-sm text-gray-500 mb-3 leading-relaxed relative z-10 font-mono">
                             <strong class="text-gray-300">R. Castellano Ontiveros</strong>, 
                             <a href="https://scholar.google.com/citations?user=RO8aInMAAAAJ&hl=en&oi=ao" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">F. Giannini</a>, 
                             <a href="https://scholar.google.com/citations?hl=en&user=qI-LOjIAAAAJ" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">M. Diligenti</a>
                         </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow relative z-10">
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4 relative z-10">
                             A framework to distill Knowledge Graph Embeddings into interpretable Neuro-symbolic models, ensuring high fidelity while providing logic proofs.
                         </p>
-                        <div class="mt-auto pt-6 border-t border-white/5 relative z-10 flex gap-6">
+                        <div class="relative z-10 flex gap-6">
                             <a href="https://github.com/rodrigo-castellano/KGE-Distillation" target="_blank" class="text-xs font-mono text-gray-500 hover:text-white transition-colors flex items-center gap-2">
                                 <i class="fas fa-code"></i> Code
                             </a>
@@ -620,25 +565,22 @@
                     </div>
                     
                     <!-- Card 5 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
-                        <div class="flex justify-between items-start mb-6 relative z-10">
-                            <span class="font-mono text-[10px] uppercase tracking-widest border border-red-500/20 text-red-400 px-3 py-1 rounded-full bg-red-500/5">Nature Comms. 2024</span>
-                            <a href="https://www.nature.com/articles/s43856-024-00519-6" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
-                                <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
-                            </a>
+                    <div class="group py-7 flex flex-col border-b border-white/5 scroll-reveal">
+                        <div class="flex justify-between items-start mb-3 relative z-10">
+                            <span class="font-mono text-[10px] uppercase tracking-widest border border-blue-500/20 text-blue-400 px-3 py-1 rounded-full bg-blue-500/5">Nature Comms. 2024</span>
                         </div>
-                        <h3 class="relative z-10 mb-4">
-                            <a href="https://www.nature.com/articles/s43856-024-00519-6" target="_blank" class="text-2xl font-bold text-gray-100 group-hover:text-red-400 transition-colors relative z-10 block leading-tight">Constructing Remote Photoplethysmogram Signals</a>
+                        <h3 class="relative z-10 mb-2">
+                            <a href="https://www.nature.com/articles/s43856-024-00519-6" target="_blank" class="text-xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors relative z-10 block leading-tight">Constructing Remote Photoplethysmogram Signals</a>
                         </h3>
                         <div class="text-sm text-gray-500 mb-4 relative z-10 leading-relaxed font-mono">
                             <strong class="text-gray-300">R. Castellano Ontiveros</strong>, 
                             <a href="https://scholar.google.com/citations?hl=en&user=-WFwzjoAAAAJ" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">M. Elgendi</a>, 
                             <a href="https://scholar.google.com/citations?hl=en&user=okZnorwAAAAJ" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">C. Menon</a>
                         </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-8 relative z-10 flex-grow">
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4 relative z-10">
                             Developed a novel ML methodology that achieved SOTA performance in rPPG signal reconstruction from video, allowing the extraction of different physiological parameters.
                         </p>
-                        <div class="mt-auto pt-6 border-t border-white/5 relative z-10 flex gap-6">
+                        <div class="relative z-10 flex gap-6">
                             <a href="https://github.com/rodrigo-castellano/ML_based_rPPG_construction" target="_blank" class="text-xs font-mono text-gray-500 hover:text-white transition-colors flex items-center gap-2">
                                 <i class="fas fa-code"></i> Code
                             </a>
@@ -649,23 +591,20 @@
                     </div>
 
                     <!-- Card 6 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
-                        <div class="flex justify-between items-start mb-6 relative z-10">
-                            <span class="font-mono text-[10px] uppercase tracking-widest border border-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full bg-cyan-500/5">J. Cheminf. 2024</span>
-                            <a href="https://link.springer.com/article/10.1186/s13321-024-00873-6" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
-                                <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
-                            </a>
+                    <div class="group py-7 flex flex-col border-b border-white/5 scroll-reveal">
+                        <div class="flex justify-between items-start mb-3 relative z-10">
+                            <span class="font-mono text-[10px] uppercase tracking-widest border border-blue-500/20 text-blue-400 px-3 py-1 rounded-full bg-blue-500/5">J. Cheminf. 2024</span>
                         </div>
-                        <h3 class="relative z-10 mb-4">
-                            <a href="https://link.springer.com/article/10.1186/s13321-024-00873-6" target="_blank" class="text-2xl font-bold text-gray-100 group-hover:text-cyan-400 transition-colors block leading-tight">Physicochemical modelling of the retention mechanism</a>
+                        <h3 class="relative z-10 mb-2">
+                            <a href="https://link.springer.com/article/10.1186/s13321-024-00873-6" target="_blank" class="text-xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors block leading-tight">Physicochemical modelling of the retention mechanism</a>
                         </h3>
-                        <div class="text-sm text-gray-500 mb-4 leading-relaxed relative z-10 font-mono">
+                        <div class="text-sm text-gray-500 mb-3 leading-relaxed relative z-10 font-mono">
                             E. Bandini, <strong class="text-gray-300">R. Castellano Ontiveros</strong>, A. Kajtazi, H. Eghbali, F. Lynen
                         </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow relative z-10">
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4 relative z-10">
                             Applied Machine Learning algorithms to model the retention mechanisms in HPLC columns.
                         </p>
-                        <div class="mt-auto pt-6 border-t border-white/5 relative z-10 flex gap-6">
+                        <div class="relative z-10 flex gap-6">
                             <a href="https://github.com/ebandini/TRLC_prediction" target="_blank" class="text-xs font-mono text-gray-500 hover:text-white transition-colors flex items-center gap-2">
                                 <i class="fas fa-code"></i> Code
                             </a>
@@ -676,26 +615,23 @@
                     </div>
 
                     <!-- Card 7 -->
-                    <div class="spotlight-card group p-8 flex flex-col h-full scroll-reveal">
-                        <div class="flex justify-between items-start mb-6 relative z-10">
-                            <span class="font-mono text-[10px] uppercase tracking-widest border border-pink-500/20 text-pink-400 px-3 py-1 rounded-full bg-pink-500/5">F. Physiol. 2023</span>
-                            <a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1296277/full" target="_blank" aria-label="View paper" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/20 transition-all">
-                                <i class="fas fa-arrow-right -rotate-45 text-gray-400 group-hover:text-white text-sm"></i>
-                            </a>
+                    <div class="group py-7 flex flex-col border-b border-white/5 scroll-reveal">
+                        <div class="flex justify-between items-start mb-3 relative z-10">
+                            <span class="font-mono text-[10px] uppercase tracking-widest border border-blue-500/20 text-blue-400 px-3 py-1 rounded-full bg-blue-500/5">F. Physiol. 2023</span>
                         </div>
-                        <h3 class="relative z-10 mb-4">
-                             <a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1296277/full" target="_blank" class="text-2xl font-bold text-gray-100 group-hover:text-pink-400 transition-colors block leading-tight">Evaluating RGB channels in remote photoplethysmography</a>
+                        <h3 class="relative z-10 mb-2">
+                             <a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1296277/full" target="_blank" class="text-xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors block leading-tight">Evaluating RGB channels in remote photoplethysmography</a>
                         </h3>
-                        <div class="text-sm text-gray-500 mb-4 leading-relaxed relative z-10 font-mono">
+                        <div class="text-sm text-gray-500 mb-3 leading-relaxed relative z-10 font-mono">
                             <strong class="text-gray-300">R. Castellano Ontiveros</strong>, 
                             <a href="https://scholar.google.com/citations?hl=en&user=-WFwzjoAAAAJ" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">M. Elgendi</a>, 
                             <a href="https://scholar.google.com/citations?user=JrDYAbMAAAAJ&hl=en" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">G. Missale</a>, 
                             <a href="https://scholar.google.com/citations?hl=en&user=okZnorwAAAAJ" target="_blank" class="hover:text-white transition-colors border-b border-gray-800 hover:border-gray-500">C. Menon</a>
                         </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow relative z-10">
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4 relative z-10">
                             A comparative study of the efficacy of RGB channels in remote photoplethysmography (rPPG) when compared with contact-based PPG.
                         </p>
-                        <div class="mt-auto pt-6 border-t border-white/5 relative z-10">
+                        <div class="relative z-10 flex gap-6">
                             <a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1296277/full" target="_blank" class="text-xs font-mono text-gray-500 hover:text-white transition-colors flex items-center gap-2">
                                 <i class="fas fa-file-pdf"></i> PDF
                             </a>
@@ -706,273 +642,247 @@
             </div>
         </section>
 
-        <section id="journey" class="py-32 px-6 border-t border-white/5">
+        <section id="journey" class="py-20 px-6 border-t border-white/5">
             <div class="max-w-5xl mx-auto">
-                <div class="flex justify-center mb-24 scroll-reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold text-center text-white">
-                        Experience
+                <div class="flex justify-center mb-12 scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center text-white">
+                        Experience & Education
                     </h2>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-16 mb-20">
-                    
-                    <div>
-                        <div class="flex items-center gap-3 mb-12">
-                            <div class="p-2 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20"><i class="fas fa-briefcase"></i></div>
-                            <h3 class="text-xl font-bold tracking-wide">Experience</h3>
+                <div>
+                    <div class="flex items-center gap-3 mb-10 justify-center">
+                        <div class="p-2 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20"><i class="fas fa-briefcase"></i></div>
+                        <h3 class="text-xl font-bold tracking-wide">Experience</h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Oct 2025 — Present</span>
+                        <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Visiting Researcher</h4>
+                        <a href="https://www.bakerhughes.com/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">Baker Hughes. Florence, Italy</a>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                        Integrating logic reasoning systems with LLM agents.
+                        </p>
                         </div>
-                        
-                        <div class="space-y-12 border-l border-white/5 pl-8 relative">
-                            <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Oct 2025 — Present</span>
-                                <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Visiting Researcher</h4>
-                                <a href="https://www.bakerhughes.com/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">Baker Hughes. Florence, Italy</a>
-                                <p class="text-sm text-gray-400 leading-relaxed">
-                                    Integrating logic reasoning systems with LLM agents.
-                                </p>
-                            </div>
-                            <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Sep 2024 — Dec 2024</span>
-                                <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Visiting Researcher</h4>
-                                <a href="https://www.kuleuven.be/english/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">KU Leuven. Leuven, Belgium</a>
-                                <p class="text-sm text-gray-400 leading-relaxed">
-                                    Developed DeepProofLog. Collaboration with <a href="https://scholar.google.com/citations?hl=en&user=w0526qgAAAAJ" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Ying Jiao</a>, <a href="https://scholar.google.com/citations?hl=en&user=BBcsk7MAAAAJ" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Prof. Giuseppe Marra</a>, and <a href="https://scholar.google.com/citations?hl=en&user=dgobB6AAAAAJ" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Prof. Luc De Raedt</a>.
-                                </p>
-                            </div>
-                            <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Apr 2023 — Oct 2023</span>
-                                <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Trainee</h4>
-                                <a href="https://www.ing.jobs/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">ING Bank. Brussels, Belgium</a>
-                                <p class="text-sm text-gray-400 leading-relaxed">
-                                    International Talent Programme. Rotational data science/analytics graduate program.
-                                </p>
-                            </div>
-                             <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Oct 2022 — Feb 2023</span>
-                                <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Master Thesis Researcher</h4>
-                                <a href="https://ethz.ch/en.html" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">ETH Zürich. Zürich, Switzerland</a>
-                                <p class="text-sm text-gray-400 leading-relaxed">
-                                    rPPG extraction from video. Awarded Karl Engver's Foundation Grant. Supervised by <a href="https://scholar.google.com/citations?hl=en&user=okZnorwAAAAJ" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Prof. Carlo Menon</a> and <a href="https://scholar.google.com/citations?hl=en&user=-WFwzjoAAAAJ" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Prof. Moe Elgendi</a>.
-                                </p>
-                            </div>
-                             <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Nov 2021 — Apr 2022</span>
-                                <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Teaching Assistant</h4>
-                                <a href="https://www.kth.se/en" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">KTH Royal Institute of Technology. Stockholm, Sweden</a>
-                                <p class="text-sm text-gray-400 leading-relaxed">
-                                    Supported courses in Artificial Intelligence (DD2380) and Machine Learning (DD2421).
-                                </p>
-                            </div>
-                            <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Oct 2020 — Jun 2021</span>
-                                <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">AI Applied Scientist</h4>
-                                <a href="https://desion.de/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">Desion, Fraunhofer Institute. Darmstadt, Germany</a>
-                                <p class="text-sm text-gray-400 leading-relaxed">
-                                    Built automated visual inspection systems with Computer Vision models (Mask R-CNN, Faster R-CNN) using synthetic data. Synthetic data created with Unreal Engine.
-                                </p>
-                            </div>
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Sep 2024 — Dec 2024</span>
+                        <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Visiting Researcher</h4>
+                        <a href="https://www.kuleuven.be/english/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">KU Leuven. Leuven, Belgium</a>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                        Developed DeepProofLog. Collaboration with <a href="https://scholar.google.com/citations?hl=en&user=w0526qgAAAAJ" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Ying Jiao</a>, <a href="https://scholar.google.com/citations?hl=en&user=BBcsk7MAAAAJ" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Prof. Giuseppe Marra</a>, and <a href="https://scholar.google.com/citations?hl=en&user=dgobB6AAAAAJ" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Prof. Luc De Raedt</a>.
+                        </p>
+                        </div>
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Apr 2023 — Oct 2023</span>
+                        <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Trainee</h4>
+                        <a href="https://www.ing.jobs/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">ING Bank. Brussels, Belgium</a>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                        International Talent Programme. Rotational data science/analytics graduate program.
+                        </p>
+                        </div>
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Oct 2022 — Feb 2023</span>
+                        <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Master Thesis Researcher</h4>
+                        <a href="https://ethz.ch/en.html" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">ETH Zürich. Zürich, Switzerland</a>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                        rPPG extraction from video. Awarded Karl Engver's Foundation Grant. Supervised by <a href="https://scholar.google.com/citations?hl=en&user=okZnorwAAAAJ" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Prof. Carlo Menon</a> and <a href="https://scholar.google.com/citations?hl=en&user=-WFwzjoAAAAJ" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Prof. Moe Elgendi</a>.
+                        </p>
+                        </div>
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Nov 2021 — Apr 2022</span>
+                        <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Teaching Assistant</h4>
+                        <a href="https://www.kth.se/en" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">KTH Royal Institute of Technology. Stockholm, Sweden</a>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                        Supported courses in Artificial Intelligence (DD2380) and Machine Learning (DD2421).
+                        </p>
+                        </div>
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Oct 2020 — Jun 2021</span>
+                        <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">AI Applied Scientist</h4>
+                        <a href="https://desion.de/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">Desion, Fraunhofer Institute. Darmstadt, Germany</a>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                        Built automated visual inspection systems with Computer Vision models (Mask R-CNN, Faster R-CNN) using synthetic data. Synthetic data created with Unreal Engine.
+                        </p>
                         </div>
                     </div>
-
-                    <div>
-                        <div class="flex items-center gap-3 mb-12">
-                            <div class="p-2 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20"><i class="fas fa-graduation-cap"></i></div>
-                            <h3 class="text-xl font-bold tracking-wide">Education</h3>
-                        </div>
-
-                        <div class="space-y-12 border-l border-white/5 pl-8 relative">
-                            <div class="log-item group hover:border-l-purple-500/50">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Nov 2023 — Present</span>
-                                <h4 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">PhD Researcher in AI</h4>
-                                <a href="https://www.unisi.it/" target="_blank" class="text-sm text-purple-400 font-medium mb-3 hover:text-purple-300 inline-block border-b border-purple-500/30 hover:border-purple-400 transition-all">University of Siena. Siena, Italy</a>
-                                <p class="text-sm text-gray-400 leading-relaxed">
-                                    Marie Skłodowska-Curie Fellow. Project LeMuR: Learning with Multiple Representations.
-                                    Supervisors: <a href="https://scholar.google.com/citations?user=wBMRRk0AAAAJ&hl=en&oi=ao" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Prof. Marco Gori</a>, <a href="https://scholar.google.com/citations?hl=en&user=qI-LOjIAAAAJ" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Prof. Michelangelo Diligenti</a>, <a href="https://scholar.google.com/citations?user=RO8aInMAAAAJ&hl=en&oi=ao" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Dr. Francesco Giannini</a>.
-                                </p>
-                            </div>
-                            <div class="log-item group hover:border-l-purple-500/50">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Apr 2021 — Apr 2023</span>
-                                <h4 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">MSc in Machine Learning</h4>
-                                <a href="https://www.kth.se/en/studies/master/machine-learning/msc-machine-learning-1.48533" target="_blank" class="text-sm text-purple-400 font-medium mb-3 hover:text-purple-300 inline-block border-b border-purple-500/30 hover:border-purple-400 transition-all">KTH Royal Institute of Technology. Stockholm, Sweden</a>
-                            </div>
-                            <div class="log-item group hover:border-l-purple-500/50">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Sep 2021 — Mar 2022</span>
-                                <h4 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">Exchange Master Student</h4>
-                                <a href="https://www.rwth-aachen.de/" target="_blank" class="text-sm text-purple-400 font-medium mb-3 hover:text-purple-300 inline-block border-b border-purple-500/30 hover:border-purple-400 transition-all">RWTH Aachen University. Aachen, Germany</a>
-                            </div>
-                            <div class="log-item group hover:border-l-purple-500/50">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Sept 2018 — Jun 2019</span>
-                                <h4 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">Exchange Bachelor Student</h4>
-                                <a href="https://www.helsinki.fi/en" target="_blank" class="text-sm text-purple-400 font-medium mb-3 hover:text-purple-300 inline-block border-b border-purple-500/30 hover:border-purple-400 transition-all">University of Helsinki. Helsinki, Finland</a>
-                            </div>
-                            <div class="log-item group hover:border-l-purple-500/50">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Oct 2015 — Nov 2020</span>
-                                <h4 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">BSc in Physics</h4>
-                                <a href="https://www.ugr.es/en/study/undergraduate/programmes/physics" target="_blank" class="text-sm text-purple-400 font-medium mb-3 hover:text-purple-300 inline-block border-b border-purple-500/30 hover:border-purple-400 transition-all">University of Granada. Granada, Spain.</a>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-
-                <!-- NEW SECTION: Participation & Dissemination -->
-                <div class="mt-20 pt-16 border-t border-white/5 relative">
-                    <div class="flex items-center gap-3 mb-16 justify-center">
-                        <div class="p-2 rounded bg-green-500/10 text-green-400 border border-green-500/20"><i class="fas fa-globe"></i></div>
+                <div class="mt-14 pt-12 border-t border-white/5">
+                    <div class="flex items-center gap-3 mb-10 justify-center">
+                        <div class="p-2 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20"><i class="fas fa-graduation-cap"></i></div>
+                        <h3 class="text-xl font-bold tracking-wide">Education</h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+                        <div class="log-item group hover:border-l-blue-500/50">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Nov 2023 — Present</span>
+                        <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">PhD Researcher in AI</h4>
+                        <a href="https://www.unisi.it/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">University of Siena. Siena, Italy</a>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                        Marie Skłodowska-Curie Fellow. Project LeMuR: Learning with Multiple Representations.
+                        Supervisors: <a href="https://scholar.google.com/citations?user=wBMRRk0AAAAJ&hl=en&oi=ao" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Prof. Marco Gori</a>, <a href="https://scholar.google.com/citations?hl=en&user=qI-LOjIAAAAJ" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Prof. Michelangelo Diligenti</a>, <a href="https://scholar.google.com/citations?user=RO8aInMAAAAJ&hl=en&oi=ao" class="hover:text-white border-b border-gray-700 hover:border-white transition-all" target="_blank">Dr. Francesco Giannini</a>.
+                        </p>
+                        </div>
+                        <div class="log-item group hover:border-l-blue-500/50">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Apr 2021 — Apr 2023</span>
+                        <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">MSc in Machine Learning</h4>
+                        <a href="https://www.kth.se/en/studies/master/machine-learning/msc-machine-learning-1.48533" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">KTH Royal Institute of Technology. Stockholm, Sweden</a>
+                        </div>
+                        <div class="log-item group hover:border-l-blue-500/50">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Sep 2021 — Mar 2022</span>
+                        <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Exchange Master Student</h4>
+                        <a href="https://www.rwth-aachen.de/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">RWTH Aachen University. Aachen, Germany</a>
+                        </div>
+                        <div class="log-item group hover:border-l-blue-500/50">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Sept 2018 — Jun 2019</span>
+                        <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Exchange Bachelor Student</h4>
+                        <a href="https://www.helsinki.fi/en" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">University of Helsinki. Helsinki, Finland</a>
+                        </div>
+                        <div class="md:col-span-2 md:w-[calc(50%-2rem)] md:mx-auto log-item group hover:border-l-blue-500/50">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Oct 2015 — Nov 2020</span>
+                        <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">BSc in Physics</h4>
+                        <a href="https://www.ugr.es/en/study/undergraduate/programmes/physics" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">University of Granada. Granada, Spain.</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-14 pt-12 border-t border-white/5">
+                    <div class="flex items-center gap-3 mb-10 justify-center">
+                        <div class="p-2 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20"><i class="fas fa-globe"></i></div>
                         <h3 class="text-xl font-bold tracking-wide">Participation & Dissemination</h3>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <!-- Column 1 -->
-                        <div class="space-y-12 border-l border-white/5 pl-8 relative">
-                             <!-- Winter School Cyprus -->
-                             <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Mar 2026</span>
-                                <h4 class="text-lg font-bold text-white transition-colors">
-                                    <a href="https://www.kios.ucy.ac.cy/lemurwinterschool/" target="_blank" class="hover:text-green-400 border-b-2 border-green-500/30 hover:border-green-400 transition-all pb-0.5">Winter School</a>
-                                </h4>
-                                <div class="text-sm text-green-400 font-medium mb-2 mt-1">Online (Cyprus)</div>
-                                <p class="text-sm text-gray-400 leading-relaxed">Poster: Scaling Probabilistic Logic with Reinforcement Learning methods</p>
-                             </div>
-                             <!-- AAAI -->
-                             <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Jan 2026</span>
-                                <h4 class="text-lg font-bold text-white transition-colors">
-                                    <a href="https://aaai.org/conference/aaai/aaai-26/" target="_blank" class="hover:text-green-400 border-b-2 border-green-500/30 hover:border-green-400 transition-all pb-0.5">AAAI 2026</a>
-                                </h4>
-                                <div class="text-sm text-green-400 font-medium mb-2 mt-1">Singapore</div>
-                                <p class="text-sm text-gray-400 leading-relaxed">Poster & Oral: DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs</p>
-                             </div>
-                             <!-- IJCAI -->
-                             <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Aug 2025</span>
-                                <h4 class="text-lg font-bold text-white transition-colors">
-                                    <a href="https://www.ijcai.org/" target="_blank" class="hover:text-green-400 border-b-2 border-green-500/30 hover:border-green-400 transition-all pb-0.5">IJCAI 2025</a>
-                                </h4>
-                                <div class="text-sm text-green-400 font-medium mb-2 mt-1">Montreal, Canada</div>
-                                <p class="text-sm text-gray-400 leading-relaxed">Poster & Oral: Grounding Methods for Neural-Symbolic AI</p>
-                             </div>
-                             <!-- NeSy -->
-                             <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Aug 2025</span>
-                                <h4 class="text-lg font-bold text-white transition-colors">
-                                    <a href="https://2025.nesyconf.org/" target="_blank" class="hover:text-green-400 border-b-2 border-green-500/30 hover:border-green-400 transition-all pb-0.5">NeSy 2025</a>
-                                </h4>
-                                <div class="text-sm text-green-400 font-medium mb-2 mt-1">Santa Cruz, US</div>
-                                <p class="text-sm text-gray-400 leading-relaxed">Poster: Distilling KGE black boxes into interpretable NeSy models</p>
-                             </div>
-                             <!-- XAI -->
-                             <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">July 2025</span>
-                                <h4 class="text-lg font-bold text-white transition-colors">
-                                    <a href="https://xaiworldconference.com/2025/" target="_blank" class="hover:text-green-400 border-b-2 border-green-500/30 hover:border-green-400 transition-all pb-0.5">XAI 2025</a>
-                                </h4>
-                                <div class="text-sm text-green-400 font-medium mb-2 mt-1">Istanbul, Turkey</div>
-                                <p class="text-sm text-gray-400 leading-relaxed">Oral: Interpretable Link Prediction via Neural-Symbolic Reasoning</p>
-                             </div>
+                    <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Mar 2026</span>
+                        <h4 class="text-lg font-bold text-white transition-colors">
+                        <a href="https://www.kios.ucy.ac.cy/lemurwinterschool/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">Winter School</a>
+                        </h4>
+                        <div class="text-sm text-blue-400 font-medium mb-2 mt-1">Online (Cyprus)</div>
+                        <p class="text-sm text-gray-400 leading-relaxed">Poster: Scaling Probabilistic Logic with Reinforcement Learning methods</p>
                         </div>
-
-                        <!-- Column 2 -->
-                        <div class="space-y-12 border-l border-white/5 pl-8 relative">
-                             <!-- SMiLe -->
-                             <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">June 2025</span>
-                                <h4 class="text-lg font-bold text-white transition-colors">
-                                    <a href="https://dtai.cs.kuleuven.be/events/SML25/" target="_blank" class="hover:text-green-400 border-b-2 border-green-500/30 hover:border-green-400 transition-all pb-0.5">SMiLe 2025</a>
-                                </h4>
-                                <div class="text-sm text-green-400 font-medium mb-2 mt-1">The Netherlands</div>
-                                <p class="text-sm text-gray-400 leading-relaxed">Poster: Scalable grounding and explainable NeSy methods</p>
-                             </div>
-                             <!-- Winter School Umea -->
-                             <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Mar 2025</span>
-                                <h4 class="text-lg font-bold text-white transition-colors">
-                                    <a href="https://mlwinterschoolumea.github.io/" target="_blank" class="hover:text-green-400 border-b-2 border-green-500/30 hover:border-green-400 transition-all pb-0.5">Winter School</a>
-                                </h4>
-                                <div class="text-sm text-green-400 font-medium mb-2 mt-1">Umeå, Sweden</div>
-                                <p class="text-sm text-gray-400 leading-relaxed">Poster: Explainability in FOL-based models</p>
-                             </div>
-                             <!-- Summer School Athens -->
-                             <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">July 2024</span>
-                                <h4 class="text-lg font-bold text-white transition-colors">
-                                    <a href="https://essai2024.di.uoa.gr/index.html" target="_blank" class="hover:text-green-400 border-b-2 border-green-500/30 hover:border-green-400 transition-all pb-0.5">Summer School</a>
-                                </h4>
-                                <div class="text-sm text-green-400 font-medium mb-2 mt-1">Athens, Greece</div>
-                                <p class="text-sm text-gray-400 leading-relaxed">Participant</p>
-                             </div>
-                             <!-- Winter School Paderborn -->
-                             <div class="log-item group">
-                                <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Feb 2024</span>
-                                <h4 class="text-lg font-bold text-white transition-colors">
-                                    <a href="https://indico.uni-paderborn.de/event/62/" target="_blank" class="hover:text-green-400 border-b-2 border-green-500/30 hover:border-green-400 transition-all pb-0.5">Winter School</a>
-                                </h4>
-                                <div class="text-sm text-green-400 font-medium mb-2 mt-1">Paderborn, Germany</div>
-                                <p class="text-sm text-gray-400 leading-relaxed">Poster: Grounding Methods in NeSy</p>
-                             </div>
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Jan 2026</span>
+                        <h4 class="text-lg font-bold text-white transition-colors">
+                        <a href="https://aaai.org/conference/aaai/aaai-26/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">AAAI 2026</a>
+                        </h4>
+                        <div class="text-sm text-blue-400 font-medium mb-2 mt-1">Singapore</div>
+                        <p class="text-sm text-gray-400 leading-relaxed">Poster & Oral: DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs</p>
+                        </div>
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Aug 2025</span>
+                        <h4 class="text-lg font-bold text-white transition-colors">
+                        <a href="https://www.ijcai.org/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">IJCAI 2025</a>
+                        </h4>
+                        <div class="text-sm text-blue-400 font-medium mb-2 mt-1">Montreal, Canada</div>
+                        <p class="text-sm text-gray-400 leading-relaxed">Poster & Oral: Grounding Methods for Neural-Symbolic AI</p>
+                        </div>
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Aug 2025</span>
+                        <h4 class="text-lg font-bold text-white transition-colors">
+                        <a href="https://2025.nesyconf.org/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">NeSy 2025</a>
+                        </h4>
+                        <div class="text-sm text-blue-400 font-medium mb-2 mt-1">Santa Cruz, US</div>
+                        <p class="text-sm text-gray-400 leading-relaxed">Poster: Distilling KGE black boxes into interpretable NeSy models</p>
+                        </div>
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">July 2025</span>
+                        <h4 class="text-lg font-bold text-white transition-colors">
+                        <a href="https://xaiworldconference.com/2025/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">XAI 2025</a>
+                        </h4>
+                        <div class="text-sm text-blue-400 font-medium mb-2 mt-1">Istanbul, Turkey</div>
+                        <p class="text-sm text-gray-400 leading-relaxed">Oral: Interpretable Link Prediction via Neural-Symbolic Reasoning</p>
+                        </div>
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">June 2025</span>
+                        <h4 class="text-lg font-bold text-white transition-colors">
+                        <a href="https://dtai.cs.kuleuven.be/events/SML25/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">SMiLe 2025</a>
+                        </h4>
+                        <div class="text-sm text-blue-400 font-medium mb-2 mt-1">The Netherlands</div>
+                        <p class="text-sm text-gray-400 leading-relaxed">Poster: Scalable grounding and explainable NeSy methods</p>
+                        </div>
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Mar 2025</span>
+                        <h4 class="text-lg font-bold text-white transition-colors">
+                        <a href="https://mlwinterschoolumea.github.io/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">Winter School</a>
+                        </h4>
+                        <div class="text-sm text-blue-400 font-medium mb-2 mt-1">Umeå, Sweden</div>
+                        <p class="text-sm text-gray-400 leading-relaxed">Poster: Explainability in FOL-based models</p>
+                        </div>
+                        <div class="log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">July 2024</span>
+                        <h4 class="text-lg font-bold text-white transition-colors">
+                        <a href="https://essai2024.di.uoa.gr/index.html" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">Summer School</a>
+                        </h4>
+                        <div class="text-sm text-blue-400 font-medium mb-2 mt-1">Athens, Greece</div>
+                        <p class="text-sm text-gray-400 leading-relaxed">Participant</p>
+                        </div>
+                        <div class="md:col-span-2 md:w-[calc(50%-2rem)] md:mx-auto log-item group">
+                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Feb 2024</span>
+                        <h4 class="text-lg font-bold text-white transition-colors">
+                        <a href="https://indico.uni-paderborn.de/event/62/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">Winter School</a>
+                        </h4>
+                        <div class="text-sm text-blue-400 font-medium mb-2 mt-1">Paderborn, Germany</div>
+                        <p class="text-sm text-gray-400 leading-relaxed">Poster: Grounding Methods in NeSy</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="projects" class="py-32 px-6 border-t border-white/5">
+        <section id="projects" class="py-20 px-6 border-t border-white/5">
             <div class="max-w-7xl mx-auto">
-                 <div class="flex justify-center mb-24 scroll-reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold text-center text-white">
-                        Software<br>& Code
+                 <div class="flex justify-center mb-12 scroll-reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center text-white">
+                        Projects
                     </h2>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-4">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     
-                    <a href="https://desion.de/en/free-fall-inspection-systems/" target="_blank" class="spotlight-card md:col-span-2 group relative overflow-hidden min-h-[300px] flex flex-col justify-end p-8 scroll-reveal">
+                    <a href="https://desion.de/en/free-fall-inspection-systems/" target="_blank" class="spotlight-card sm:col-span-2 lg:col-span-4 group relative overflow-hidden min-h-[260px] flex flex-col justify-end p-8 scroll-reveal">
                         <picture><source srcset="desion.webp" type="image/webp"><img src="desion.gif" alt="Desion" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-700 grayscale group-hover:grayscale-0"></picture>
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
                         
                         <div class="relative z-10">
-                            <span class="text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2 block">Computer Vision</span>
+                            <span class="text-blue-400 font-mono text-xs uppercase tracking-widest mb-2 block">Computer Vision</span>
                             <h3 class="text-3xl font-bold text-white mb-2">Free-fall Inspection Systems</h3>
                             <p class="text-gray-300 text-sm max-w-md">Automated visual inspection systems using Computer Vision and synthetic data created with Unreal Engine.</p>
                         </div>
                     </a>
 
-                    <a href="https://github.com/rodrigo-castellano/Grounding-Methods" target="_blank" class="spotlight-card group p-8 flex flex-col justify-between min-h-[300px] scroll-reveal">
-                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-emerald-400 border border-white/10 group-hover:scale-110 transition-transform relative z-10">
+                    <a href="https://github.com/rodrigo-castellano/Grounding-Methods" target="_blank" class="spotlight-card group p-6 flex flex-col gap-5 scroll-reveal">
+                        <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-blue-400 border border-white/10 group-hover:scale-110 transition-transform relative z-10">
                             <i class="fas fa-network-wired"></i>
                         </div>
                         <div class="relative z-10">
-                            <h3 class="text-xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">NeSy Grounding</h3>
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-blue-400 transition-colors">NeSy Grounding</h3>
                             <p class="text-gray-400 text-xs leading-relaxed">Parametrized grounding methods for scalable neuro-symbolic reasoning.</p>
                         </div>
                     </a>
 
-                     <a href="https://github.com/rodrigo-castellano/ML_based_rPPG_construction" target="_blank" class="spotlight-card group p-8 flex flex-col justify-between min-h-[300px] scroll-reveal">
-                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-pink-400 border border-white/10 group-hover:scale-110 transition-transform relative z-10">
+                     <a href="https://github.com/rodrigo-castellano/ML_based_rPPG_construction" target="_blank" class="spotlight-card group p-6 flex flex-col gap-5 scroll-reveal">
+                        <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-blue-400 border border-white/10 group-hover:scale-110 transition-transform relative z-10">
                             <i class="fas fa-heartbeat"></i>
                         </div>
                         <div class="relative z-10">
-                            <h3 class="text-xl font-bold mb-2 group-hover:text-pink-400 transition-colors">rPPG Construction</h3>
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-blue-400 transition-colors">rPPG Construction</h3>
                             <p class="text-gray-400 text-xs leading-relaxed">Physiological parameters extraction from video using Machine Learning techniques.</p>
                         </div>
                     </a>
 
-                     <a href="https://github.com/rodrigo-castellano/Bachelor-thesis" target="_blank" class="spotlight-card group p-8 flex flex-col justify-between min-h-[300px] scroll-reveal">
-                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-indigo-400 border border-white/10 group-hover:scale-110 transition-transform relative z-10">
+                     <a href="https://github.com/rodrigo-castellano/Bachelor-thesis" target="_blank" class="spotlight-card group p-6 flex flex-col gap-5 scroll-reveal">
+                        <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-blue-400 border border-white/10 group-hover:scale-110 transition-transform relative z-10">
                             <i class="fas fa-meteor"></i>
                         </div>
                         <div class="relative z-10">
-                            <h3 class="text-xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">Cosmic Rays</h3>
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-blue-400 transition-colors">Cosmic Rays</h3>
                             <p class="text-gray-400 text-xs leading-relaxed">Prediction of particles associated to cosmic rays detected by Cherenkov Telescope Array.</p>
                         </div>
                     </a>
 
-                     <a href="https://github.com/rodrigo-castellano/Speech_tech__Accent_embeddings" target="_blank" class="spotlight-card group p-8 flex flex-col justify-between min-h-[300px] scroll-reveal">
-                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-yellow-400 border border-white/10 group-hover:scale-110 transition-transform relative z-10">
+                     <a href="https://github.com/rodrigo-castellano/Speech_tech__Accent_embeddings" target="_blank" class="spotlight-card group p-6 flex flex-col gap-5 scroll-reveal">
+                        <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-blue-400 border border-white/10 group-hover:scale-110 transition-transform relative z-10">
                             <i class="fas fa-microphone-lines"></i>
                         </div>
                         <div class="relative z-10">
-                            <h3 class="text-xl font-bold mb-2 group-hover:text-yellow-400 transition-colors">Accent Embeddings</h3>
+                            <h3 class="text-lg font-bold mb-2 group-hover:text-blue-400 transition-colors">Accent Embeddings</h3>
                             <p class="text-gray-400 text-xs leading-relaxed">Speech technology project focused on accent classification.</p>
                         </div>
                     </a>
@@ -985,12 +895,12 @@
             <div class="max-w-4xl mx-auto px-6 relative z-10">
                 <div class="flex justify-center mb-12 scroll-reveal">
                     <h2 class="text-3xl md:text-4xl font-bold text-center text-white">
-                        Let's Collaborate
+                        Contact
                     </h2>
                 </div>
 
                 <div class="flex justify-center gap-8 mb-12">
-                    <a href="mailto:rodrigo.castellano@unisi.it" target="_blank" class="text-gray-400 hover:text-white transition-colors text-2xl relative group p-2">
+                    <a href="mailto:rodrigo.castellano@unisi.it" class="text-gray-400 hover:text-white transition-colors text-2xl relative group p-2">
                         <i class="fas fa-envelope"></i>
                         <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1 bg-white text-black text-xs font-medium rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
                             Email Me
@@ -1074,7 +984,7 @@
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
             }
             draw() {
-                ctx.fillStyle = `rgba(${themeRGB}, 0.8)`;
+                ctx.fillStyle = `rgba(${themeRGB}, 0.4)`;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -1083,7 +993,7 @@
 
         function initParticles() {
             particles = [];
-            for (let i = 0; i < 120; i++) {
+            for (let i = 0; i < 80; i++) {
                 particles.push(new Particle());
             }
         }
@@ -1099,7 +1009,7 @@
                     let dist = Math.sqrt(dx*dx + dy*dy);
                     if (dist < 100) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(${themeRGB}, ${0.25 - dist/1000})`;
+                        ctx.strokeStyle = `rgba(${themeRGB}, ${0.12 - dist/1000})`;
                         ctx.lineWidth = 0.5;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
