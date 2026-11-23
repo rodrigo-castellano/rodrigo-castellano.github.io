@@ -14,6 +14,7 @@ Website: https://rodrigocastellano.com/
 - [Semantic Scholar](https://www.semanticscholar.org/author/2309488700)
 - [DBLP](https://dblp.org/pid/379/2672.html)
 - [Scopus](https://www.scopus.com/authid/detail.uri?authorId=59180808000)
+- [Wikidata](https://www.wikidata.org/wiki/Q142261001)
 - [GitHub](https://github.com/rodrigo-castellano)
 - [LinkedIn](https://www.linkedin.com/in/rodrigo-castellano/)
 
