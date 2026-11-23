@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs (AAAI 2026) | Rodrigo Castellano Ontiveros</title>
+    <meta name="description" content="AAAI 2026 paper by Jiao, Castellano Ontiveros, De Raedt, Gori, Giannini, Diligenti, Marra. Neurosymbolic (NeSy) AI combines neural architectures and symbolic reasoning to improve accuracy, interpretability, and generalization.">
+    <meta name="author" content="Rodrigo Castellano Ontiveros">
+    <link rel="canonical" href="https://rodrigocastellano.com/papers/deepprooflog/">
+
+    <!-- Google Scholar / Highwire Press tags -->
+    <meta name="citation_title" content="DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs">
+    <meta name="citation_author" content="Jiao, Ying">
+    <meta name="citation_author" content="Castellano Ontiveros, Rodrigo">
+    <meta name="citation_author_orcid" content="0000-0003-2324-633X">
+    <meta name="citation_author_institution" content="University of Siena">
+    <meta name="citation_author" content="De Raedt, Luc">
+    <meta name="citation_author" content="Gori, Marco">
+    <meta name="citation_author_orcid" content="0000-0001-6337-5430">
+    <meta name="citation_author" content="Giannini, Francesco">
+    <meta name="citation_author" content="Diligenti, Michelangelo">
+    <meta name="citation_author_orcid" content="0000-0002-5805-8032">
+    <meta name="citation_author" content="Marra, Giuseppe">
+    <meta name="citation_author_orcid" content="0000-0001-5940-9562">
+    <meta name="citation_publication_date" content="2026/03/14">
+    <meta name="citation_conference_title" content="Proceedings of the AAAI Conference on Artificial Intelligence">
+    <meta name="citation_publisher" content="Association for the Advancement of Artificial Intelligence (AAAI)">
+    <meta name="citation_volume" content="40">
+    <meta name="citation_issue" content="27">
+    <meta name="citation_firstpage" content="22381">
+    <meta name="citation_lastpage" content="22389">
+    <meta name="citation_doi" content="10.1609/aaai.v40i27.39396">
+    <meta name="citation_arxiv_id" content="2511.08581">
+    <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2511.08581">
+    <meta name="citation_abstract_html_url" content="https://rodrigocastellano.com/papers/deepprooflog/">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://rodrigocastellano.com/papers/deepprooflog/">
+    <meta property="og:site_name" content="Rodrigo Castellano Ontiveros">
+    <meta property="og:title" content="DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs (AAAI 2026)">
+    <meta property="og:description" content="Neurosymbolic (NeSy) AI combines neural architectures and symbolic reasoning to improve accuracy, interpretability, and generalization.">
+    <meta property="og:image" content="https://rodrigocastellano.com/image/banner.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs (AAAI 2026)">
+    <meta name="twitter:description" content="Neurosymbolic (NeSy) AI combines neural architectures and symbolic reasoning to improve accuracy, interpretability, and generalization.">
+    <meta name="twitter:image" content="https://rodrigocastellano.com/image/banner.jpg">
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "ScholarlyArticle",
+            "@id": "https://rodrigocastellano.com/papers/deepprooflog/#article",
+            "headline": "DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs",
+            "name": "DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs",
+            "url": "https://rodrigocastellano.com/papers/deepprooflog/",
+            "datePublished": "2026-03-14",
+            "inLanguage": "en",
+            "author": [
+                {
+                    "@type": "Person",
+                    "name": "Ying Jiao"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Rodrigo Castellano Ontiveros",
+                    "givenName": "Rodrigo",
+                    "familyName": "Castellano Ontiveros",
+                    "url": "https://rodrigocastellano.com/",
+                    "sameAs": "https://orcid.org/0000-0003-2324-633X",
+                    "affiliation": {
+                        "@type": "Organization",
+                        "name": "University of Siena"
+                    }
+                },
+                {
+                    "@type": "Person",
+                    "name": "Luc De Raedt"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Marco Gori",
+                    "sameAs": "https://orcid.org/0000-0001-6337-5430"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Francesco Giannini"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Michelangelo Diligenti",
+                    "sameAs": "https://orcid.org/0000-0002-5805-8032"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Giuseppe Marra",
+                    "sameAs": "https://orcid.org/0000-0001-5940-9562"
+                }
+            ],
+            "isPartOf": {
+                "@type": "PublicationVolume",
+                "name": "Proceedings of the AAAI Conference on Artificial Intelligence"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Association for the Advancement of Artificial Intelligence (AAAI)"
+            },
+            "abstract": "Neurosymbolic (NeSy) AI combines neural architectures and symbolic reasoning to improve accuracy, interpretability, and generalization. While logic inference on top of subsymbolic modules has been shown to effectively guarantee these properties, this often comes at the cost of reduced scalability, which can severely limit the usability of NeSy models. This paper introduces DeepProofLog (DPrL), a novel NeSy system based on stochastic logic programs, which addresses the scalability limitations of previous methods. DPrL parameterizes all derivation steps with neural networks, allowing efficient neural guidance over the proving system. Additionally, we establish a formal mapping between the resolution process of our deep stochastic logic programs and Markov Decision Processes, enabling the application of dynamic programming and reinforcement learning techniques for efficient inference and learning. This theoretical connection improves scalability for complex proof spaces and large knowledge bases. Our experiments on standard NeSy benchmarks and knowledge graph reasoning tasks demonstrate that DPrL outperforms existing state-of-the-art NeSy systems, advancing scalability to larger and more complex settings than previously possible.",
+            "identifier": [
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "DOI",
+                    "value": "10.1609/aaai.v40i27.39396"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "propertyID": "arXiv",
+                    "value": "2511.08581"
+                }
+            ],
+            "sameAs": [
+                "https://doi.org/10.1609/aaai.v40i27.39396",
+                "https://arxiv.org/abs/2511.08581"
+            ],
+            "pageStart": "22381",
+            "pageEnd": "22389",
+            "encoding": {
+                "@type": "MediaObject",
+                "encodingFormat": "application/pdf",
+                "contentUrl": "https://arxiv.org/pdf/2511.08581"
+            }
+        },
+        {
+            "@type": "SoftwareSourceCode",
+            "name": "DPrL-AAAI",
+            "codeRepository": "https://github.com/DeepProofLog/DPrL-AAAI",
+            "isBasedOn": {
+                "@id": "https://rodrigocastellano.com/papers/deepprooflog/#article"
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Rodrigo Castellano Ontiveros",
+                    "item": "https://rodrigocastellano.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Research",
+                    "item": "https://rodrigocastellano.com/#research"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs"
+                }
+            ]
+        }
+    ]
+}
+    </script>
+
+    <link rel="icon" type="image/png" sizes="192x192" href="/image/favicon.png?v=5">
+    <link rel="icon" type="image/svg+xml" href="/image/favicon.svg?v=5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) {}</script>
+    <style>
+        :root {
+            --bg: #050505; --surface: rgba(255,255,255,0.03); --border: rgba(255,255,255,0.08);
+            --text: #e5e5e5; --strong: #f5f5f5; --muted: #9ca3af; --faint: #6b7280;
+            --accent: #60a5fa; --accent-bg: rgba(59,130,246,0.08); --accent-border: rgba(59,130,246,0.25);
+            --code-bg: #0f0f0f;
+        }
+        html.light {
+            --bg: #fafafa; --surface: rgba(0,0,0,0.025); --border: rgba(0,0,0,0.09);
+            --text: #1f2937; --strong: #0a0a0a; --muted: #4b5563; --faint: #6b7280;
+            --accent: #2563eb; --accent-bg: rgba(37,99,235,0.06); --accent-border: rgba(37,99,235,0.25);
+            --code-bg: #f3f4f6;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.65; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ::selection { background: rgba(59,130,246,0.3); }
+        .mono { font-family: 'Space Grotesk', monospace; }
+
+        .topbar { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); background: color-mix(in srgb, var(--bg) 80%, transparent); border-bottom: 1px solid var(--border); }
+        .topbar-inner { max-width: 820px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+        .crumbs { font-size: 14px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .crumbs a { color: var(--muted); }
+        .crumbs a:hover { color: var(--strong); }
+        .theme-btn { background: none; border: 1px solid var(--border); color: var(--muted); border-radius: 999px; width: 36px; height: 36px; cursor: pointer; font-size: 15px; flex-shrink: 0; }
+        .theme-btn:hover { color: var(--strong); }
+
+        main { max-width: 820px; margin: 0 auto; padding: 40px 16px 80px; }
+        .badge { display: inline-block; font-family: 'Space Grotesk', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: var(--accent-bg); border: 1px solid var(--accent-border); border-radius: 999px; padding: 4px 12px; }
+        h1 { color: var(--strong); font-size: clamp(28px, 5vw, 40px); line-height: 1.15; letter-spacing: -0.03em; margin: 18px 0 14px; text-wrap: balance; }
+        h2 { color: var(--strong); font-size: 20px; letter-spacing: -0.02em; margin: 44px 0 12px; }
+        .authors { font-family: 'Space Grotesk', monospace; font-size: 15px; color: var(--muted); }
+        .authors strong { color: var(--strong); font-weight: 600; }
+        .authors a { color: var(--muted); border-bottom: 1px solid var(--border); }
+        .authors a:hover { color: var(--strong); text-decoration: none; }
+        .venue { font-size: 14px; color: var(--faint); margin-top: 6px; }
+
+        .actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 8px; }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--border); color: var(--strong); font-size: 14px; font-weight: 500; background: var(--surface); cursor: pointer; font-family: inherit; }
+        .btn:hover { border-color: var(--accent-border); text-decoration: none; color: var(--accent); }
+        .btn.primary { background: var(--strong); color: var(--bg); border-color: var(--strong); }
+        .btn.primary:hover { opacity: 0.85; color: var(--bg); }
+        .abstract { color: var(--muted); font-size: 15px; }
+
+        pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px; overflow-x: auto; font-size: 13px; line-height: 1.5; color: var(--text); margin: 0; }
+        .cite-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .copy { font-size: 13px; padding: 6px 12px; }
+
+        .notice { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--faint); }
+        footer { border-top: 1px solid var(--border); text-align: center; padding: 32px 16px; font-family: 'Space Grotesk', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+        footer a { color: var(--muted); }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Rodrigo Castellano Ontiveros</a> &nbsp;/&nbsp; <a href="/#research">Research</a></nav>
+            <button id="theme-toggle" class="theme-btn" type="button" aria-label="Switch theme" title="Switch theme">&#9788;</button>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge">AAAI 2026</span>
+            <h1>DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs</h1>
+            <div class="authors">
+                <a href="https://scholar.google.com/citations?user=w0526qgAAAAJ" target="_blank" rel="noopener">Ying Jiao</a>*,
+                <strong>Rodrigo Castellano Ontiveros*</strong>,
+                <a href="https://scholar.google.com/citations?user=dgobB6AAAAAJ" target="_blank" rel="noopener">Luc De Raedt</a>,
+                <a href="https://scholar.google.com/citations?user=wBMRRk0AAAAJ" target="_blank" rel="noopener">Marco Gori</a>,
+                <a href="https://scholar.google.com/citations?user=RO8aInMAAAAJ" target="_blank" rel="noopener">Francesco Giannini</a>,
+                <a href="https://scholar.google.com/citations?user=qI-LOjIAAAAJ" target="_blank" rel="noopener">Michelangelo Diligenti</a>,
+                <a href="https://scholar.google.com/citations?user=BBcsk7MAAAAJ" target="_blank" rel="noopener">Giuseppe Marra</a>
+                <div class="venue">* Equal contribution</div>
+            </div>
+            <div class="venue">Proceedings of the AAAI Conference on Artificial Intelligence, 40(27), pp. 22381–22389, 2026</div>
+
+            <div class="actions">
+                <a class="btn primary" href="https://arxiv.org/pdf/2511.08581" target="_blank" rel="noopener">PDF (arXiv)</a>
+                <a class="btn" href="https://doi.org/10.1609/aaai.v40i27.39396" target="_blank" rel="noopener">Official version (DOI)</a>
+                <a class="btn" href="https://arxiv.org/abs/2511.08581" target="_blank" rel="noopener">arXiv</a>
+                <a class="btn" href="https://github.com/DeepProofLog/DPrL-AAAI" target="_blank" rel="noopener">Code</a>
+                <a class="btn" href="#cite">Cite</a>
+            </div>
+
+            <h2>Abstract</h2>
+            <p class="abstract">Neurosymbolic (NeSy) AI combines neural architectures and symbolic reasoning to improve accuracy, interpretability, and generalization. While logic inference on top of subsymbolic modules has been shown to effectively guarantee these properties, this often comes at the cost of reduced scalability, which can severely limit the usability of NeSy models. This paper introduces DeepProofLog (DPrL), a novel NeSy system based on stochastic logic programs, which addresses the scalability limitations of previous methods. DPrL parameterizes all derivation steps with neural networks, allowing efficient neural guidance over the proving system. Additionally, we establish a formal mapping between the resolution process of our deep stochastic logic programs and Markov Decision Processes, enabling the application of dynamic programming and reinforcement learning techniques for efficient inference and learning. This theoretical connection improves scalability for complex proof spaces and large knowledge bases. Our experiments on standard NeSy benchmarks and knowledge graph reasoning tasks demonstrate that DPrL outperforms existing state-of-the-art NeSy systems, advancing scalability to larger and more complex settings than previously possible.</p>
+
+            <h2 id="cite">Cite this paper</h2>
+            <div class="cite-head">
+                <span class="mono" style="font-size:13px;color:var(--faint)">BibTeX</span>
+                <button class="btn copy" type="button" data-copy="bibtex">Copy</button>
+            </div>
+<pre id="bibtex">@inproceedings{jiao2026deepprooflog,
+  title     = {{DeepProofLog}: Efficient Proving in Deep Stochastic Logic Programs},
+  author    = {Jiao, Ying and Castellano Ontiveros, Rodrigo and De Raedt, Luc and Gori, Marco and Giannini, Francesco and Diligenti, Michelangelo and Marra, Giuseppe},
+  booktitle = {Proceedings of the {AAAI} Conference on Artificial Intelligence},
+  volume    = {40},
+  number    = {27},
+  pages     = {22381--22389},
+  year      = {2026},
+  doi       = {10.1609/aaai.v40i27.39396},
+  url       = {https://doi.org/10.1609/aaai.v40i27.39396}
+}</pre>
+
+            <p class="notice">Published in the Proceedings of the AAAI Conference on Artificial Intelligence, 40(27), pp. 22381–22389 (2026), <a href="https://doi.org/10.1609/aaai.v40i27.39396">doi:10.1609/aaai.v40i27.39396</a>. © Association for the Advancement of Artificial Intelligence. The PDF link points to the authors' version on arXiv.</p>
+        </article>
+    </main>
+
+    <footer>
+        <a href="/">rodrigocastellano.com</a> &nbsp;·&nbsp; &copy; 2026 Rodrigo Castellano Ontiveros
+    </footer>
+
+    <script>
+        (function () {
+            var btn = document.getElementById('theme-toggle');
+            function sync() { btn.innerHTML = document.documentElement.classList.contains('light') ? '&#9790;' : '&#9788;'; }
+            sync();
+            btn.addEventListener('click', function () {
+                var light = document.documentElement.classList.toggle('light');
+                try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
+                sync();
+            });
+            document.querySelectorAll('[data-copy]').forEach(function (b) {
+                b.addEventListener('click', function () {
+                    var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+                    navigator.clipboard.writeText(text).then(function () {
+                        b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1500);
+                    });
+                });
+            });
+        })();
+    </script>
+    <script data-goatcounter="https://rodrigocastellano.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

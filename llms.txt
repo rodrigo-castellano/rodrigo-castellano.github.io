@@ -1,0 +1,45 @@
+# Rodrigo Castellano Ontiveros
+
+> Rodrigo Castellano Ontiveros is a PhD Researcher in Artificial Intelligence at the University of Siena, specializing in Neuro-symbolic AI, Logic Reasoning, and Reinforcement Learning.
+
+Name: Rodrigo Castellano Ontiveros (family name: Castellano Ontiveros; cite as "Castellano Ontiveros, R.")
+Affiliation: University of Siena, Italy (SAILab, Department of Information Engineering and Mathematics); Marie Skłodowska-Curie fellow, LeMuR doctoral network
+ORCID: https://orcid.org/0000-0003-2324-633X
+Website: https://rodrigocastellano.com/
+
+## Profiles
+
+- [ORCID](https://orcid.org/0000-0003-2324-633X)
+- [Google Scholar](https://scholar.google.com/citations?user=ik1125wAAAAJ)
+- [Semantic Scholar](https://www.semanticscholar.org/author/2309488700)
+- [DBLP](https://dblp.org/pid/379/2672.html)
+- [Scopus](https://www.scopus.com/authid/detail.uri?authorId=59180808000)
+- [GitHub](https://github.com/rodrigo-castellano)
+- [LinkedIn](https://www.linkedin.com/in/rodrigo-castellano/)
+
+## Publications
+
+- [DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs](https://rodrigocastellano.com/papers/deepprooflog/): Ying Jiao, Rodrigo Castellano Ontiveros, Luc De Raedt, Marco Gori, Francesco Giannini, Michelangelo Diligenti, Giuseppe Marra. Proceedings of the AAAI Conference on Artificial Intelligence, 40(27), pp. 22381–22389, 2026. DOI: 10.1609/aaai.v40i27.39396.
+  [paper page](https://rodrigocastellano.com/papers/deepprooflog/) · [PDF](https://arxiv.org/pdf/2511.08581) · [official version](https://doi.org/10.1609/aaai.v40i27.39396) · [arXiv](https://arxiv.org/abs/2511.08581) · [code](https://github.com/DeepProofLog/DPrL-AAAI)
+
+- [Grounding Methods for Neural-Symbolic AI](https://rodrigocastellano.com/papers/grounding-methods/): Rodrigo Castellano Ontiveros, Francesco Giannini, Marco Gori, Giuseppe Marra, Michelangelo Diligenti. Proceedings of the Thirty-Fourth International Joint Conference on Artificial Intelligence (IJCAI-25), pp. 4806–4814, 2025. DOI: 10.24963/ijcai.2025/535.
+  [paper page](https://rodrigocastellano.com/papers/grounding-methods/) · [PDF](https://rodrigocastellano.com/papers/grounding-methods/grounding-methods-ijcai25.pdf) · [official version](https://doi.org/10.24963/ijcai.2025/535) · [arXiv](https://arxiv.org/abs/2507.08216) · [code](https://github.com/rodrigo-castellano/Grounding-Methods)
+
+- [Interpretable Link Prediction via Neural-Symbolic Reasoning](https://rodrigocastellano.com/papers/interpretable-link-prediction/): Rodrigo Castellano Ontiveros, Ehsan Bonabi Mobaraki, Francesco Giannini, Pietro Barbiero, Marco Gori, Michelangelo Diligenti. Explainable Artificial Intelligence (World Conference on Explainable AI, xAI 2025), Communications in Computer and Information Science, vol. 2577, pp. 319–331, Springer, 2025. DOI: 10.1007/978-3-032-08324-1_14.
+  [paper page](https://rodrigocastellano.com/papers/interpretable-link-prediction/) · [PDF](https://rodrigocastellano.com/papers/interpretable-link-prediction/interpretable-link-prediction-xai2025.pdf) · [official version](https://doi.org/10.1007/978-3-032-08324-1_14) · [code](https://github.com/rodrigo-castellano/Interpretable-NeSy)
+
+- [Distilling KGE black boxes into interpretable NeSy models](https://rodrigocastellano.com/papers/distilling-kge/): Rodrigo Castellano Ontiveros, Francesco Giannini, Michelangelo Diligenti. Proceedings of the 19th International Conference on Neurosymbolic Learning and Reasoning (NeSy 2025), PMLR vol. 284, pp. 736–749, 2025.
+  [paper page](https://rodrigocastellano.com/papers/distilling-kge/) · [PDF](https://rodrigocastellano.com/papers/distilling-kge/distilling-kge-nesy2025.pdf) · [official version](https://proceedings.mlr.press/v284/ontiveros25a.html) · [code](https://github.com/rodrigo-castellano/KGE-Distillation)
+
+- [A machine learning-based approach for constructing remote photoplethysmogram signals from video cameras](https://rodrigocastellano.com/papers/rppg-construction/): Rodrigo Castellano Ontiveros, Mohamed Elgendi, Carlo Menon. Communications Medicine 4, 109 (2024). DOI: 10.1038/s43856-024-00519-6.
+  [paper page](https://rodrigocastellano.com/papers/rppg-construction/) · [PDF](https://rodrigocastellano.com/papers/rppg-construction/rppg-construction-commsmed2024.pdf) · [official version](https://doi.org/10.1038/s43856-024-00519-6) · [code](https://github.com/rodrigo-castellano/ML_based_rPPG_construction)
+
+- [Physicochemical modelling of the retention mechanism of temperature-responsive polymeric columns for HPLC through machine learning algorithms](https://rodrigocastellano.com/papers/hplc-retention/): Elena Bandini, Rodrigo Castellano Ontiveros, Ardiana Kajtazi, Hamed Eghbali, Frédéric Lynen. Journal of Cheminformatics 16, 72 (2024). DOI: 10.1186/s13321-024-00873-6.
+  [paper page](https://rodrigocastellano.com/papers/hplc-retention/) · [PDF](https://rodrigocastellano.com/papers/hplc-retention/hplc-retention-jcheminf2024.pdf) · [official version](https://doi.org/10.1186/s13321-024-00873-6) · [code](https://github.com/ebandini/TRLC_prediction)
+
+- [Evaluating RGB channels in remote photoplethysmography: a comparative study with contact-based PPG](https://rodrigocastellano.com/papers/rgb-rppg/): Rodrigo Castellano Ontiveros, Mohamed Elgendi, Giuseppe Missale, Carlo Menon. Frontiers in Physiology 14:1296277 (2023). DOI: 10.3389/fphys.2023.1296277.
+  [paper page](https://rodrigocastellano.com/papers/rgb-rppg/) · [PDF](https://rodrigocastellano.com/papers/rgb-rppg/rgb-rppg-frontiers2023.pdf) · [official version](https://doi.org/10.3389/fphys.2023.1296277)
+
+## Optional
+
+- [Full version with abstracts](https://rodrigocastellano.com/llms-full.txt)

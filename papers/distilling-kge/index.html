@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Distilling KGE black boxes into interpretable NeSy models (NeSy 2025) | Rodrigo Castellano Ontiveros</title>
+    <meta name="description" content="NeSy 2025 paper by Castellano Ontiveros, Giannini, Diligenti. Knowledge Graph Embedding (KGE) models have shown remarkable performances in the knowledge graph completion task, thanks to their ability to capture and represent complex relational patterns.">
+    <meta name="author" content="Rodrigo Castellano Ontiveros">
+    <link rel="canonical" href="https://rodrigocastellano.com/papers/distilling-kge/">
+
+    <!-- Google Scholar / Highwire Press tags -->
+    <meta name="citation_title" content="Distilling KGE black boxes into interpretable NeSy models">
+    <meta name="citation_author" content="Castellano Ontiveros, Rodrigo">
+    <meta name="citation_author_orcid" content="0000-0003-2324-633X">
+    <meta name="citation_author_institution" content="University of Siena">
+    <meta name="citation_author" content="Giannini, Francesco">
+    <meta name="citation_author" content="Diligenti, Michelangelo">
+    <meta name="citation_author_orcid" content="0000-0002-5805-8032">
+    <meta name="citation_publication_date" content="2025/10/07">
+    <meta name="citation_conference_title" content="Proceedings of the 19th International Conference on Neurosymbolic Learning and Reasoning">
+    <meta name="citation_publisher" content="PMLR">
+    <meta name="citation_volume" content="284">
+    <meta name="citation_firstpage" content="736">
+    <meta name="citation_lastpage" content="749">
+    <meta name="citation_issn" content="2640-3498">
+    <meta name="citation_pdf_url" content="https://rodrigocastellano.com/papers/distilling-kge/distilling-kge-nesy2025.pdf">
+    <meta name="citation_abstract_html_url" content="https://rodrigocastellano.com/papers/distilling-kge/">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://rodrigocastellano.com/papers/distilling-kge/">
+    <meta property="og:site_name" content="Rodrigo Castellano Ontiveros">
+    <meta property="og:title" content="Distilling KGE black boxes into interpretable NeSy models (NeSy 2025)">
+    <meta property="og:description" content="Knowledge Graph Embedding (KGE) models have shown remarkable performances in the knowledge graph completion task, thanks to their ability to capture and represent complex relational patterns.">
+    <meta property="og:image" content="https://rodrigocastellano.com/image/banner.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Distilling KGE black boxes into interpretable NeSy models (NeSy 2025)">
+    <meta name="twitter:description" content="Knowledge Graph Embedding (KGE) models have shown remarkable performances in the knowledge graph completion task, thanks to their ability to capture and represent complex relational patterns.">
+    <meta name="twitter:image" content="https://rodrigocastellano.com/image/banner.jpg">
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "ScholarlyArticle",
+            "@id": "https://rodrigocastellano.com/papers/distilling-kge/#article",
+            "headline": "Distilling KGE black boxes into interpretable NeSy models",
+            "name": "Distilling KGE black boxes into interpretable NeSy models",
+            "url": "https://rodrigocastellano.com/papers/distilling-kge/",
+            "datePublished": "2025-10-07",
+            "inLanguage": "en",
+            "author": [
+                {
+                    "@type": "Person",
+                    "name": "Rodrigo Castellano Ontiveros",
+                    "givenName": "Rodrigo",
+                    "familyName": "Castellano Ontiveros",
+                    "url": "https://rodrigocastellano.com/",
+                    "sameAs": "https://orcid.org/0000-0003-2324-633X",
+                    "affiliation": {
+                        "@type": "Organization",
+                        "name": "University of Siena"
+                    }
+                },
+                {
+                    "@type": "Person",
+                    "name": "Francesco Giannini"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Michelangelo Diligenti",
+                    "sameAs": "https://orcid.org/0000-0002-5805-8032"
+                }
+            ],
+            "isPartOf": {
+                "@type": "PublicationVolume",
+                "name": "Proceedings of the 19th International Conference on Neurosymbolic Learning and Reasoning"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "PMLR"
+            },
+            "abstract": "Knowledge Graph Embedding (KGE) models have shown remarkable performances in the knowledge graph completion task, thanks to their ability to capture and represent complex relational patterns. Indeed, modern KGEs encompass different inductive biases, which can account for relational patterns like reasoning compositional chains, symmetries, anti-symmetries, hierarchical patterns, etc. However, KGE models inherently lack interpretability, as their generalization capabilities are purely focused on mapping human interpretable units of information, like constants and predicates, into vector embeddings in a dense latent space, which is completely opaque to a human operator. On the other hand, different Neural-Symbolic (NeSy) methods have shown competitive results in knowledge completion tasks, but their focus on achieving high accuracy often leads to sacrificing interpretability. Many existing NeSy approaches, while inherently interpretable, resort to blending their predictions with opaque KGEs to boost performance, ultimately diminishing their explanatory power. This paper introduces a novel approach to address this limitation by applying a post-hoc NeSy method to KGE models. This strategy ensures both high fidelity to KGE models and the inherent interpretability of NeSy approaches. The proposed framework defines NeSy reasoners that generate explicit logic proofs using predefined or learned rules, ensuring transparent and explainable predictions. We evaluate the methodology using both accuracy and explainability-based metrics, demonstrating the effectiveness of our approach.",
+            "sameAs": [
+                "https://proceedings.mlr.press/v284/ontiveros25a.html"
+            ],
+            "pageStart": "736",
+            "pageEnd": "749",
+            "encoding": {
+                "@type": "MediaObject",
+                "encodingFormat": "application/pdf",
+                "contentUrl": "https://rodrigocastellano.com/papers/distilling-kge/distilling-kge-nesy2025.pdf"
+            }
+        },
+        {
+            "@type": "SoftwareSourceCode",
+            "name": "KGE-Distillation",
+            "codeRepository": "https://github.com/rodrigo-castellano/KGE-Distillation",
+            "isBasedOn": {
+                "@id": "https://rodrigocastellano.com/papers/distilling-kge/#article"
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Rodrigo Castellano Ontiveros",
+                    "item": "https://rodrigocastellano.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Research",
+                    "item": "https://rodrigocastellano.com/#research"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Distilling KGE black boxes into interpretable NeSy models"
+                }
+            ]
+        }
+    ]
+}
+    </script>
+
+    <link rel="icon" type="image/png" sizes="192x192" href="/image/favicon.png?v=5">
+    <link rel="icon" type="image/svg+xml" href="/image/favicon.svg?v=5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>try { if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('light'); } catch (e) {}</script>
+    <style>
+        :root {
+            --bg: #050505; --surface: rgba(255,255,255,0.03); --border: rgba(255,255,255,0.08);
+            --text: #e5e5e5; --strong: #f5f5f5; --muted: #9ca3af; --faint: #6b7280;
+            --accent: #60a5fa; --accent-bg: rgba(59,130,246,0.08); --accent-border: rgba(59,130,246,0.25);
+            --code-bg: #0f0f0f;
+        }
+        html.light {
+            --bg: #fafafa; --surface: rgba(0,0,0,0.025); --border: rgba(0,0,0,0.09);
+            --text: #1f2937; --strong: #0a0a0a; --muted: #4b5563; --faint: #6b7280;
+            --accent: #2563eb; --accent-bg: rgba(37,99,235,0.06); --accent-border: rgba(37,99,235,0.25);
+            --code-bg: #f3f4f6;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.65; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ::selection { background: rgba(59,130,246,0.3); }
+        .mono { font-family: 'Space Grotesk', monospace; }
+
+        .topbar { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); background: color-mix(in srgb, var(--bg) 80%, transparent); border-bottom: 1px solid var(--border); }
+        .topbar-inner { max-width: 820px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+        .crumbs { font-size: 14px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .crumbs a { color: var(--muted); }
+        .crumbs a:hover { color: var(--strong); }
+        .theme-btn { background: none; border: 1px solid var(--border); color: var(--muted); border-radius: 999px; width: 36px; height: 36px; cursor: pointer; font-size: 15px; flex-shrink: 0; }
+        .theme-btn:hover { color: var(--strong); }
+
+        main { max-width: 820px; margin: 0 auto; padding: 40px 16px 80px; }
+        .badge { display: inline-block; font-family: 'Space Grotesk', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: var(--accent-bg); border: 1px solid var(--accent-border); border-radius: 999px; padding: 4px 12px; }
+        h1 { color: var(--strong); font-size: clamp(28px, 5vw, 40px); line-height: 1.15; letter-spacing: -0.03em; margin: 18px 0 14px; text-wrap: balance; }
+        h2 { color: var(--strong); font-size: 20px; letter-spacing: -0.02em; margin: 44px 0 12px; }
+        .authors { font-family: 'Space Grotesk', monospace; font-size: 15px; color: var(--muted); }
+        .authors strong { color: var(--strong); font-weight: 600; }
+        .authors a { color: var(--muted); border-bottom: 1px solid var(--border); }
+        .authors a:hover { color: var(--strong); text-decoration: none; }
+        .venue { font-size: 14px; color: var(--faint); margin-top: 6px; }
+
+        .actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 8px; }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--border); color: var(--strong); font-size: 14px; font-weight: 500; background: var(--surface); cursor: pointer; font-family: inherit; }
+        .btn:hover { border-color: var(--accent-border); text-decoration: none; color: var(--accent); }
+        .btn.primary { background: var(--strong); color: var(--bg); border-color: var(--strong); }
+        .btn.primary:hover { opacity: 0.85; color: var(--bg); }
+        .abstract { color: var(--muted); font-size: 15px; }
+
+        pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px; overflow-x: auto; font-size: 13px; line-height: 1.5; color: var(--text); margin: 0; }
+        .cite-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .copy { font-size: 13px; padding: 6px 12px; }
+
+        .notice { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--faint); }
+        footer { border-top: 1px solid var(--border); text-align: center; padding: 32px 16px; font-family: 'Space Grotesk', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+        footer a { color: var(--muted); }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Rodrigo Castellano Ontiveros</a> &nbsp;/&nbsp; <a href="/#research">Research</a></nav>
+            <button id="theme-toggle" class="theme-btn" type="button" aria-label="Switch theme" title="Switch theme">&#9788;</button>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <span class="badge">NeSy 2025</span>
+            <h1>Distilling KGE black boxes into interpretable NeSy models</h1>
+            <div class="authors">
+                <strong>Rodrigo Castellano Ontiveros</strong>,
+                <a href="https://scholar.google.com/citations?user=RO8aInMAAAAJ" target="_blank" rel="noopener">Francesco Giannini</a>,
+                <a href="https://scholar.google.com/citations?user=qI-LOjIAAAAJ" target="_blank" rel="noopener">Michelangelo Diligenti</a>
+            </div>
+            <div class="venue">Proceedings of the 19th International Conference on Neurosymbolic Learning and Reasoning (NeSy 2025), PMLR vol. 284, pp. 736–749, 2025</div>
+
+            <div class="actions">
+                <a class="btn primary" href="distilling-kge-nesy2025.pdf">PDF</a>
+                <a class="btn" href="https://proceedings.mlr.press/v284/ontiveros25a.html" target="_blank" rel="noopener">Official version (PMLR)</a>
+                <a class="btn" href="https://github.com/rodrigo-castellano/KGE-Distillation" target="_blank" rel="noopener">Code</a>
+                <a class="btn" href="#cite">Cite</a>
+            </div>
+
+            <h2>Abstract</h2>
+            <p class="abstract">Knowledge Graph Embedding (KGE) models have shown remarkable performances in the knowledge graph completion task, thanks to their ability to capture and represent complex relational patterns. Indeed, modern KGEs encompass different inductive biases, which can account for relational patterns like reasoning compositional chains, symmetries, anti-symmetries, hierarchical patterns, etc. However, KGE models inherently lack interpretability, as their generalization capabilities are purely focused on mapping human interpretable units of information, like constants and predicates, into vector embeddings in a dense latent space, which is completely opaque to a human operator. On the other hand, different Neural-Symbolic (NeSy) methods have shown competitive results in knowledge completion tasks, but their focus on achieving high accuracy often leads to sacrificing interpretability. Many existing NeSy approaches, while inherently interpretable, resort to blending their predictions with opaque KGEs to boost performance, ultimately diminishing their explanatory power. This paper introduces a novel approach to address this limitation by applying a post-hoc NeSy method to KGE models. This strategy ensures both high fidelity to KGE models and the inherent interpretability of NeSy approaches. The proposed framework defines NeSy reasoners that generate explicit logic proofs using predefined or learned rules, ensuring transparent and explainable predictions. We evaluate the methodology using both accuracy and explainability-based metrics, demonstrating the effectiveness of our approach.</p>
+
+            <h2 id="cite">Cite this paper</h2>
+            <div class="cite-head">
+                <span class="mono" style="font-size:13px;color:var(--faint)">BibTeX</span>
+                <button class="btn copy" type="button" data-copy="bibtex">Copy</button>
+            </div>
+<pre id="bibtex">@inproceedings{castellanoontiveros2025distilling,
+  title     = {Distilling {KGE} black boxes into interpretable {NeSy} models},
+  author    = {Castellano Ontiveros, Rodrigo and Giannini, Francesco and Diligenti, Michelangelo},
+  booktitle = {Proceedings of the 19th International Conference on Neurosymbolic Learning and Reasoning},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {284},
+  pages     = {736--749},
+  publisher = {PMLR},
+  year      = {2025},
+  url       = {https://proceedings.mlr.press/v284/ontiveros25a.html}
+}</pre>
+
+            <p class="notice">Published in the Proceedings of the 19th International Conference on Neurosymbolic Learning and Reasoning, Proceedings of Machine Learning Research (PMLR) vol. 284, pp. 736–749 (2025), <a href="https://proceedings.mlr.press/v284/ontiveros25a.html">proceedings.mlr.press/v284/ontiveros25a</a>. © The authors.</p>
+        </article>
+    </main>
+
+    <footer>
+        <a href="/">rodrigocastellano.com</a> &nbsp;·&nbsp; &copy; 2026 Rodrigo Castellano Ontiveros
+    </footer>
+
+    <script>
+        (function () {
+            var btn = document.getElementById('theme-toggle');
+            function sync() { btn.innerHTML = document.documentElement.classList.contains('light') ? '&#9790;' : '&#9788;'; }
+            sync();
+            btn.addEventListener('click', function () {
+                var light = document.documentElement.classList.toggle('light');
+                try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
+                sync();
+            });
+            document.querySelectorAll('[data-copy]').forEach(function (b) {
+                b.addEventListener('click', function () {
+                    var text = document.getElementById(b.getAttribute('data-copy')).textContent;
+                    navigator.clipboard.writeText(text).then(function () {
+                        b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1500);
+                    });
+                });
+            });
+        })();
+    </script>
+    <script data-goatcounter="https://rodrigocastellano.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
