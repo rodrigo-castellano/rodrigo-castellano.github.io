@@ -138,13 +138,13 @@
     <style>
         :root {
             --bg: #050505; --surface: rgba(255,255,255,0.03); --border: rgba(255,255,255,0.08);
-            --text: #e5e5e5; --strong: #f5f5f5; --muted: #9ca3af; --faint: #6b7280;
+            --text: #e5e5e5; --strong: #f5f5f5; --muted: #a1a8b3; --faint: #8f96a3;
             --accent: #60a5fa; --accent-bg: rgba(59,130,246,0.08); --accent-border: rgba(59,130,246,0.25);
             --code-bg: #0f0f0f;
         }
         html.light {
             --bg: #fafafa; --surface: rgba(0,0,0,0.025); --border: rgba(0,0,0,0.09);
-            --text: #1f2937; --strong: #0a0a0a; --muted: #4b5563; --faint: #6b7280;
+            --text: #1f2937; --strong: #0a0a0a; --muted: #4b5563; --faint: #5b6472;
             --accent: #2563eb; --accent-bg: rgba(37,99,235,0.06); --accent-border: rgba(37,99,235,0.25);
             --code-bg: #f3f4f6;
         }
@@ -185,6 +185,7 @@
         .copy { font-size: 13px; padding: 6px 12px; }
 
         .notice { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--faint); }
+        .notice a, footer a, .abstract a { text-decoration: underline; text-underline-offset: 2px; }
         footer { border-top: 1px solid var(--border); text-align: center; padding: 32px 16px; font-family: 'Space Grotesk', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
         footer a { color: var(--muted); }
     </style>

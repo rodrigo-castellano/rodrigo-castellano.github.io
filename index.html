@@ -322,6 +322,11 @@
         html.light .hover\:text-yellow-300:hover { color: #a16207; }
         html.light .text-indigo-400, html.light .hover\:text-indigo-400:hover, html.light .group:hover .group-hover\:text-indigo-400 { color: #4f46e5; }
         html.light .hover\:text-indigo-300:hover { color: #4338ca; }
+
+        /* Hero: visible from the first paint (better Largest Contentful Paint); keeps the slide-up movement */
+        @keyframes heroSlide { from { transform: translateY(24px); } to { transform: translateY(0); } }
+        #home .animate-slide-up { animation-name: heroSlide; }
+        #home .animate-fade-in { animation: none; }
     </style>
     <link rel="stylesheet" href="css/tailwind.css?v=4">
 </head>
@@ -381,16 +386,16 @@
             <div class="max-w-5xl w-full">
                 
                 <!-- Label -->
-                <div class="mb-8 flex items-center gap-3 opacity-0 animate-fade-in" style="animation-delay: 100ms;">
+                <div class="mb-8 flex items-center gap-3 animate-fade-in" style="animation-delay: 100ms;">
                     <div class="h-px w-6 bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
                     <span class="text-blue-400 font-mono text-xs tracking-widest uppercase">Based in Italy</span>
                 </div>
 
                 <!-- Title -->
-                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight mb-6 leading-tight text-white opacity-0 animate-slide-up" style="animation-delay: 200ms;">Rodrigo Castellano Ontiveros</h1>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight mb-6 leading-tight text-white animate-slide-up" style="animation-delay: 200ms;">Rodrigo Castellano Ontiveros</h1>
 
                 <!-- Content Grid -->
-                <div class="grid md:grid-cols-3 gap-12 opacity-0 animate-slide-up" style="animation-delay: 400ms;">
+                <div class="grid md:grid-cols-3 gap-12 animate-slide-up" style="animation-delay: 400ms;">
                     <div class="md:col-span-2">
                         <p class="text-xl text-gray-400 font-light leading-relaxed mb-6">
                             PhD researcher at the <span class="text-white font-medium">University of Siena</span>. <br>
@@ -411,11 +416,11 @@
                             <span class="border-b border-white/20 group-hover:border-blue-400 pb-1 transition-all">See Research</span>
                             <i class="fas fa-arrow-down -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
                         </a>
-                        <a href="https://scholar.google.com/citations?hl=en&user=ik1125wAAAAJ" target="_blank" class="group flex items-center gap-3 text-gray-500 text-sm font-mono uppercase tracking-wider hover:text-white transition-colors">
+                        <a href="https://scholar.google.com/citations?hl=en&user=ik1125wAAAAJ" target="_blank" class="group flex items-center gap-3 text-gray-400 text-sm font-mono uppercase tracking-wider hover:text-white transition-colors">
                             <span class="border-b border-white/10 group-hover:border-white pb-1 transition-all">Google Scholar</span>
                             <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
                         </a>
-                        <a href="https://github.com/rodrigo-castellano" target="_blank" class="group flex items-center gap-3 text-gray-500 text-sm font-mono uppercase tracking-wider hover:text-white transition-colors">
+                        <a href="https://github.com/rodrigo-castellano" target="_blank" class="group flex items-center gap-3 text-gray-400 text-sm font-mono uppercase tracking-wider hover:text-white transition-colors">
                             <span class="border-b border-white/10 group-hover:border-white pb-1 transition-all">GitHub</span>
                             <i class="fab fa-github group-hover:text-white transition-colors"></i>
                         </a>
@@ -681,7 +686,7 @@
                     </div>
                     <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Oct 2025 — Present</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Oct 2025 — Present</span>
                         <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Visiting Researcher</h4>
                         <a href="https://www.bakerhughes.com/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">Baker Hughes. Florence, Italy</a>
                         <p class="text-sm text-gray-400 leading-relaxed">
@@ -689,7 +694,7 @@
                         </p>
                         </div>
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Sep 2024 — Dec 2024</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Sep 2024 — Dec 2024</span>
                         <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Visiting Researcher</h4>
                         <a href="https://www.kuleuven.be/english/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">KU Leuven. Leuven, Belgium</a>
                         <p class="text-sm text-gray-400 leading-relaxed">
@@ -697,7 +702,7 @@
                         </p>
                         </div>
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Apr 2023 — Oct 2023</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Apr 2023 — Oct 2023</span>
                         <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Trainee</h4>
                         <a href="https://www.ing.jobs/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">ING Bank. Brussels, Belgium</a>
                         <p class="text-sm text-gray-400 leading-relaxed">
@@ -705,7 +710,7 @@
                         </p>
                         </div>
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Oct 2022 — Feb 2023</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Oct 2022 — Feb 2023</span>
                         <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Master Thesis Researcher</h4>
                         <a href="https://ethz.ch/en.html" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">ETH Zürich. Zürich, Switzerland</a>
                         <p class="text-sm text-gray-400 leading-relaxed">
@@ -713,7 +718,7 @@
                         </p>
                         </div>
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Nov 2021 — Apr 2022</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Nov 2021 — Apr 2022</span>
                         <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Teaching Assistant</h4>
                         <a href="https://www.kth.se/en" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">KTH Royal Institute of Technology. Stockholm, Sweden</a>
                         <p class="text-sm text-gray-400 leading-relaxed">
@@ -721,7 +726,7 @@
                         </p>
                         </div>
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Oct 2020 — Jun 2021</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Oct 2020 — Jun 2021</span>
                         <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">AI Applied Scientist</h4>
                         <a href="https://desion.de/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">Desion, Fraunhofer Institute. Darmstadt, Germany</a>
                         <p class="text-sm text-gray-400 leading-relaxed">
@@ -737,7 +742,7 @@
                     </div>
                     <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
                         <div class="log-item group hover:border-l-blue-500/50">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Nov 2023 — Present</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Nov 2023 — Present</span>
                         <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">PhD Researcher in AI</h4>
                         <a href="https://www.unisi.it/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">University of Siena. Siena, Italy</a>
                         <p class="text-sm text-gray-400 leading-relaxed">
@@ -746,22 +751,22 @@
                         </p>
                         </div>
                         <div class="log-item group hover:border-l-blue-500/50">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Apr 2021 — Apr 2023</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Apr 2021 — Apr 2023</span>
                         <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">MSc in Machine Learning</h4>
                         <a href="https://www.kth.se/en/studies/master/machine-learning/msc-machine-learning-1.48533" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">KTH Royal Institute of Technology. Stockholm, Sweden</a>
                         </div>
                         <div class="log-item group hover:border-l-blue-500/50">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Sep 2021 — Mar 2022</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Sep 2021 — Mar 2022</span>
                         <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Exchange Master Student</h4>
                         <a href="https://www.rwth-aachen.de/" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">RWTH Aachen University. Aachen, Germany</a>
                         </div>
                         <div class="log-item group hover:border-l-blue-500/50">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Sept 2018 — Jun 2019</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Sept 2018 — Jun 2019</span>
                         <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Exchange Bachelor Student</h4>
                         <a href="https://www.helsinki.fi/en" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">University of Helsinki. Helsinki, Finland</a>
                         </div>
                         <div class="log-item group hover:border-l-blue-500/50">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Oct 2015 — Nov 2020</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Oct 2015 — Nov 2020</span>
                         <h4 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">BSc in Physics</h4>
                         <a href="https://www.ugr.es/en/study/undergraduate/programmes/physics" target="_blank" class="text-sm text-blue-400 font-medium mb-3 hover:text-blue-300 inline-block border-b border-blue-500/30 hover:border-blue-400 transition-all">University of Granada. Granada, Spain.</a>
                         </div>
@@ -774,7 +779,7 @@
                     </div>
                     <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Mar 2026</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Mar 2026</span>
                         <h4 class="text-lg font-bold text-white transition-colors">
                         <a href="https://www.kios.ucy.ac.cy/lemurwinterschool/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">Winter School</a>
                         </h4>
@@ -782,7 +787,7 @@
                         <p class="text-sm text-gray-400 leading-relaxed">Poster: Scaling Probabilistic Logic with Reinforcement Learning methods</p>
                         </div>
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Jan 2026</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Jan 2026</span>
                         <h4 class="text-lg font-bold text-white transition-colors">
                         <a href="https://aaai.org/conference/aaai/aaai-26/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">AAAI 2026</a>
                         </h4>
@@ -790,7 +795,7 @@
                         <p class="text-sm text-gray-400 leading-relaxed">Poster & Oral: DeepProofLog: Efficient Proving in Deep Stochastic Logic Programs</p>
                         </div>
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Aug 2025</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Aug 2025</span>
                         <h4 class="text-lg font-bold text-white transition-colors">
                         <a href="https://www.ijcai.org/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">IJCAI 2025</a>
                         </h4>
@@ -798,7 +803,7 @@
                         <p class="text-sm text-gray-400 leading-relaxed">Poster & Oral: Grounding Methods for Neural-Symbolic AI</p>
                         </div>
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Aug 2025</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Aug 2025</span>
                         <h4 class="text-lg font-bold text-white transition-colors">
                         <a href="https://2025.nesyconf.org/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">NeSy 2025</a>
                         </h4>
@@ -806,7 +811,7 @@
                         <p class="text-sm text-gray-400 leading-relaxed">Poster: Distilling KGE black boxes into interpretable NeSy models</p>
                         </div>
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">July 2025</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">July 2025</span>
                         <h4 class="text-lg font-bold text-white transition-colors">
                         <a href="https://xaiworldconference.com/2025/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">XAI 2025</a>
                         </h4>
@@ -814,7 +819,7 @@
                         <p class="text-sm text-gray-400 leading-relaxed">Oral: Interpretable Link Prediction via Neural-Symbolic Reasoning</p>
                         </div>
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">June 2025</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">June 2025</span>
                         <h4 class="text-lg font-bold text-white transition-colors">
                         <a href="https://dtai.cs.kuleuven.be/events/SML25/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">SMiLe 2025</a>
                         </h4>
@@ -822,7 +827,7 @@
                         <p class="text-sm text-gray-400 leading-relaxed">Poster: Scalable grounding and explainable NeSy methods</p>
                         </div>
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Mar 2025</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Mar 2025</span>
                         <h4 class="text-lg font-bold text-white transition-colors">
                         <a href="https://mlwinterschoolumea.github.io/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">Winter School</a>
                         </h4>
@@ -830,7 +835,7 @@
                         <p class="text-sm text-gray-400 leading-relaxed">Poster: Explainability in FOL-based models</p>
                         </div>
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">July 2024</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">July 2024</span>
                         <h4 class="text-lg font-bold text-white transition-colors">
                         <a href="https://essai2024.di.uoa.gr/index.html" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">Summer School</a>
                         </h4>
@@ -838,7 +843,7 @@
                         <p class="text-sm text-gray-400 leading-relaxed">Participant</p>
                         </div>
                         <div class="log-item group">
-                        <span class="text-xs font-mono text-gray-500 mb-2 block uppercase tracking-widest">Feb 2024</span>
+                        <span class="text-xs font-mono text-gray-400 mb-2 block uppercase tracking-widest">Feb 2024</span>
                         <h4 class="text-lg font-bold text-white transition-colors">
                         <a href="https://indico.uni-paderborn.de/event/62/" target="_blank" class="hover:text-blue-400 border-b-2 border-blue-500/30 hover:border-blue-400 transition-all pb-0.5">Winter School</a>
                         </h4>
@@ -934,7 +939,7 @@
                     <a href="https://www.linkedin.com/in/rodrigo-castellano/" target="_blank" aria-label="LinkedIn profile" class="text-gray-400 hover:text-blue-400 transition-colors text-2xl p-2"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/rodrigo-castellano" target="_blank" aria-label="GitHub profile" class="text-gray-400 hover:text-white transition-colors text-2xl p-2"><i class="fab fa-github"></i></a>
                 </div>
-                <p class="text-gray-600 font-mono text-xs uppercase tracking-widest">&copy; 2026 Rodrigo Castellano Ontiveros</p>
+                <p class="text-gray-400 font-mono text-xs uppercase tracking-widest">&copy; 2026 Rodrigo Castellano Ontiveros</p>
             </div>
         </footer>
 
